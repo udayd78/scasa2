@@ -1,0 +1,257 @@
+﻿@model IEnumerable<SCASA.Models.ModelClasses.MPayRollDisplayModel>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int rCnt = 1;
+    var d = DateTime.Now;
+    var y = d.Year;
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-users"></i>
+        </div>
+        <div class="header-title">
+            <h1>Staff Payroll</h1>
+            <small> List</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 pinpin">
+                <div class="card" data-sortable="true">
+                    <div class="card-header">
+                        <div class="card-title custom_title">
+                            <h4>Staff Payroll</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="~/Staff/MonthlyPayRoll">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Select Staff Name</label>
+                                        @Html.DropDownList("sId", new SelectList(ViewBag.staff, "StaffId", "StaffName", "0"), new { @id = "sId", @class = "form-control select2" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Select Year</label>
+
+                                        <select class="form-control select2" name="year" id="year">
+                                            <option value="0">Select Year</option>
+                                            @for (int i = 2020; i <= y; i++)
+                                            {
+                                            <option value="@i">@i</option>
+                                            }                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Select Month</label>
+                                        <select class="form-control select2" name="month" id="month">
+                                            <option value="0">Select Month</option>
+                                            <option value="1">January </option>
+                                            <option value="2">February</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">August</option>
+                                            <option value="9">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 serchgaptop">
+                                    <button type="submit" class="btn btn-success btn-block">Get</button>
+                                </div>
+                            </div><!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                            <div class="btn-group d-flex pull-right" role="group">
+                                <div class="buttonexport" id="buttonlist">
+                                    <a class="btn btn-add" href="javascript:void(0)" onclick="Genetrate()">
+                                        <i class="fa fa-plus"></i> Generate Payroll
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="text-danger" id="eMsg"></div>
+                        </form>
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>#</th>
+                                        <th>Name(E-Code)</th>
+                                        <th>Month</th>
+                                        <th>BS</th>
+                                        <th>HRA</th>
+                                        <th>DA</th>
+                                        <th>FA</th>
+                                        <th>Conveyance </th>
+                                        <th>MA</th>
+                                        <th>OA</th>
+                                        <th>Gross Salary</th>
+                                        <th>PF</th>
+                                        <th>Pro Tax</th>
+                                        <th>ESI</th>
+                                        <th>TDS</th>
+                                        <th>Absents</th>
+                                        <th>Total Deductions</th>
+                                        <th>Net Salary</th>
+                                        <th>Post To Finance</th>
+                                        @*<th>Send Pay Slip</th>*@
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        if (Model.Count() > 0)
+                                        {
+                                            foreach (var v in Model)
+                                            {
+                                                <tr>
+                                                    <td>@(rCnt++)</td>
+                                                    <td>@v.EName (@v.ECode)</td>
+                                                    <td>
+                                                        @if (v.MonthNumber == 1)
+                                                        {<b>Jan</b>}
+                                                        else if (v.MonthNumber == 2)
+                                                        {<b>Feb</b> }
+                                                        else if (v.MonthNumber == 3)
+                                                        {<b>March</b>}
+                                                        else if (v.MonthNumber == 4)
+                                                        {<b>April</b>}
+                                                        else if (v.MonthNumber == 5)
+                                                        {<b>May</b>}
+                                                        else if (v.MonthNumber == 6)
+                                                        {<b>June</b>}
+                                                        else if (v.MonthNumber == 7)
+                                                        {<b>July</b>}
+                                                        else if (v.MonthNumber == 8)
+                                                        {<b>Agu</b>}
+                                                        else if (v.MonthNumber == 9)
+                                                        {<b>Sep</b>}
+                                                        else if (v.MonthNumber == 10)
+                                                        {<b>Oct</b>}
+                                                        else if (v.MonthNumber == 11)
+                                                        {<b>Nov</b>}
+                                                        else if (v.MonthNumber == 12)
+                                                        {<b>Dec</b>}
+                                                        @v.YearNumber
+                                                    </td>
+                                                    <td>@v.BasicSalary</td>
+                                                    <td>@v.HRA</td>
+                                                    <td>@v.DearnessAllowance</td>
+                                                    <td>@v.FoodAllowance</td>
+                                                    <td>@v.Conveyance</td>
+                                                    <td>@v.MedicalAllowances</td>
+                                                    <td>@v.OtherAllowances</td>
+                                                    <td>@v.GrossSalary</td>
+                                                    <td>@v.ProvidentFund</td>
+                                                    <td>@v.ProfessionalTax</td>
+                                                    <td>@v.ESIFund</td>
+                                                    <td>@v.TDS</td>
+                                                    <td>@v.NumberOfAbsentDays</td>
+                                                    <td>@v.TotalDeductions</td>
+                                                    <td>@v.NetSalary</td>
+                                                    <td>
+                                                        @if (v.IsPostedToFinance == false || v.IsPostedToFinance == null)
+                                                        {
+                                                            <a class="button" id="post" href="#popup1" onclick="saveId(@v.PayRollId)">Post</a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>Yes</span>
+                                                        }
+                                                    </td>
+                                                    @*<td>
+                                                        <button>Send</button>
+                                                    </td>*@
+                                                </tr>
+                                            }
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Details</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="popupbody">
+                <form>
+                    <div class="form-group">
+                        <label>From </label>
+                        @Html.DropDownList("sId", new SelectList(ViewBag.FromHeads, "HeadId", "HeadName", "0"), new { @id = "FromId", @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Chose Date </label>
+                        @Html.TextBox("id",null, new { type = "date", @id= "finalDate" })
+                    </div>
+                    <button onclick="sendToFin()">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.select2').select2();
+    var changeId = 0;
+    function Genetrate() {
+        $.ajax({
+            url: GlobalUrl + 'Staff/Generate',
+            type: 'post',
+            data: {
+                'sId': $('#sId option:selected').val(),                
+                'year': $('#year').val(),
+                'month': $('#month').val(),
+            },
+            success: function (res) {
+                /*toastr["error"]("Already Generated!")*/
+                if (res.result.statusCode == 1) {
+                    window.location.href = window.location.href;
+                } else {
+                    $("#eMsg").text(res.result.statusMessage)
+                }
+            }
+        });
+    }   
+    function saveId(id) {
+        changeId = id;
+    }
+    function sendToFin() {
+        //var dt = $('#finalDate').val();
+        //var toFinHed = $('#FromId option:selected').val();
+        $.ajax({
+            url: GlobalUrl + 'Staff/PostSalaryToFinance',
+            type: 'post',
+            data: {
+                'payid': changeId,
+                'fromId': $('#FromId option:selected').val(),
+                'doTrans': $('#finalDate').val(),
+            },
+            success: function (res) {
+                /*toastr["error"]("Already Generated!")*/
+                if (res.result.statusCode == 1) {
+                    window.location ="MonthlyPayRoll";
+                    //$("#popup1").modal().hide();
+                } else {
+                    $("#eMsg").text(res.result.statusMessage)
+                }
+            }
+        });
+    }
+</script>

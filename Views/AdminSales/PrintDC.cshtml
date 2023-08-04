@@ -1,0 +1,133 @@
+﻿@model SCASA.Models.ModelClasses.TaxInvoiceMasterModel
+@{
+    int cnt = 1;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width" name="viewport" />
+    <!--[if !mso]><!-->
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <!--<![endif]-->
+    <title>Receipt Voucher</title>
+    <!--[if !mso]><!-->
+    <!--<![endif]-->
+
+</head>
+<body style="font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(237, 237, 240);
+        }
+
+        table,
+        td,
+        tr {
+            vertical-align: top;
+            border-collapse: collapse;
+        }
+
+        * {
+            line-height: inherit;
+        }
+
+        a[x-apple-data-detectors=true] {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+    </style>
+    <table width="700px" style="margin: 0 auto; border:2px solid #a3080d;background-color: #fff; padding: 20px;" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td style="padding: 10px;">
+                    <table width="100%;">
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center; font-size: 40px; font-weight: bold;">Empire Home</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-size:16px; font-weight: bold;">8-2-674/B/3/4B, Road No.12, Banjara Hill, Hyderabad- 500034</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-size: 22px;  font-weight: bold; text-decoration: underline; padding-top:20px;">Delivery Challan</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="float: right">
+                    <div><strong>Date : </strong>@(Convert.ToDateTime(Model.CreatedOn).ToString("dd-MMM-yyyy"))</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border:2px solid #000; padding: 10px;">
+                    <div><strong>To:</strong></div>
+                    @Model.CustomerName, @Html.Raw(Model.ToAddress), @Model.ToMobile
+                </td>
+            </tr>
+
+            <tr>
+                <td height="30px"></td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%">
+                        <tr style="border-top:2px solid #000;">
+                            <th width="8%" style="border-right:2px solid #000;">Sl No.</th>
+                            <th width="62%" style="border-right:2px solid #000;">Description</th>
+                            <th width="15%" style="border-right:2px solid #000;">Quantity</th>
+                            <th width="15%" style="border-right:2px solid #000;">Remarks</th>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            @foreach (var v in Model.ItemDetails)
+            {
+                <tr>
+                    <td>
+                        <table width="100%" height="300px">
+                            <tr style="border-top:2px solid #000; border-bottom: 2px solid #000;">
+                                <th width="8%" style="border-right:2px solid #000;">@(cnt++)</th>
+                                <th width="62%" style="border-right:2px solid #000; text-align: left;">
+                                    <div>
+                                        @v.InventoryTitle,@v.ColorName, 
+                                    </div>
+                                </th>
+                                <th width="15%" style="border-right:2px solid #000;">@v.Quantity</th>
+                                <th width="15%">0</th>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            }
+
+
+            <tr>
+                <td>
+                    <table width="100%">
+                        <tr>
+                            <td width="70%" style="text-align: left">
+                                <div><strong>GST:36AJKPM8342C1Z6</strong></div>
+                            </td>
+                            <td width="30%" style="text-align: center; font-style: italic; padding: 5px">
+                                <div>For <strong>EMPIRE HOME</strong></div>
+                                <div style="padding-top: 100px;"><strong>Authorised Signatory</strong></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+</html>

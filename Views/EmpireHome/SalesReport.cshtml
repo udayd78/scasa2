@@ -1,0 +1,395 @@
+﻿<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Sales Report</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      
+        <div class="row">
+            @*daily report*@
+            <div class="col-lg-12 pinpin ui-sortable" data-lobicard-child-inner-id="4IovlaQMiI">
+                <div class="card" data-sortable="true" data-inner-id="4IovlaQMiI" data-index="0" style="display: block;">
+                    <div class="card-header ui-sortable-handle">
+                        <div class="card-title custom_title" style="max-width: calc(100% + 0px);">
+                            <div class="btn-group buttonexport d-flex" role="group">
+                                <h4>Day Wise Report - @DateTime.Now.ToString("dddd"), @(DateTime.Now.ToString("dd-MMM-yyyy"))</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>S E Name</th>
+                                        <th>Total Sales</th>
+                                        <th>Total Attended</th>
+                                        <th>Closed</th>
+                                        <th>Closed %</th>
+                                        <th>ATS</th>
+                                        <th>Monthly Target</th>
+                                        <th>Achieved</th>
+                                        <th>Achieved P</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="~/EmpireHome/SaleExecutiveReport">Durga</a></td>
+                                        <td class="text-right">2500000</td>
+                                        <td class="text-right">10</td>
+                                        <td class="text-right">5</td>
+                                        <td class="text-right">0.5</td>
+                                        <td class="text-right">5,00,000</td>
+                                        <td class="text-right">10,00,00,000</td>
+                                        <td class="text-right">2500000</td>
+                                        <td class="text-right">25%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ramesh</td>
+                                        <td class="text-right">2500000</td>
+                                        <td class="text-right">10</td>
+                                        <td class="text-right">5</td>
+                                        <td class="text-right">0.5</td>
+                                        <td class="text-right">5,00,000</td>
+                                        <td class="text-right">10,00,00,000</td>
+                                        <td class="text-right">2500000</td>
+                                        <td class="text-right">25%</td>
+                                    </tr>
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>Total Day Report</th>
+                                        <th class="text-right">1,00,00,000</th>
+                                        <th class="text-right">40</th>
+                                        <th class="text-right">20</th>
+                                        <th class="text-right">50 %</th>
+                                        <th class="text-right">20,00,000</th>
+                                        <th class="text-right">40,00,00,000</th>
+                                        <th class="text-right">10,00,00,000</th>
+                                        <th class="text-right">50%</th>
+                                    </tr>
+                                </thead>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Receipts</strong></td>
+                                                <td class="text-right">Rs. 200000</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>TOTAL WALKINS</strong></td>
+                                                <td><strong>31</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>CONVERSIONS</strong></td>
+                                                <td> <strong>10</strong> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td width="50%"> <a href="#" class="btn btn-success">Download to excel</a></td>
+                                                <td> <a href="#" class="btn btn-primary">Export to PDF</a></td>
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*weekly report*@
+            <div class="col-lg-12 pinpin ui-sortable" data-lobicard-child-inner-id="4IovlaQMiI">
+                <div class="card" data-sortable="true" data-inner-id="4IovlaQMiI" data-index="0" style="display: block;">
+                    <div class="card-header ui-sortable-handle">
+                        <div class="card-title custom_title" style="max-width: calc(100% + 0px);">
+                            <div class="btn-group buttonexport d-flex" role="group">
+                                @{
+                                    var monday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
+                                    var sunday = Convert.ToDateTime(monday).AddDays(7);
+                                }
+                                <h4>This Week Report - @(Convert.ToDateTime(monday).ToString("dd-MMM-yyyy")) TO @(Convert.ToDateTime(sunday).ToString("dd-MMM-yyyy"))</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>S E Name</th>
+                                        <th>Total Sales</th>
+                                        <th>Total Attended</th>
+                                        <th>Closed</th>
+                                        <th>Closed %</th>
+                                        <th>ATS</th>
+                                        <th>Monthly Target</th>
+                                        <th>Achieved</th>
+                                        <th>Achieved P</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>DURGA</td>
+                                        <td class="text-right">2500000</td>
+                                        <td class="text-right">10</td>
+                                        <td class="text-right">5</td>
+                                        <td class="text-right">0.5</td>
+                                        <td class="text-right">5,00,000</td>
+                                        <td class="text-right">10,00,00,000</td>
+                                        <td class="text-right">2500000</td>
+                                        <td class="text-right">25%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ramesh</td>
+                                        <td class="text-right">2500000</td>
+                                        <td class="text-right">10</td>
+                                        <td class="text-right">5</td>
+                                        <td class="text-right">0.5</td>
+                                        <td class="text-right">5,00,000</td>
+                                        <td class="text-right">10,00,00,000</td>
+                                        <td class="text-right">2500000</td>
+                                        <td class="text-right">25%</td>
+                                    </tr>
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>Total Day Report</th>
+                                        <th class="text-right">1,00,00,000</th>
+                                        <th class="text-right">40</th>
+                                        <th class="text-right">20</th>
+                                        <th class="text-right">50 %</th>
+                                        <th class="text-right">20,00,000</th>
+                                        <th class="text-right">40,00,00,000</th>
+                                        <th class="text-right">10,00,00,000</th>
+                                        <th class="text-right">50%</th>
+                                    </tr>
+                                </thead>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Receipts</strong></td>
+                                                <td class="text-right">Rs. 200000</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>TOTAL WALKINS</strong></td>
+                                                <td><strong>31</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>CONVERSIONS</strong></td>
+                                                <td> <strong>10</strong> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td width="50%"> <a href="#" class="btn btn-success">Download to excel</a></td>
+                                                <td> <a href="#" class="btn btn-primary">Export to PDF</a></td>
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            @*Monthly report*@
+            <div class="col-lg-12 pinpin ui-sortable" data-lobicard-child-inner-id="4IovlaQMiI">
+                <div class="card" data-sortable="true" data-inner-id="4IovlaQMiI" data-index="0" style="display: block;">
+                    <div class="card-header ui-sortable-handle">
+                        <div class="card-title custom_title" style="max-width: calc(100% + 0px);">
+                            <div class="btn-group buttonexport d-flex" role="group">
+
+                                <h4>This Month Report - @DateTime.Now.ToString("MMMM"), @DateTime.Now.Year</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>S E Name</th>
+                                        <th>Total Sales</th>
+                                        <th>Total Attended</th>
+                                        <th>Closed</th>
+                                        <th>Closed %</th>
+                                        <th>ATS</th>
+                                        <th>Monthly Target</th>
+                                        <th>Achieved</th>
+                                        <th>Achieved P</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>DURGA</td>
+                                        <td class="text-right">2500000</td>
+                                        <td class="text-right">10</td>
+                                        <td class="text-right">5</td>
+                                        <td class="text-right">0.5</td>
+                                        <td class="text-right">5,00,000</td>
+                                        <td class="text-right">10,00,00,000</td>
+                                        <td class="text-right">2500000</td>
+                                        <td class="text-right">25%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ramesh</td>
+                                        <td class="text-right">2500000</td>
+                                        <td class="text-right">10</td>
+                                        <td class="text-right">5</td>
+                                        <td class="text-right">0.5</td>
+                                        <td class="text-right">5,00,000</td>
+                                        <td class="text-right">10,00,00,000</td>
+                                        <td class="text-right">2500000</td>
+                                        <td class="text-right">25%</td>
+                                    </tr>
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>Total Day Report</th>
+                                        <th class="text-right">1,00,00,000</th>
+                                        <th class="text-right">40</th>
+                                        <th class="text-right">20</th>
+                                        <th class="text-right">50 %</th>
+                                        <th class="text-right">20,00,000</th>
+                                        <th class="text-right">40,00,00,000</th>
+                                        <th class="text-right">10,00,00,000</th>
+                                        <th class="text-right">50%</th>
+                                    </tr>
+                                </thead>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Receipts</strong></td>
+                                                <td class="text-right">Rs. 200000</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>TOTAL WALKINS</strong></td>
+                                                <td><strong>31</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>CONVERSIONS</strong></td>
+                                                <td> <strong>10</strong> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td width="50%"> <a href="#" class="btn btn-success">Download to excel</a></td>
+                                                <td> <a href="#" class="btn btn-primary">Export to PDF</a></td>
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

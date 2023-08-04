@@ -1,0 +1,97 @@
+﻿@model SCASA.Models.ModelClasses.CreateNewStaffModel;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>New Employee Registration </h1>
+                    <small>Employee Management.</small>
+                </div>
+                <div class="col-md-6">
+                    <div class="btn-group float-right" role="group">
+                        <div class="buttonexport" id="buttonlist">
+                            <a class="btn btn-add" href="~/Staff/NewStaffList">
+                                <i class="fa fa-reply mr-2"></i>Back
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card-title custom_title">
+                                    <h5>Register New Staff</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Form controls -->
+                    <form method="post" enctype="multipart/form-data" action="~/Staff/AddNewStaff">
+                        <div class="card-body all_card_btn">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Employee Name <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" placeholder="Name" name="UserName" value="@Model.UserName">
+                                        @Html.ValidationMessageFor(m => m.UserName, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Email ID <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" placeholder="Enter Your Mail" name="EmailId" value="@Model.EmailId">
+                                        @Html.ValidationMessageFor(m => m.EmailId, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Mobile Number <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" placeholder="Mobile Number" name="MobileNumber" value="@Model.MobileNumber">
+                                        @Html.ValidationMessageFor(m => m.MobileNumber, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Staff Designation<span class="text-danger">*</span></label>
+                                        @Html.DropDownListFor(x => Model.UserTypeId, new SelectList(ViewBag.userTypeDrops, "UserTypeId", "UserTypeName", Model.UserTypeId), new { @class = "form-control select2" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="submit-button">
+                                        <button class="btn btn-success" type="submit"> Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<script>
+    $('.select2').select2();
+</script>

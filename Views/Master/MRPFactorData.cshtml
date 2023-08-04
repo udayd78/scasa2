@@ -1,0 +1,73 @@
+﻿@model SCASA.Models.Repositories.Entity.MRPFactor
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Add MRP Factor</h1>
+            <small>Master Data Management.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="row">
+                            <div class="card-title custom_title col-sm-6">
+                                <h5>Add Factor</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group float-right" role="group">
+                                    <div class="buttonexport" id="buttonlist">
+                                        <a class="btn btn-add" href="~/Master/MRPFactors">
+                                            <i class="fa fa-reply mr-2"></i>Back
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="~/Master/MRPFactorData" method="post">
+                            <div class="row">
+                                @Html.HiddenFor(m => m.TRId)
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Factor Name</label>
+                                        @Html.TextBoxFor(m => m.FactorName, null, new { @class = "form-control", @placeholder = "Enter Factor Name" })
+                                        @Html.ValidationMessageFor(m => m.FactorName, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Factor value</label>
+                                        @Html.TextBoxFor(m => m.FactorValue, null, new { @class = "form-control", @placeholder = "Enter Factor Value" })
+                                        @Html.ValidationMessageFor(m => m.FactorValue, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                  
+                                <div class="col-sm-1"></div>
+                                <div>
+                                    <button type="submit" class="btn btn-success serchgaptop "> Save</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>

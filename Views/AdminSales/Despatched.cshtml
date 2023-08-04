@@ -1,0 +1,304 @@
+﻿@model IEnumerable<SCASA.Models.ModelClasses.DCMasterModel>
+@{
+
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+    int rowCount = 1;
+}
+
+<style>
+    .hideloader {
+        display: none;
+    }
+</style>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1>Total :  </h1>
+                    <small>Delivery Challans.</small>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="btn-group float-right" role="group">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 pinpin">
+                <div class="card" data-sortable="true">
+                    <div class="card-header">
+
+
+                    </div>
+                    <div class="card-body">
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="mydatatable" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>#</th>
+                                        <th>Customer Name</th>
+                                        <th>Address</th>
+                                        <th>Created On</th>
+                                        <th>Invoice Number</th>
+                                        <th>EWay Bill </th>
+                                        <th>Dispatched On</th>
+                                        <th>Dispatched By</th>
+                                        <th>Current Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @foreach (var v in Model)
+                                    {
+                                        <tr>
+                                            <td>@(rowCount++)</td>
+                                            <td>@v.CustomerName</td>
+                                            <td>@Html.Raw(v.ToAddress)</td>
+                                            <td>@(Convert.ToDateTime(v.DCDate).ToString("dd-MMM-yyyy"))</td>
+                                            <td>@v.DCId</td>
+                                            <td>
+                                                @(v.EwayBillDetails == null ? "NA" : v.EwayBillDetails)
+                                                <br />
+                                               @if(v.CurrentStatus != "Despatched")
+                                                {
+                                                    <a href="javascript:void(0);" onclick="UpdateEWayBill(@v.DCId)"><i class="fa fa-edit" title="Update EWayBill"></i></a>
+                                                }
+                                                
+                                            </td>
+                                            <td>
+                                                @*@if (v.DespatchedOn == null)
+                                                {
+                                                    <a href="~/AdminSales/UpdateDespatchInfo?dcmid=@v.DCId" class="btn btn-success"><i class="fa fa-edit" title="Update Despatch"></i></a>
+                                                }
+                                                else
+                                                {*@
+                                                    @(Convert.ToDateTime(v.DespatchedOn).ToString("dd-MMM-yyyy"))
+                                                @*}*@
+                                            </td>
+                                            <td>@v.DespatchedByName</td>
+                                            <td>@v.CurrentStatus</td>
+                                            <td>
+                                                <a href="~/AdminSales/PrintTaxInvoice?invoiceid=@v.DCId" class="btn btn-success">Print Invoice</a>
+                                                <a href="~/AdminSales/PrintDC?dcid=@v.DCId"  class="btn btn-facebook"  >Print DC</a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-inn">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- customer Modal1 -->
+        <div class="modal fade" id="customer1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-primary">
+                        <h3><i class="fa fa-user m-r-5"></i> Update List</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="form-horizontal">
+                                    <div class="row">
+                                        <!-- Text input-->
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Model No:</label>
+                                            <input type="text" placeholder="Customer Name" class="form-control">
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Descriprtion:</label>
+                                            <input type="email" placeholder="Email" class="form-control">
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Mobile</label>
+                                            <input type="number" placeholder="Mobile" class="form-control">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="control-label">Address</label><br>
+                                            <textarea name="address" rows="3"></textarea>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="control-label">type</label>
+                                            <input type="text" placeholder="type" class="form-control">
+                                        </div>
+                                        <div class="col-md-12 form-group user-form-group">
+                                            <div class="float-right">
+                                                <button type="button" class="btn btn-danger btn-sm">Cancel</button>
+                                                <button type="submit" class="btn btn-add btn-sm">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- Modal -->
+        <!-- Customer Modal2 -->
+        <div class="modal fade" id="customer2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-primary">
+                        <h3><i class="fa fa-user m-r-5"></i> Delete List Item</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="form-horizontal">
+                                    <div class="row">
+                                        <div class="col-md-12 form-group user-form-group">
+                                            <label class="control-label">Delete List </label>
+                                            <div class="float-right">
+                                                <button type="button" class="btn btn-danger btn-sm">NO</button>
+                                                <button type="submit" class="btn btn-add btn-sm">YES</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </section>
+    <!-- /.content -->
+</div>
+<style>
+    .swal2-overflow {
+        overflow-x: visible;
+        overflow-y: visible;
+    }
+</style>
+
+
+<script>
+    function UpdateDespatched(did, uid) {
+
+
+
+            //$.ajax({
+            //    url: GlobalUrl + "AdminSales/UpdateDispatchedDetails?dDate=" + value + "&dBy=" + uid + "&did=" + did,
+            //    type: 'post',
+            //    data: '{}',
+            //    success: function (result) {
+            //        toastr["success"]("Successuflly Updated!");
+            //        window.location.href = window.location.href;
+            //    }
+            //});
+
+    }
+    function UpdateEWayBill(did) {
+        //var slider = document.createElement("input");
+        //slider.type = "number";
+        //slider.value = 5;
+        //slider.step = 1;
+        //slider.min = 5;
+        //slider.max = 50;
+        //swal({
+        //    title: 'Request time to XXX',
+        //    text: 'Select values',
+        //    content: slider,
+        //    buttons: {
+        //        cancel: "Run away!",
+        //        catch: {
+        //            text: "Throw Pokéball",
+        //            value:slider.value,
+        //        },
+        //        defeat: true,
+        //    }
+        //}).then((value) => {
+        //    console.log(slider.value); // Here you receive the input data value
+        //    swal(`You typed: ${value}`);
+        //});
+
+        swal({
+            text: 'Enter EWay Bill Number',
+            content: "input",
+            button: {
+                text: "EWay Bill",
+                closeModal: false,
+            },
+        }).then((value) => {
+
+            $.ajax({
+                    url: GlobalUrl + "AdminSales/UpdateEWayBill?ewaybill=" + value + "&dcmid=" + did,
+                    type: 'post',
+                    data: '{}',
+                    success: function (result) {
+                        toastr["success"]("Successuflly deleted!");
+                        window.location.href = window.location.href;
+                    }
+                });
+        }).catch(err => {
+                swal("Error");
+            });
+        //swal("Are you sure?", {
+        //    buttons: {
+        //        yes: {
+        //            text: "Yes",
+        //            value: "yes"
+        //        },
+        //        no: {
+        //            text: "No",
+        //            value: "no"
+        //        }
+        //    }
+        //}).then((value) => {
+        //    if (value === "yes") {
+        //        $.ajax({
+        //            url: GlobalUrl + "AdminSales/UpdateEWayBill?ewaybill=" + id + "&dcmid=" + did,
+        //            type: 'post',
+        //            data: '{}',
+        //            success: function (result) {
+        //                toastr["success"]("Successuflly deleted!");
+        //                window.location.href = window.location.href;
+        //            }
+        //        });
+        //    }
+        //    else {
+        //        toastr["error"]("Delete cancelled!")
+        //    }
+        //    return false;
+        //});
+
+    }
+</script>

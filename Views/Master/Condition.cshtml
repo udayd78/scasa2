@@ -1,0 +1,134 @@
+﻿@model IEnumerable<SCASA.Models.Repositories.Entity.InventoryConditionMaster>
+
+@{
+    int rCnt = 1;
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="header-icon">
+
+                    <i class="fa fa-dashboard"></i>
+                </div>
+                <div class="header-title">
+                    <h1>Condition Types</h1>
+                    <small>Master Data management.</small>
+                </div>
+            </div>
+        <div class="btn-group float-right" role="group">
+            <div class="buttonexport" id="buttonlist">
+                <a class="btn btn-add" href="~/EmpireHome/Dashboard">
+                    <i class="fa fa-reply mr-2"></i> Back
+                </a>
+            </div>
+        </div>
+</div>
+    </section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12 pinpin">
+            <div class="card" data-sortable="true">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card-title custom_title">
+                                <h4>Condition</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="btn-group float-right" role="group">
+                                <div class="buttonexport" id="buttonlist">
+                                    <a class="btn btn-add" href="~/Master/ConditionTypeData">
+                                        <i class="fa fa-plus"></i> Add New
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                    <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                    <div class="table-responsive">
+                        <table id="mydatatable" class="table table-bordered table-striped table-hover">
+                            <thead class="back_table_color">
+                                <tr class="info">
+                                    <th>#.</th>
+                                    <th>ConditionName</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var u in Model)
+                                {
+                                    <tr>
+                                        <td>@(rCnt ++)</td>
+                                        <td>@u.ConditionName</td>
+
+                                        <td>
+                                            <a href="~/Master/ConditionTypeData?id=@u.ConditionId">
+                                                <button type="button" class="btn btn-add btn-sm">
+                                                    <i class="fa fa-pencil"></i>
+                                                </button>
+                                            </a>
+                                            <a href="javascript:void(0);" onclick="ShowDelete(@u.ConditionId)">
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- /.content -->
+</div>
+
+
+<script>
+    function ShowDelete(id) {
+        swal("Are you sure?", {
+            buttons: {
+                yes: {
+                    text: "Yes",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+                $.ajax({
+                    url: GlobalUrl + "Master/DeleteConditionType?id=" + id,
+                    type: 'post',
+                    data: '{}',
+                    success: function (result) {
+                        toastr["success"]("Successuflly deleted!");
+                        window.location.href = window.location.href;
+                    }
+                });
+            }
+            else {
+                toastr["error"]("Delete cancelled!")
+            }
+            return false;
+        });
+
+
+    }
+</script>

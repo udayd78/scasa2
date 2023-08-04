@@ -1,0 +1,115 @@
+﻿@model IEnumerable<SCASA.Models.ModelClasses.SalesExecutiveListModel>
+
+@{
+    int rCnt = 1;
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-users"></i>
+        </div>
+        <div class="header-title">
+            <h1>Sales Executives</h1>
+            <small>@*Staff List*@</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 pinpin">
+                <div class="card" data-sortable="true">
+                    <div class="card-header">
+                        <div class="card-title custom_title">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <form action="~/AdminSales/SalesExecutives" method="post">
+
+                                        <div class="col-md-4">
+                                            <h4>Sales Executives</h4>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="search" placeholder="search">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button type="submit" class="btn btn-success btn-sm">
+                                                Search
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="btn-group float-right" role="group">
+                                        <div class="buttonexport" id="buttonlist">
+                                            <a class="btn btn-add" href="~/EmpireHome/Dashboard">
+                                                <i class="fa fa-reply mr-2"></i> Back
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="mydatatable" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>#</th>
+                                        <th>Employee Name</th>
+
+                                        <th>Email Id</th>
+                                        <th>Mobile</th>
+                                        <th>Discount %</th>
+                                        <th>Quotations</th>
+                                        <th>Orders</th>
+                                        <th>Total Value</th>
+                                        <th>Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var s in Model)
+                                        {
+                                            <tr>
+                                                <td>@(rCnt++)</td>
+                                                <td>@s.UserName</td>
+
+                                                <td>@s.EmailId</td>
+                                                <td>@s.MobileNumber</td>
+                                                <td class="text-right">@s.MaxDiscoutPercentage</td>
+                                                <td>@s.TotalQutations</td>
+                                                <td>@s.TotalOrders</td>
+                                                <td class="text-right">Rs. @(String.Format(Indian,"{0:N}", (s.TotalOrderValue))) </td>
+                                                <td>
+                                                    <a href="~/AdminSales/Crfqs?id=@s.UserId">Quotes</a>
+                                                    @*<br />
+                                                    <a href="javascript:void(0)">Sales Orders</a>
+                                                    <br />
+                                                    <a href="javascript:void(0)">Closed Orders</a>*@
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+

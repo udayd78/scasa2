@@ -1,0 +1,481 @@
+﻿@model SCASA.Models.ModelClasses.UserMasterModel;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Joining Staff</h1>
+            <small>Add Details of Staff.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card-title custom_title">
+                                    <h5>Joining New Staff</h5>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body all_card_btn">
+                        <!-- Form controls -->
+                        <form method="post" enctype="multipart/form-data" action="~/Staff/AddStaff">
+                            <div class="col-sm-12">
+                                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                                    <div class="card-body">
+                                        @Html.HiddenFor(m => m.UserId)
+                                        @Html.HiddenFor(m => m.PRMId)
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Employee Name <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" placeholder="Name" name="UserName" value="@Model.UserName">
+                                                    @Html.ValidationMessageFor(m => m.UserName, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Email ID <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Mail" name="EmailId" value="@Model.EmailId">
+                                                    @Html.ValidationMessageFor(m => m.EmailId, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Mobile Number <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" placeholder="Mobile Number" name="MobileNumber" value="@Model.MobileNumber">
+                                                    @Html.ValidationMessageFor(m => m.MobileNumber, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Designation <span class="text-danger">*</span></label>
+                                                    @Html.DropDownListFor(x => Model.UserTypeId, new SelectList(Model.userTypeDrops, "UserTypeId", "UserTypeName", Model.UserTypeId), new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select class="form-control" name="Gender">
+                                        @if (@Model.Gender == "Male")
+                                        {
+                                            <option value="Male" selected>Male </option>
+                                            <option value="Female">Female</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="Male">Male </option>
+                                            <option value="Female" selected>Female</option>
+                                        }
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                                    <div class="card-header all_card_btn">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="card-title custom_title">
+                                                    <h5>Add Personal Details</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Address 1 <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" placeholder="Address 1" name="Address1" value="@Model.Address1">
+                                                    @Html.ValidationMessageFor(m => m.Address1, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Address 2</label>
+                                                    <input type="text" class="form-control" placeholder="Address 2" name="Address2" value="@Model.Address2">
+                                                    @Html.ValidationMessageFor(m => m.Address2, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Country </label>
+                                                    @Html.DropDownListFor(x => Model.CountryId, new SelectList(Model.countryDrops, "CountryId", "CountryName", Model.CountryId), new { @id = "cotDD", @class = "form-control", @onChange = "GetStates()" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>State </label>
+                                                    @Html.DropDownListFor(x => Model.StateId, new SelectList(Model.stateDrops, "StateId", "StateName", Model.StateId), new { @id = "stDD", @class = "form-control", @onChange = "GetCities()" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>City</label>
+                                                    @Html.DropDownListFor(x => Model.CityId, new SelectList(Model.cityDrops, "CityId", "CityName", Model.CityId), new { @id = "citDD", @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Zip Code <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" placeholder="Zip Code" name="ZipCode" value="@Model.ZipCode">
+                                                    @Html.ValidationMessageFor(m => m.ZipCode, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Referred By</label>
+                                                    <input type="text" class="form-control" placeholder="Referred By" name="ReferredbyName" value="@Model.ReferredbyName">
+                                                    @Html.ValidationMessageFor(m => m.ReferredbyName, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label> Referred Mobile </label>
+                                                    <input type="text" class="form-control" placeholder="Referred Mobile" name="ReferredByMobile" value="@Model.ReferredByMobile">
+                                                    @Html.ValidationMessageFor(m => m.ReferredByMobile, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label> Emergency Contact Number</label>
+                                                    <input type="text" class="form-control" placeholder="Emergency Contact Number" name="EmergencyContactNumber" value="@Model.EmergencyContactNumber">
+                                                    @Html.ValidationMessageFor(m => m.EmergencyContactNumber, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label> Profile Image upload</label> <br>
+                                                    <input type="file" name="ProfileImageUploaded">
+                                                    <input type="hidden" name="old_picture">
+                                                    @Html.ValidationMessageFor(m => m.ProfileImage, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Aadhar Number</label>
+                                                    <input type="text" class="form-control" placeholder="Aadhar Number" name="AadharNumber" value="@Model.AadharNumber">
+                                                    @Html.ValidationMessageFor(m => m.AadharNumber, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Pan Number</label>
+                                                    <input type="text" class="form-control" placeholder="Pan Number" name="PANNumber" value="@Model.PANNumber">
+                                                    @Html.ValidationMessageFor(m => m.PANNumber, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Previous Organization Name</label>
+                                                    <input type="text" class="form-control" placeholder="Previous Organization Name" name="PreviousOrgName" value="@Model.PreviousOrgName">
+                                                    @Html.ValidationMessageFor(m => m.PreviousOrgName, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Previous Organization Address</label>
+                                                    <input type="text" class="form-control" placeholder="Previous Organization Address" name="PreviousOrgAddress" value="@Model.PreviousOrgAddress">
+                                                    @Html.ValidationMessageFor(m => m.PreviousOrgAddress, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Previous Organization Experience</label>
+                                                    <input type="text" class="form-control" placeholder="Previous Organization Experience" name="PreviousOrgExperience" value="@Model.PreviousOrgExperience">
+                                                    @Html.ValidationMessageFor(m => m.PreviousOrgExperience, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Total experience</label>
+                                                    <input type="text" class="form-control" placeholder="Total Experience" name="TotalPreviousExpeience" value="@Model.TotalPreviousExpeience">
+                                                    @Html.ValidationMessageFor(m => m.TotalPreviousExpeience, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Aadhar File</label>
+                                                    <input type="file" class="form-control-file" id="">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Pan File</label>
+                                                    <input type="file" class="form-control-file" id="">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Previous reliving letter File</label>
+                                                    <input type="file" class="form-control-file" id="">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Resume   file</label>
+                                                    <input type="file" class="form-control-file" id="">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Salary slip fileFile</label>
+                                                    <input type="file" class="form-control-file" id="">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Profile pic file</label>
+                                                    <input type="file" class="form-control-file" id="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header all_card_btn">
+                                        <h5>Account Details</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Bank Name</label>
+                                                    <input type="text" class="form-control" placeholder="Bank Name" name="BankName" value="@Model.BankName">
+                                                    @Html.ValidationMessageFor(m => m.BankName, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Acc Number</label>
+                                                    <input type="text" class="form-control" placeholder="Acc Number" name="AccountNumber" value="@Model.AccountNumber">
+                                                    @Html.ValidationMessageFor(m => m.AccountNumber, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Acc Holder Name</label>
+                                                    <input type="text" class="form-control" placeholder="Bank Name" name="AccountHolderName" value="@Model.AccountHolderName">
+                                                    @Html.ValidationMessageFor(m => m.AccountHolderName, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Ifsc Code</label>
+                                                    <input type="text" class="form-control" placeholder="Bank Name" name="IfscCode" value="@Model.IfscCode">
+                                                    @Html.ValidationMessageFor(m => m.IfscCode, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Branch Address</label>
+                                                    <input type="text" class="form-control" placeholder="Bank Name" name="BranchAddress" value="@Model.BranchAddress">
+                                                    @Html.ValidationMessageFor(m => m.BranchAddress, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>UPI Number</label>
+                                                    <input type="text" class="form-control" placeholder="Bank Name" name="UPINumber" value="@Model.UPINumber">
+                                                    @Html.ValidationMessageFor(m => m.UPINumber, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header all_card_btn">
+                                        <h5>Joining Details</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Joining Date</label>
+                                                    <input type="text" class="form-control" placeholder="Joining Date" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Reporting to </label>
+                                                    <select class="form-control">
+                                                        <option>City-1</option>
+                                                        <option>City-2</option>
+                                                        <option>City-3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Shift Name</label>
+                                                    <select class="form-control">
+                                                        <option>City-1</option>
+                                                        <option>City-2</option>
+                                                        <option>City-3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>PF Number</label>
+                                                    <input type="text" class="form-control" placeholder="PF Number" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>UAN Number</label>
+                                                    <input type="text" class="form-control" placeholder="UAN Number" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>ESIC</label>
+                                                    <input type="text" class="form-control" placeholder="ESIC" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Bio-Metric ID</label>
+                                                    <input type="text" class="form-control" placeholder="Bio-Metric ID" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-header all_card_btn">
+                                                <h5>Income</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Basic Salary </label>
+                                                            <input type="text" class="form-control" placeholder="Enter Your Name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>HRA</label>
+                                                            <input type="text" class="form-control" placeholder="Enter Your Name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Dearness Allowance </label>
+                                                            <input type="text" class="form-control" placeholder="Enter Your Name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Food Allowance </label>
+                                                            <input type="text" class="form-control" placeholder="Enter Your Name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Conveyance </label>
+                                                            <input type="text" class="form-control" placeholder="Enter Your Name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Medical Allowances </label>
+                                                            <input type="text" class="form-control" placeholder="Enter Your Name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Other Allowances </label>
+                                                            <input type="text" class="form-control" placeholder="Enter Your Name" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Deductions</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label>Provident Fund</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Provident Fund" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Professional Tax</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Professional Tax" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>ESI Fund</label>
+                                                    <input type="text" class="form-control" placeholder="Enter ESI Fund" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>TDS</label>
+                                                    <input type="text" class="form-control" placeholder="Enter TDS" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="reset-button">
+                                    <a href="#" class="btn btn-success"> Save</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

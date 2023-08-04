@@ -1,0 +1,23 @@
+﻿@model IEnumerable<SCASA.Models.Repositories.Entity.ActivityLog>
+
+<li class="nav-item dropdown notifications-menu">
+    <a class="nav-link admin-notification" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="pe-7s-bell"></i>
+        <span class="label bg-warning">@Model.Count()</span>
+    </a>
+    <div class="dropdown-menu drop_drops custom_drop_scroll">
+        @foreach (var v in Model)
+        {
+            <a class="dropdown-item" href="#">
+                <div class="menues">
+                    <p>
+                        <i class="fa fa-dot-circle-o color-red"></i>
+                        @v.ActivityText
+                    </p>
+                </div>
+            </a>
+        }
+
+
+    </div>
+    </li>

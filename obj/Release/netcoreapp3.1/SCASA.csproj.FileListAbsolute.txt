@@ -1,0 +1,1062 @@
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\appsettings.Development.json
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\appsettings.json
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.exe
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.deps.json
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.runtimeconfig.json
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.runtimeconfig.dev.json
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.pdb
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Antiforgery.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.Cookies.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.Core.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.OAuth.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authorization.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authorization.Policy.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Authorization.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Forms.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Server.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Web.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.CookiePolicy.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Cors.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.DataProtection.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Diagnostics.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Diagnostics.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Diagnostics.HealthChecks.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.HostFiltering.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Hosting.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Hosting.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Html.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Connections.Common.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Connections.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Extensions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Features.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.HttpOverrides.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.HttpsPolicy.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Identity.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Localization.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Localization.Routing.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Metadata.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.ApiExplorer.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Core.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Cors.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.DataAnnotations.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Formatters.Json.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Formatters.Xml.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Localization.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Razor.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.RazorPages.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.TagHelpers.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Razor.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Razor.Runtime.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.ResponseCaching.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.ResponseCaching.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.ResponseCompression.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Rewrite.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Routing.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Routing.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.HttpSys.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.IIS.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.IISIntegration.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.Kestrel.Core.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.Kestrel.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Session.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.Common.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.Core.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.StaticFiles.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.WebSockets.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.WebUtilities.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.CSharp.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Binder.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.CommandLine.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Ini.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Json.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.KeyPerFile.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.UserSecrets.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Xml.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.FileProviders.Composite.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Hosting.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Hosting.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Http.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Identity.Core.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Identity.Stores.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Localization.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Localization.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Configuration.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Console.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Debug.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.EventLog.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.EventSource.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.TraceSource.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.ObjectPool.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Options.DataAnnotations.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.WebEncoders.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.JSInterop.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Net.Http.Headers.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.VisualBasic.Core.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.VisualBasic.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Win32.Primitives.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Win32.Registry.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\mscorlib.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\netstandard.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.AppContext.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Buffers.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Collections.Concurrent.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Collections.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Collections.NonGeneric.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Collections.Specialized.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ComponentModel.DataAnnotations.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ComponentModel.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ComponentModel.EventBasedAsync.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ComponentModel.Primitives.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ComponentModel.TypeConverter.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Configuration.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Console.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Core.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Data.Common.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Data.DataSetExtensions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Data.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.Contracts.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.Debug.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.EventLog.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.FileVersionInfo.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.Process.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.StackTrace.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.TextWriterTraceListener.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.Tools.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.TraceSource.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.Tracing.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Drawing.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Drawing.Primitives.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Dynamic.Runtime.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Globalization.Calendars.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Globalization.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Globalization.Extensions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.Compression.Brotli.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.Compression.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.Compression.FileSystem.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.Compression.ZipFile.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.FileSystem.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.FileSystem.DriveInfo.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.FileSystem.Primitives.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.FileSystem.Watcher.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.IsolatedStorage.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.MemoryMappedFiles.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.Pipelines.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.Pipes.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.UnmanagedMemoryStream.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Linq.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Linq.Expressions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Linq.Parallel.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Linq.Queryable.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Memory.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.Http.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.HttpListener.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.Mail.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.NameResolution.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.NetworkInformation.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.Ping.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.Primitives.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.Requests.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.Security.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.ServicePoint.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.Sockets.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.WebClient.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.WebHeaderCollection.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.WebProxy.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.WebSockets.Client.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.WebSockets.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Numerics.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Numerics.Vectors.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ObjectModel.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.DispatchProxy.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.Emit.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.Emit.ILGeneration.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.Emit.Lightweight.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.Extensions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.Metadata.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.Primitives.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.TypeExtensions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Resources.Reader.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Resources.ResourceManager.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Resources.Writer.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.CompilerServices.Unsafe.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.CompilerServices.VisualC.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Extensions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Handles.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.InteropServices.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.InteropServices.WindowsRuntime.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Intrinsics.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Loader.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Numerics.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.Formatters.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.Json.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.Primitives.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.Xml.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.AccessControl.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Claims.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Algorithms.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Cng.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Csp.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Encoding.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Primitives.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.X509Certificates.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Xml.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Permissions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Principal.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Principal.Windows.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.SecureString.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ServiceModel.Web.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ServiceProcess.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Text.Encoding.CodePages.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Text.Encoding.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Text.Encoding.Extensions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Text.Encodings.Web.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Text.RegularExpressions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Channels.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Overlapped.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Tasks.Dataflow.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Tasks.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Tasks.Extensions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Tasks.Parallel.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Thread.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.ThreadPool.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Timer.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Transactions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Transactions.Local.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ValueTuple.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Web.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Web.HttpUtility.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Windows.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Windows.Extensions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.Linq.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.ReaderWriter.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.Serialization.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.XDocument.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.XmlDocument.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.XmlSerializer.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.XPath.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.XPath.XDocument.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\refs\WindowsBase.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.Views.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.Views.pdb
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\RestSharp.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Rotativa.AspNetCore.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\System.Collections.Immutable.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\System.ComponentModel.Annotations.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\System.Runtime.Caching.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\System.Text.Json.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.csproj.AssemblyReference.cache
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.GeneratedMSBuildEditorConfig.editorconfig
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.AssemblyInfoInputs.cache
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.AssemblyInfo.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.csproj.CoreCompileInputs.cache
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.MvcApplicationPartsAssemblyInfo.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.MvcApplicationPartsAssemblyInfo.cache
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.RazorAssemblyInfo.cache
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.RazorAssemblyInfo.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\staticwebassets\SCASA.StaticWebAssets.Manifest.cache
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\staticwebassets\SCASA.StaticWebAssets.xml
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\scopedcss\bundle\SCASA.styles.css
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.TagHelpers.input.cache
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.TagHelpers.output.cache
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.RazorCoreGenerate.cache
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\Crfqs.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\DeliveryChallans.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\Despatched.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\Discounts.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\HeadDiscount.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\OpenOrders.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\PrintDC.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\PrintTaxInvoice.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\ReadytoDespatch.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\SalesExecutives.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\UpdateDespatchInfo.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\_PrintDC.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\_PrintTaxInvoice.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Authenticate\Login.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Authenticate\RequestOTP.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Authenticate\ResetPassword.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\CustomerReports.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\DailySalesReport.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\Dashboard.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\FinanceReport.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\HeadWise.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\MonthlySalesProductWise.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\SaleExecutiveReport.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\SalesExecutiveCharts.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\SalesReport.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmployeeAcceptance\ThankyouFOrAcceptance.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmployeeRegistration\CompleteForm.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmployeeRegistration\UserDetailsSubmitionDone.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\ContraEntry.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\LedgersDisplay.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\OpenOrders.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\Payments.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\Receipt.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\SOReceipts.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\_SOReceipt.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\PDFFooter.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\profile.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\Submit.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\_AccountsMenu.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\_AdminMenu.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\_HRMenu.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\_NoMenu.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\_NotificationList.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\_SalesHeadMenu.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\_WarehouseMenu.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\All.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\InventoryData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\MoveStock.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\ProductDetail.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\Showroom.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\StockMovement.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\StockMovementInvoice.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\Warehouse.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Categories.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\CategoryType.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Company.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\CompanyData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Condition.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\ConditionTypeData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\FinanceGroup.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\FinanceGroupData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\FinanceHead.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\FinanceHeadData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\GST.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\GSTData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Holidays.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\HolidayTypedata.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\InventoryStatus.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\InventoryStatusType.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\LocationTypeData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Loctation.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Modules.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\ModuleTypedata.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\MonthlyWorkingDays.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\MonthlyWorkingDaysData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\MRPFactorData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\MRPFactors.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Previleges.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\PrevilegeTypedata.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Shifts.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\ShiftTypedata.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\SubCategories.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\SubCategoryData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\UserTypeData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Usertypes.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\CRFQDetails.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\Custom.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\Customer.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\Index.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\Inventory.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\MyCart.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\MyCRFQ.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\MyQuote.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\OrderModel.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\ProductDetails.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\QuoteDetails.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\QuoteModel.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\RegisterCustomer.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\RendorCart.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\SaleOrderDetail.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\SaleOrders.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\Search.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Shared\_SalesMaster.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\AddNewStaff.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\AddTarget.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\AppointmentOrder.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\JoiningStaff.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\MonthlyPayRoll.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\MonthlyPayRollData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\NewStaffList.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\Profile.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\ReleiveStaff.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\ReportingManagerList.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\StaffAttendance.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\StaffList.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\StaffLoans.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\StaffLoansData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\SubOrdinatesList.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\Targets.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\UpdateUser.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\User\AddressData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\User\CustomerData.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\User\CustomerList.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\User\DeleteUser.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\User\GetAddress.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.RazorTargetAssemblyInfo.cache
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.RazorTargetAssemblyInfo.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.Views.pdb
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.csproj.CopyComplete
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.dll
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.pdb
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.genruntimeconfig.cache
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\TransactionDayBook.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\_FinanceVoucher.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\ClosedOrders.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\PrintCompleteTransaction.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\PrintLedgerTransaction.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\CurrentStandBy.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\PreviousStandBy.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\StandByInvoice.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\PaymentsList.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\PaymentVoucher.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\ReceiptVoucher.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\ReciptsList.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Quartz.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Quartz.AspNetCore.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Quartz.Extensions.DependencyInjection.dll
+D:\Marolix\Empire Homes\Project\SCASA\bin\Release\netcoreapp3.1\Quartz.Extensions.Hosting.dll
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\_PaymentReceipt.cshtml.g.cs
+D:\Marolix\Empire Homes\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\_ReceiptVoucher.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\appsettings.Development.json
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\appsettings.json
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.exe
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.deps.json
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.runtimeconfig.json
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.runtimeconfig.dev.json
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.pdb
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Antiforgery.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.Cookies.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.Core.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.OAuth.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authorization.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authorization.Policy.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Authorization.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Forms.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Server.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Web.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.CookiePolicy.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Cors.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.DataProtection.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Diagnostics.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Diagnostics.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Diagnostics.HealthChecks.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.HostFiltering.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Hosting.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Hosting.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Html.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Connections.Common.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Connections.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Extensions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Features.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.HttpOverrides.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.HttpsPolicy.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Identity.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Localization.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Localization.Routing.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Metadata.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.ApiExplorer.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Core.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Cors.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.DataAnnotations.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Formatters.Json.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Formatters.Xml.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Localization.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Razor.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.RazorPages.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.TagHelpers.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Razor.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Razor.Runtime.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.ResponseCaching.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.ResponseCaching.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.ResponseCompression.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Rewrite.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Routing.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Routing.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.HttpSys.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.IIS.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.IISIntegration.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.Kestrel.Core.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.Kestrel.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Session.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.Common.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.Core.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.StaticFiles.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.WebSockets.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.WebUtilities.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.CSharp.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Binder.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.CommandLine.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Ini.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Json.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.KeyPerFile.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.UserSecrets.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Xml.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.FileProviders.Composite.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Hosting.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Hosting.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Http.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Identity.Core.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Identity.Stores.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Localization.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Localization.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Configuration.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Console.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Debug.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.EventLog.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.EventSource.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.TraceSource.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.ObjectPool.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Options.DataAnnotations.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.WebEncoders.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.JSInterop.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Net.Http.Headers.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.VisualBasic.Core.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.VisualBasic.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Win32.Primitives.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\Microsoft.Win32.Registry.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\mscorlib.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\netstandard.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.AppContext.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Buffers.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Collections.Concurrent.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Collections.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Collections.NonGeneric.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Collections.Specialized.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ComponentModel.DataAnnotations.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ComponentModel.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ComponentModel.EventBasedAsync.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ComponentModel.Primitives.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ComponentModel.TypeConverter.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Configuration.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Console.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Core.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Data.Common.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Data.DataSetExtensions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Data.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.Contracts.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.Debug.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.EventLog.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.FileVersionInfo.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.Process.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.StackTrace.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.TextWriterTraceListener.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.Tools.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.TraceSource.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Diagnostics.Tracing.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Drawing.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Drawing.Primitives.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Dynamic.Runtime.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Globalization.Calendars.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Globalization.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Globalization.Extensions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.Compression.Brotli.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.Compression.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.Compression.FileSystem.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.Compression.ZipFile.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.FileSystem.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.FileSystem.DriveInfo.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.FileSystem.Primitives.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.FileSystem.Watcher.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.IsolatedStorage.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.MemoryMappedFiles.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.Pipelines.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.Pipes.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.IO.UnmanagedMemoryStream.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Linq.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Linq.Expressions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Linq.Parallel.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Linq.Queryable.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Memory.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.Http.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.HttpListener.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.Mail.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.NameResolution.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.NetworkInformation.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.Ping.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.Primitives.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.Requests.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.Security.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.ServicePoint.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.Sockets.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.WebClient.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.WebHeaderCollection.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.WebProxy.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.WebSockets.Client.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Net.WebSockets.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Numerics.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Numerics.Vectors.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ObjectModel.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.DispatchProxy.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.Emit.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.Emit.ILGeneration.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.Emit.Lightweight.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.Extensions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.Metadata.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.Primitives.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Reflection.TypeExtensions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Resources.Reader.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Resources.ResourceManager.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Resources.Writer.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.CompilerServices.Unsafe.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.CompilerServices.VisualC.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Extensions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Handles.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.InteropServices.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.InteropServices.WindowsRuntime.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Intrinsics.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Loader.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Numerics.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.Formatters.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.Json.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.Primitives.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.Xml.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.AccessControl.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Claims.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Algorithms.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Cng.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Csp.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Encoding.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Primitives.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.X509Certificates.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Xml.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Permissions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Principal.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.Principal.Windows.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Security.SecureString.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ServiceModel.Web.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ServiceProcess.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Text.Encoding.CodePages.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Text.Encoding.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Text.Encoding.Extensions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Text.Encodings.Web.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Text.RegularExpressions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Channels.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Overlapped.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Tasks.Dataflow.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Tasks.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Tasks.Extensions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Tasks.Parallel.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Thread.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.ThreadPool.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Threading.Timer.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Transactions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Transactions.Local.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.ValueTuple.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Web.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Web.HttpUtility.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Windows.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Windows.Extensions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.Linq.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.ReaderWriter.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.Serialization.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.XDocument.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.XmlDocument.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.XmlSerializer.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.XPath.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\System.Xml.XPath.XDocument.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\refs\WindowsBase.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.Views.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\SCASA.Views.pdb
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Quartz.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Quartz.AspNetCore.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Quartz.Extensions.DependencyInjection.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Quartz.Extensions.Hosting.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\RestSharp.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\Rotativa.AspNetCore.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\System.Collections.Immutable.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\System.ComponentModel.Annotations.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\System.Runtime.Caching.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\System.Text.Json.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.csproj.AssemblyReference.cache
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.GeneratedMSBuildEditorConfig.editorconfig
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.AssemblyInfoInputs.cache
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.AssemblyInfo.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.csproj.CoreCompileInputs.cache
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.MvcApplicationPartsAssemblyInfo.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.MvcApplicationPartsAssemblyInfo.cache
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.RazorAssemblyInfo.cache
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.RazorAssemblyInfo.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\staticwebassets\SCASA.StaticWebAssets.Manifest.cache
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\staticwebassets\SCASA.StaticWebAssets.xml
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\scopedcss\bundle\SCASA.styles.css
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.TagHelpers.input.cache
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.TagHelpers.output.cache
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.RazorCoreGenerate.cache
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\Crfqs.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\DeliveryChallans.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\Despatched.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\Discounts.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\HeadDiscount.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\OpenOrders.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\PrintDC.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\PrintTaxInvoice.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\ReadytoDespatch.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\SalesExecutives.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\UpdateDespatchInfo.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\_PrintDC.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\AdminSales\_PrintTaxInvoice.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Authenticate\Login.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Authenticate\RequestOTP.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Authenticate\ResetPassword.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\CustomerReports.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\DailySalesReport.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\Dashboard.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\FinanceReport.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\HeadWise.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\MonthlySalesProductWise.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\SaleExecutiveReport.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\SalesExecutiveCharts.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmpireHome\SalesReport.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmployeeAcceptance\ThankyouFOrAcceptance.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmployeeRegistration\CompleteForm.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\EmployeeRegistration\UserDetailsSubmitionDone.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\ContraEntry.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\LedgersDisplay.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\OpenOrders.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\Payments.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\PaymentsList.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\PaymentVoucher.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\PrintCompleteTransaction.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\PrintLedgerTransaction.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\Receipt.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\ReceiptVoucher.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\ReciptsList.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\SOReceipts.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\TransactionDayBook.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\_FinanceVoucher.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\_PaymentReceipt.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\_ReceiptVoucher.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Finance\_SOReceipt.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\PDFFooter.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\profile.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\Submit.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\_AccountsMenu.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\_AdminMenu.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\_HRMenu.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\_NoMenu.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\_NotificationList.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\_SalesHeadMenu.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Home\_WarehouseMenu.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\All.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\CurrentStandBy.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\InventoryData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\MoveStock.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\PreviousStandBy.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\ProductDetail.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\Showroom.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\StandByInvoice.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\StockMovement.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\StockMovementInvoice.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\Warehouse.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Categories.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\CategoryType.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Company.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\CompanyData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Condition.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\ConditionTypeData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\FinanceGroup.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\FinanceGroupData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\FinanceHead.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\FinanceHeadData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\GST.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\GSTData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Holidays.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\HolidayTypedata.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\InventoryStatus.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\InventoryStatusType.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\LocationTypeData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Loctation.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Modules.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\ModuleTypedata.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\MonthlyWorkingDays.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\MonthlyWorkingDaysData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\MRPFactorData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\MRPFactors.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Previleges.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\PrevilegeTypedata.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Shifts.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\ShiftTypedata.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\SubCategories.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\SubCategoryData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\UserTypeData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Master\Usertypes.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\ClosedOrders.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\CRFQDetails.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\Custom.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\Customer.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\Index.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\Inventory.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\MyCart.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\MyCRFQ.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\MyQuote.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\OrderModel.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\ProductDetails.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\QuoteDetails.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\QuoteModel.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\RegisterCustomer.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\RendorCart.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\SaleOrderDetail.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\SaleOrders.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Sales\Search.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Shared\_SalesMaster.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\AddNewStaff.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\AddTarget.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\AppointmentOrder.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\JoiningStaff.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\MonthlyPayRoll.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\MonthlyPayRollData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\NewStaffList.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\Profile.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\ReleiveStaff.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\ReportingManagerList.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\StaffAttendance.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\StaffList.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\StaffLoans.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\StaffLoansData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\SubOrdinatesList.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\Targets.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Staff\UpdateUser.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\User\AddressData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\User\CustomerData.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\User\CustomerList.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\User\DeleteUser.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\User\GetAddress.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.RazorTargetAssemblyInfo.cache
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.RazorTargetAssemblyInfo.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.Views.pdb
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.csproj.CopyComplete
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.dll
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.pdb
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\SCASA.genruntimeconfig.cache
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\InventoryQuantityReport.cshtml.g.cs
+D:\Marolix\Projects\SCASA\Project\SCASA\obj\Release\netcoreapp3.1\Razor\Views\Inventory\StolckReport.cshtml.g.cs

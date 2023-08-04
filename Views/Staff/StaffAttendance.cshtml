@@ -1,0 +1,297 @@
+﻿@model IEnumerable<SCASA.Models.ModelClasses.StaffAttDisplayModel>
+
+@{
+    int rCnt = 1;
+    int dCnt = 1;
+    var d = DateTime.Now;
+    var y = d.Year;
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Staff Attendance</h1>
+            <small>Staff Attendance.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+
+
+            <div class="col-sm-12">
+                <div class="card all_btn_card">
+                    <div class="page-header">
+                        <div class="col-sm-12">
+                            @{
+                                DateTime cDate = Convert.ToDateTime(ViewBag.ShowingDate);
+                                //DateTime cmfdate = new DateTime(cDate.Year, cDate.Month, 1);
+                                DateTime CheckDate = DateTime.Now;
+                                //DateTime mcdate = new DateTime(CheckDate.Year, CheckDate.Month, 1);
+                                DateTime endDate;
+                                @if (cDate.Month == 12)
+                                    {
+                                        endDate = new DateTime(cDate.Year, 1, 1);
+                                    }
+                                    else
+                                    {
+                                        endDate = new DateTime(cDate.Year, cDate.Month + 1, 1);
+                                    }
+                                    int todayDay = cDate.Day;
+
+                                    todayDay = endDate.AddDays(-1).Day;
+                                }
+                            <h4 class="page-title">Showing Attendance for the Month of @cDate.ToString("MMMM"), @cDate.ToString("yyyy")</h4>
+                        </div>
+                    </div>
+                    <form action="~/Staff/StaffAttendance" method="post">
+                        <div class="filter-row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Employee Code </label>
+                                    @if (ViewBag.ecode == null)
+                                    {
+                                        <input type="text" class="form-control" placeholder="Employee Code" name="empCode">
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control" placeholder="Employee Code" name="empCode" value="@ViewBag.ecode">
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="focus-label">Select Month</label>
+                                    <select class="form-control  select2" name="Month">
+                                        <option value="0">Select Month</option>
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Select Year</label>
+                                    <select class="form-control select2" name="Year">
+                                        <option value="0">Select Year</option>
+                                        @for (int i = 2020; i <= y; i++)
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <label>&nbsp;</label>
+                                <button class="btn btn-success btn-block" type="submit"> Search </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped custom-table table-nowrap mb-0 bg-white">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Employee</th>
+                                        <th>E-code</th>
+                                        
+                                        @for (int i = 1; i <= todayDay; i++,dCnt++)
+                                        {
+                                            <td>@dCnt</td>
+                                        }
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        if (Model.Count() > 0)
+                                        {
+                                            foreach (var v in Model)
+                                            {
+                                                <tr>
+                                                    <td>@(rCnt++)</td>
+                                                    <td>
+                                                        <h4 class="table-avatar">
+                                                            @*<a class="avatar avatar-xs" href="profile.html">
+                                                                <img alt="" src="assets/dist/img/m2.png" />
+                                                            </a>*@
+                                                            <a href="#">@v.StaffName</a>
+                                                        </h4>
+                                                    </td>
+                                                    <td>@v.EmployeeCode</td>
+                                                    @for (int i = 1; i <= todayDay; i++)
+                                                    {
+                                                        <td>
+                                                            @if (v.attList[i - 1].Status == "A")
+                                                            {
+                                                                <span class="text-danger">@v.attList[i - 1].Status</span>
+                                                            }
+                                                            else if (@v.attList[i - 1].Status == "P")
+                                                            {
+                                                                <span class="text-success">@v.attList[i - 1].Status</span>
+                                                            }
+                                                            else if (@v.attList[i - 1].Status == "L")
+                                                            {
+                                                                <span class="text-danger">@v.attList[i - 1].Status</span>
+                                                            }
+                                                            else if(v.attList[i-1].Status=="W")
+                                                            {
+                                                                <span class="text-danger">@v.attList[i-1].Status</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                @v.attList[i - 1].Status
+                                                            }
+                                                        </td>
+                                                    }
+                                                    @*@if (todayDay < (endDate.AddDays(-1)).Day)
+                                                    {
+                                                        for (int check = todayDay; (check < (endDate.AddDays(-1)).Day); check++)
+                                                        {
+                                                            <td>NA</td>
+                                                        }
+                                                    }*@
+                                                </tr>
+                                            }
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="card-title custom_title">
+                            <h4>Staff Attendance</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Select Date</label>
+                                        <div class='input-group'>
+                                            <input type='date' class="form-control" name="DateofAttendance" id="DateofAttendance" />
+                                        </div>
+                                        <div class="text-danger"><p id="selDate"></p></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Select Employee</label>
+                                        @Html.DropDownList("StaffId", new SelectList(ViewBag.staffDrop, "StaffId", "StaffName", "0"), new { @id = "staffDD", @class = "form-control select2" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <select class="form-control select2" name="AttStatus" id="AttStatus">
+                                            <option value="P">Present </option>
+                                            <option value="A">Absent</option>
+                                            <option value="L">Leave</option>
+                                            <option value="W">WeekOff</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <input type="text" class="form-control" placeholder="Enter Remarks" name="Remarks" id="Remarks">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reset-button">
+                                <a href="javascript:void(0)" class="btn btn-success" onclick="SaveAttendance()"> Save</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<script>
+    $('.select2').select2();
+    function SaveAttendance() {
+        var date = $('#DateofAttendance').val();
+        if (date != "") {
+            $.ajax({
+                url: GlobalUrl + 'Staff/StaffAttendanceData',
+                type: 'post',
+                data: {
+                    'DateofAttendance': $('#DateofAttendance').val(),
+                    'AttStatus': $('#AttStatus').val(),
+                    'Remarks': $('#Remarks').val(),
+                    'StaffId': $('#staffDD option:selected').val(),
+                },
+                success: function (res) {
+                    if (res.result.statusCode == 1) {
+                        window.location.href = window.location.href;
+                    } else if (res.result.statusCode == 2) {
+                        swal(res.result.statusMessage, {
+                            buttons: {
+                                yes: {
+                                    text: "Ok",
+                                    value: "yes"
+                                },
+                                no: {
+                                    text: "No",
+                                    value: "no"
+                                }
+                            }
+                        }).then((value) => {
+                            if (value === "yes") {
+                                $.ajax({
+                                    url: GlobalUrl + 'Staff/StaffAttendanceData',
+                                    type: 'post',
+                                    data: {
+                                        'DateofAttendance': $('#DateofAttendance').val(),
+                                        'AttStatus': "A",
+                                        'Remarks': $('#Remarks').val(),
+                                        'StaffId': $('#staffDD option:selected').val(),
+                                    },
+                                    success: function (res) {
+                                        if (res.result.statusCode == 1) {
+                                            window.location.href = window.location.href;
+                                        } else {
+                                            toastr["error"]("Please Try Again!")
+                                        }
+                                    }
+                                });
+                            } else {
+                                toastr["error"]("Attendance Canceled!")
+                            }
+                        });
+                    } else if (res.result.statusCode == 3)
+                    {
+                        $("#selDate").text(res.result.statusMessage);
+                    }
+                }
+            });
+        } else {
+            $("#selDate").text("Please Select Date");
+        }
+    }
+</script>

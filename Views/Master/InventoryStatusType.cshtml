@@ -1,0 +1,62 @@
+﻿@model SCASA.Models.Repositories.Entity.InventoryStatusMaster
+@{
+
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Add Status Type</h1>
+            <small>Master Data Management.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="row">
+                            <div class="card-title custom_title col-sm-6">
+                                <h5>Add Status Type</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group float-right" role="group">
+                                    <div class="buttonexport" id="buttonlist">
+                                        <a class="btn btn-add" href="~/Master/InventoryStatus">
+                                            <i class="fa fa-reply mr-2"></i>Back
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="~/Master/InventoryStatusType" method="post">
+                            @Html.HiddenFor(m => m.StatusId)
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Status Name</label>
+                                        @Html.TextBoxFor(m => m.StatusName, null, new { @placeholder = "Enter Status Name", @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.StatusName, null, new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <button type="submit" class="btn btn-success serchgaptop"> Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>

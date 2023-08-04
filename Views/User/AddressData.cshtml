@@ -1,0 +1,172 @@
+﻿@model SCASA.Models.ModelClasses.CustomerAddressModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Add Address</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="row">
+                            <div class="card-title custom_title col-sm-6">
+                                <h5>Add Address</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group float-right" role="group">
+                                    <div class="buttonexport" id="buttonlist">
+                                        <a class="btn btn-add" href="~/User/CustomerList">
+                                            <i class="fa fa-reply mr-2"></i>Back
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="~/User/AddressData" method="post">
+                            <div class="row">
+                                @Html.HiddenFor(m => m.Addid)
+                                @Html.HiddenFor(a=>a.Cid)
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>HouseNumber</label><span class="text-danger">*</span>
+                                        @Html.TextBoxFor(m => m.HouseNumber, null, new { @class = "form-control", @placeholder = "Enter House Number" })
+                                        @Html.ValidationMessageFor(m => m.HouseNumber, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Street Name</label><span class="text-danger">*</span>
+                                        @Html.TextBoxFor(m => m.StreetName, null, new { @class = "form-control", @placeholder = "Enter Street Name" })
+                                        @Html.ValidationMessageFor(m => m.StreetName, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Location</label><span class="text-danger">*</span>
+                                        @Html.TextBoxFor(m => m.Location, null, new { @class = "form-control", @placeholder = "Enter Location" })
+                                        @Html.ValidationMessageFor(m => m.Location, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Country</label><span class="text-danger">*</span>
+                                        @Html.DropDownListFor(m => Model.CountryId, new SelectList(Model.countryDrops, "CountryId", "CountryName", Model.CountryId), new { @id = "conId", @onChange = "GetStates()", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>State</label><span class="text-danger">*</span>
+                                        @Html.DropDownListFor(m => Model.StateId, new SelectList(Model.stateDrops, "StateId", "StateName", Model.StateId), new { @id = "stateId", @onChange = "GetCities()", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>City</label><span class="text-danger">*</span>
+                                        @Html.DropDownListFor(m => Model.CityId, new SelectList(Model.cityDrops, "CityId", "CityName", Model.CityId), new { @id = "cityId", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Address Type</label><span class="text-danger">*</span>
+                                                                   <select class="form-control" name="AddressType">
+                                                                       @if (Model.AddressType == "BillingAddress")
+                                                                       {
+                                                                           <option value="BillingAddress" selected>Billing Address</option>
+                                                                           <option value="ShippingAddress">Shipping Address</option>
+                                                                       }
+                                                                       else
+                                                                       {
+                                                                           <option value="BillingAddress">Billing Address</option>
+                                                                           <option value="ShippingAddress" selected>Shipping Address</option>
+                                                                       }
+
+
+                                                                   </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Postal Code</label><span class="text-danger">*</span>
+                                        @Html.TextBoxFor(m => m.PostalCode, null, new { @class = "form-control", @placeholder = "Postal Code" })
+                                        @Html.ValidationMessageFor(m => m.PostalCode, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <button type="submit" class="btn btn-success serchgaptop"> Save</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<script>
+    $(document).ready(function () {
+
+    });
+    function GetStates() {
+        var cotid = $('#conId option:selected').val();
+        $.ajax({
+            url: GlobalUrl + "Common/GetAllStates?countryId=" + cotid,
+            type: 'post',
+            data: '{}',
+            success: function (res) {
+                var r = res.result.length;
+                var row = '';
+
+                if (r > 0) {
+                    for (var i = 0; i < r; i++) {
+                        row = row + '<option value="' + res.result[i].stateId + '">' + res.result[i].stateName + '</option>';
+                    }
+                }
+                $('#stateId').html('');
+                $('#stateId').html(row);
+            }
+        });
+    }
+    function GetCities() {
+        var sid = $('#stateId option:selected').val();
+        $.ajax({
+            url: GlobalUrl + "Common/GetAllCities?stateId=" + sid,
+            type: 'post',
+            data: '{}',
+            success: function (res) {
+                var r = res.result.length;
+                var row = '';
+
+                if (r > 0) {
+
+                    for (var i = 0; i < r; i++) {
+                        row = row + '<option value="' + res.result[i].cityId + '">' + res.result[i].cityName + '</option>';
+                    }
+                }
+                $('#cityId').html('');
+                $('#cityId').html(row);
+            }
+        });
+    }
+
+</script>

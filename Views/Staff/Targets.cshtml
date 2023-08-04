@@ -1,0 +1,132 @@
+﻿@model IEnumerable<SCASA.Models.Repositories.Entity.TargetMaster>
+@*
+    <a href="E:\New Empire\SCASA\Views\Staff\StaffList.cshtml">E:\New Empire\SCASA\Views\Staff\StaffList.cshtml</a>
+        For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int rCnt = 1;
+
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-users"></i>
+        </div>
+        <div class="header-title">
+            <h1>Targets of : - @ViewBag.uName</h1>
+            <small>List of Sales Team</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 pinpin">
+                <div class="card" data-sortable="true">
+                    <div class="card-header">
+                        <div class="card-title custom_title">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <form action="~/Staff/NewStaffList" method="post">
+
+                                        <div class="col-md-4">
+                                            <h4>@ViewBag.uName 's  Targets</h4>
+                                        </div>                                        
+                                    </form>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="btn-group float-right" role="group">
+                                        <div class="buttonexport" id="buttonlist">
+                                            <a class="btn btn-add" href="~/Staff/TargetBack?id=@ViewBag.uId">
+                                                <i class="fa fa-reply mr-2"></i> Back
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>#</th>
+                                        <th>Month</th>
+                                        <th>Year</th>
+                                        <th>Target Given</th>
+                                        <th>Achieved</th>
+                                        <th>Difference</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var s in Model)
+                                        {
+                                            <tr>
+                                                <td>@(rCnt++)</td>
+                                                <td>
+                                                    @if (s.MonthNumber == 1)
+                                                    {<b>January</b>}
+                                                    else if (s.MonthNumber == 2)
+                                                    {<b>February</b> }
+                                                    else if (s.MonthNumber == 3)
+                                                    {<b>March</b>}
+                                                    else if (s.MonthNumber == 4)
+                                                    {<b>April</b>}
+                                                    else if (s.MonthNumber == 5)
+                                                    {<b>May</b>}
+                                                    else if (s.MonthNumber == 6)
+                                                    {<b>June</b>}
+                                                    else if (s.MonthNumber == 7)
+                                                    {<b>July</b>}
+                                                    else if (s.MonthNumber == 8)
+                                                    {<b>Agust</b>}
+                                                    else if (s.MonthNumber == 9)
+                                                    {<b>Septumber</b>}
+                                                    else if (s.MonthNumber == 10)
+                                                    {<b>October</b>}
+                                                    else if (s.MonthNumber == 11)
+                                                    {<b>November</b>}
+                                                    else if (s.MonthNumber == 12)
+                                                    {<b>December</b>}
+                                                </td>
+                                                <td>@s.YearNumber</td>
+                                                @{
+                                                    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+                                                    string tG = String.Format(Indian, "{0:N}", s.TargetGiven);
+                                                    string tD = String.Format(Indian, "{0:N}", s.TargetDone);
+                                                    var diff = s.TargetDone - s.TargetGiven;
+                                                    string dif = String.Format(Indian, "{0:N}", diff);
+                                                 }
+                                                <td>@tG</td>
+                                                <td>@tD</td>
+                                                <td>@dif</td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9"></div>
+                           @if (ViewBag.TypeName == "Sales Executive")
+                            {
+                                <div class="col-md-3">
+                                    <a href="~/Staff/AddTarget?id=@ViewBag.uId"><button type="button" class="btn btn-add btn-sm" title="Fix Target">Add Next Month Target</button></a>
+                                </div>
+                            }
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>

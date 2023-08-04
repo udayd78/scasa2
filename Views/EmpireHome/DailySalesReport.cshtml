@@ -1,0 +1,186 @@
+﻿@model SCASA.Models.ModelClasses.ProductDisplaySalesModel
+@{
+    string[] months = { "", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+    DateTime dtfrom = new DateTime();
+    dtfrom = DateTime.Now;
+    DateTime dt = new DateTime(dtfrom.Year, dtfrom.Month, 1);
+    int maxdt = (new DateTime(dtfrom.Year, dtfrom.Month, 1).AddMonths(1).AddDays(-1)).Day;
+    int dtCount = 0;
+    int todayDay = dtfrom.Day;
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+}
+
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Sales Report - Daily Product Wise</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="row">
+            @*daily report*@
+
+
+            @*Monthly report*@
+            <div class="col-lg-12 pinpin ui-sortable" data-lobicard-child-inner-id="4IovlaQMiI">
+                <div class="card" data-sortable="true" data-inner-id="4IovlaQMiI" data-index="0" style="display: block;">
+                    <div class="card-header ui-sortable-handle">
+                        <div class="card-title custom_title" style="max-width: calc(100% + 0px);">
+                            <div class="btn-group buttonexport d-flex" role="group">
+
+                                <h4>Day Report - @(DateTime.Now.ToString("dd-MMM-yyyy"))</h4>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>Sales Executive</th>
+                                        <th>Customer Name</th>
+                                        <th colspan="4">Product Category</th>
+                                        <th>Status</th>
+                                        <th>Quote Value</th>
+                                        <th>Sale Value</th>
+                                        <th>Receipts</th>
+                                    </tr>
+                                    <tr>
+
+                                        <th></th>
+                                        <th></th>
+                                        <th>
+                                            Accessories
+                                        </th>
+                                        <th>Beds</th>
+                                        <th>Tables</th>
+                                        <th>Chairs</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td><a href="~/EmpireHome/SaleExecutiveReport">Durga</a></td>
+                                        <td>Mahipal Reddy</td>
+                                        <td>0</td>
+                                        <td class="text-right">0</td>
+                                        <td class="text-right">100000</td>
+                                        <td class="text-right">0</td>
+                                        <td class="text-center">Purchased</td>
+                                        <td class="text-right">1000000</td>
+                                        <td class="text-right">1000000</td>
+                                        <td class="text-right">1000000</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="~/EmpireHome/SaleExecutiveReport">Durga</a></td>
+                                        <td>Chandra Sekahr</td>
+
+                                        <td>0</td>
+                                        <td class="text-right">0</td>
+                                        <td class="text-right">100000</td>
+                                        <td class="text-right">0</td>
+                                        <td class="text-center">Not purchased</td>
+                                        <td class="text-right">1000000</td>
+                                        <td class="text-right">0</td>
+                                        <td class="text-right">0</td>
+                                    </tr>
+
+
+                                <thead class="back_table_color">
+                                    <tr class="info">
+
+                                        <th>Total Day Report</th>
+                                        <th></th>
+                                        <th class="text-right">0</th>
+                                        <th class="text-right">0</th>
+                                        <th class="text-right">100000</th>
+                                        <th class="text-right">0</th>
+                                        <th></th>
+                                        <th class="text-right">1000000</th>
+                                        <th class="text-right">1000000</th>
+                                        <th class="text-right">1000000</th>
+                                    </tr>
+                                </thead>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 pinpin ui-sortable" data-lobicard-child-inner-id="4IovlaQMiI">
+                <div class="card" data-sortable="true" data-inner-id="4IovlaQMiI" data-index="0" style="display: block;">
+                    <div class="card-header ui-sortable-handle">
+                        <div class="card-title custom_title" style="max-width: calc(100% + 0px);">
+                            <div class="btn-group buttonexport d-flex" role="group">
+
+                                <h4>Sales Exectuives Performance</h4>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div>
+
+                            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                            <script type="text/javascript">
+
+                                window.onload = function () {
+                                    var chart = new CanvasJS.Chart("chartContainer", {
+                                        title: {
+                                            text: "Sales Exectutives Performance for the Day"
+                                        },
+                                        data: [
+                                            {
+                                                // Change type to "doughnut", "line", "splineArea", etc.
+                                                type: "column",
+                                                dataPoints: [
+                                                    { label: "Mahipal", y: 50000000 },
+                                                    { label: "Vishnu", y: 25000000 },
+                                                    { label: "Ramesh", y: 5000000 },
+                                                    { label: "Rakesh", y: 2400000 },
+                                                    { label: "sudhakar", y: 10000000 }
+
+
+                                                ]
+                                            }
+                                        ]
+                                    });
+                                    chart.render();
+                                }
+                            </script>
+
+                            <div id="chartContainer" style="height: 300px; width: 50%;">
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

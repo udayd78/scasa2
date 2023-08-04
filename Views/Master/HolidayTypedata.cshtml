@@ -1,0 +1,77 @@
+﻿@model SCASA.Models.Repositories.Entity.HolidayMaster
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Add Holiday Type</h1>
+            <small>Master Data Management.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="row">
+                            <div class="card-title custom_title col-sm-6">
+                                <h5>Add Holiday</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group float-right" role="group">
+                                    <div class="buttonexport" id="buttonlist">
+                                        <a class="btn btn-add" href="~/Master/Holidays">
+                                            <i class="fa fa-reply mr-2"></i>Back
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="~/Master/HolidayTypedata" method="post">
+                            <div class="row">
+                                @Html.HiddenFor(m => m.HMId)
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Holiday Date</label>
+                                        <div class='input-group'>
+                                            <input type='date' class="form-control" name="HolidayDate" value="@Model.HolidayDate" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Holiday Name</label>
+                                        @Html.TextBoxFor(m => m.HolidayName, null, new { @class = "form-control", @placeholder = "Enter Holiday Name" })
+                                        @Html.ValidationMessageFor(m => m.HolidayName, null, new { @class = "text-danger" })
+                                    </div>
+                                 </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>Holiday Description</label>
+                                            @Html.TextBoxFor(m => m.HolidayDesc, null, new { @class = "form-control", @placeholder = "Enter Holiday Desc" })
+                                        </div>
+                                    </div>
+                                    <div>
+                                         <button type="submit" class="btn btn-success serchgaptop"> Save</button>
+                                    </div>
+                                </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>

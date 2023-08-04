@@ -1,0 +1,72 @@
+﻿@model SCASA.Models.ModelClasses.ReleiveStaffModel
+@{
+
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Staff Releiving Information</h1>
+            <small>Staff Data Management.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="card-title custom_title">
+                            <h5>Reliveing details of Staff : <span class="text-danger"><strong>@ViewBag.um.UserName</strong></span> </h5>
+                            
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="~/Staff/ReleiveStaff" method="post">
+                            @Html.HiddenFor(m => m.StaffId)
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Remarks</label>
+                                        @Html.TextAreaFor(m => m.Remarks, new { @placeholder = "Enter remarks", @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Remarks, null, new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Relieving Date</label>
+                                        @Html.EditorFor(model => model.RelievingDate, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(m => m.RelievingDate, null, new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+                                
+                                </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success">Save</button>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <a href="~/Staff/StaffList"class="btn btn-primary">Back to Employee List</a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>

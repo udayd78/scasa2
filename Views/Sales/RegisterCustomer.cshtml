@@ -1,0 +1,314 @@
+﻿@model SCASA.Models.ModelClasses.CustomerDisplayModel;
+@{
+    Layout = "~/Views/Shared/_SalesMaster.cshtml";
+}
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <style>
+        .select2-container .select2-selection--single {
+            height: 40px !important;
+        }
+
+        .select2-container--default .select2-selection--single {
+            border: 1px solid #ececec !important;
+        }
+
+            .select2-container--default .select2-selection--single .select2-selection__rendered {
+                line-height: 35px !important;
+            }
+
+            .select2-container--default .select2-selection--single .select2-selection__arrow b {
+                margin-top: 0px;
+                top: 70%;
+            }
+    </style>
+</head>
+
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-content">
+                    <h2>Register</h2>
+                    <ul>
+                        <li>
+                            <a href="~/Sales/Index">Home</a>
+                        </li>
+                        <li>
+                            <span>Register</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="title-img">
+        <img src="~/SApp/assets/images/page-title1.jpg" alt="About" />
+        <img src="~/SApp/assets/images/shape16.png" alt="Shape" />
+        <img src="~/SApp/assets/images/shape17.png" alt="Shape" />
+        <img src="~/SApp/assets/images/shape18.png" alt="Shape" />
+    </div>
+</div>
+
+<div class="user-area ptb-60">
+    <div class="container">
+        <form method="post" enctype="multipart/form-data" action="~/Sales/RegisterCustomer">
+            @Html.HiddenFor(m => m.Cid)
+            @Html.HiddenFor(m => m.cAddress.Addid)
+            <div class="searchBox">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group mb-2">
+                            <label for="usr">Name:</label><span class="text-danger">*</span>
+                            <input type="text" class="form-control" placeholder="Full Name" name="FullName" value="@Model.FullName">
+                            @Html.ValidationMessageFor(m => m.FullName, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <label for="usr">Mobile Number:</label><span class="text-danger">*</span>
+                        <input type="text" class="form-control" placeholder="Mobile Number" name="MobileNumber" value="@Model.MobileNumber">
+                        @Html.ValidationMessageFor(m => m.MobileNumber, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label for="usr">Email:</label><span class="text-danger">*</span>
+                            <input type="text" class="form-control" placeholder="Email" name="EmailId" value="@Model.EmailId">
+                            @Html.ValidationMessageFor(m => m.EmailId, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label for="usr">Whatsapp Number:</label><span class="text-danger">*</span>
+                            <input type="text" class="form-control" placeholder="Whatsapp Number" name="WhatsAppNumber" value="@Model.WhatsAppNumber">
+                            @Html.ValidationMessageFor(m => m.WhatsAppNumber, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label for="usr">Referred By:</label>
+                            <input type="text" class="form-control" placeholder="Reffered By" name="ReferredBy" value="@Model.RefferedBy">
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label for="usr">Organization Name:</label>
+                            <input type="text" class="form-control" placeholder="Organization Name" name="OrganigationName" value="@Model.OrganigationName">
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label for="usr">Organization Phone Number:</label>
+                            <input type="text" class="form-control" placeholder="Organization Number" name="Organization mobile Number" value="@Model.OrganizationNumber">
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label for="usr">Organization Email:</label>
+                            <input type="text" class="form-control" placeholder="Organization Email" name="OrganizationEmailId" value="@Model.OrganizationEmailId">
+                            @Html.ValidationMessageFor(m => m.OrganizationEmailId, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label for="usr">House Number:</label>
+                            <input type="text" class="form-control" placeholder="House Number" name="cAddress.HouseNumber" value="@Model.cAddress.HouseNumber">
+                            @Html.ValidationMessageFor(m => m.HouseNumber, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label for="usr">Street:</label>
+                            <input type="text" class="form-control" placeholder="Street" name="cAddress.StreetName" value="@Model.cAddress.StreetName">
+                            @Html.ValidationMessageFor(m => m.StreetName, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label>Location:</label>
+                            <input type="text" class="form-control" placeholder="Location" name="cAddress.Location"
+                                   value="@Model.cAddress.Location">
+                            @Html.ValidationMessageFor(m => m.Location, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label>Country :</label>
+                            @Html.DropDownListFor(x => Model.cAddress.CountryId, new SelectList(Model.countryDrops, "CountryId", "CountryName", Model.cAddress.CountryId), new { @id = "cotDD", @class = "form-control w-100 select5", @onChange = "GetStates()" })
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label>State :</label>
+                            @Html.DropDownListFor(x => Model.cAddress.StateId, new SelectList(Model.stateDrops, "StateId", "StateName", Model.cAddress.StateId), new { @id = "stDD", @class = "form-control w-100 select5", @onChange = "GetCities()" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label>City:</label>
+                            @Html.DropDownListFor(x => Model.cAddress.CityId, new SelectList(Model.cityDrops, "CityId", "CityName", Model.cAddress.CityId), new { @id = "citDD", @class = "form-control w-100 select5" })
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label>Postal Code</label>
+                            <input type="text" class="form-control" placeholder="Postal Code" name="cAddress.PostalCode"
+                                   value="@Model.cAddress.PostalCode" />
+                            @Html.ValidationMessageFor(m => m.cAddress.PostalCode, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label>Address Type:</label>
+                            <select class="form-control w-100 select5" name="cAddress.AddressType" id="AddressType">
+                                @if (@Model.cAddress.AddressType == "Home")
+                                {
+                                    <option value="Home" selected>Home</option>
+                                    <option value="Office">Office</option>
+                                    <option value="WareHouse">WareHouse</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Work">Work</option>
+                                    <option value="Organization">Organization</option>
+                                }
+                                else if (@Model.cAddress.AddressType == "Office")
+                                {
+                                    <option value="Home">Home</option>
+                                    <option value="Office" selected>Office</option>
+                                    <option value="WareHouse">WareHouse</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Work">Work</option>
+                                    <option value="Organization">Organization</option>
+                                }
+                                else if (@Model.cAddress.AddressType == "WareHouse")
+                                {
+                                    <option value="Home">Home</option>
+                                    <option value="Office">Office</option>
+                                    <option value="WareHouse" selected>WareHouse</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Work">Work</option>
+                                    <option value="Organization">Organization</option>
+                                }
+                                else if (@Model.cAddress.AddressType == "Retail")
+                                {
+                                    <option value="Home">Home</option>
+                                    <option value="Office">Office</option>
+                                    <option value="WareHouse">WareHouse</option>
+                                    <option value="Retail" selected>Retail</option>
+                                    <option value="Work">Work</option>
+                                    <option value="Organization">Organization</option>
+                                }
+                                else if (@Model.cAddress.AddressType == "Work")
+                                {
+                                    <option value="Home">Home</option>
+                                    <option value="Office">Office</option>
+                                    <option value="WareHouse">WareHouse</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Work" selected>Work</option>
+                                    <option value="Organization">Organization</option>
+                                }
+                                else if (@Model.cAddress.AddressType == "Organization")
+                                {
+                                    <option value="Home">Home</option>
+                                    <option value="Office">Office</option>
+                                    <option value="WareHouse">WareHouse</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Work">Work</option>
+                                    <option value="Organization" selected>Organization</option>
+                                }
+                                else
+                                {
+
+                                    <option value="Home" selected>Home</option>
+                                    <option value="Office">Office</option>
+                                    <option value="WareHouse">WareHouse</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Work">Work</option>
+                                    <option value="Organization">Organization</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+               
+                 
+                    
+                    
+                <div class="col-md-4 mb-2">
+                    <div class="form-group">
+                        <br />
+                        <label>&nbsp;</label>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+           
+        </form>
+    </div>
+</div>
+
+
+
+<script>
+    function AddType() {
+        document.getElementById("AddressType").value = "@Model.cAddress.AddressType";
+    }
+    function OnLoad()
+    {
+        if (@Model.Cid!= 0) {
+            AddType();
+        }
+    }
+
+    function GetStates() {
+        var cotid = $('#cotDD option:selected').val();
+        $.ajax({
+            url: GlobalUrl + "Common/GetAllStates?countryId=" + cotid,
+            type: 'post',
+            data: '{ }',
+            success: function (res) {
+                var r = res.result.length;
+                var row = '';
+
+                if (r > 0) {
+                    for (var i = 0; i < r; i++) {
+                        row = row + '<option value="' + res.result[i].stateId + '">' + res.result[i].stateName + '</option>';
+                    }
+                }
+                $('#stDD').html('');
+                $('#stDD').html(row);
+            }
+        });
+    }
+    function GetCities() {
+        var sid = $('#stDD option:selected').val();
+        $.ajax({
+            url: GlobalUrl + "Common/GetAllCities?stateId=" + sid,
+            type: 'post',
+            data: '{ }',
+            success: function (res) {
+                var r = res.result.length;
+                var row = '';
+                $('#citDD').empty();
+                if (r > 0) {
+
+
+                    for (var i = 0; i < r; i++) {
+                        row = row + '<option value="' + res.result[i].cityId + '">' + res.result[i].cityName + '</option>';
+                    }
+                }
+
+                $('#citDD').append(row);
+                $('#citDD').niceSelect('update');
+            }
+        });
+    }
+
+    OnLoad();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+<script>
+    $('.select5').select2();
+</script>

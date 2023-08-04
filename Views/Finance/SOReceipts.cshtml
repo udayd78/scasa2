@@ -1,0 +1,169 @@
+﻿@model IEnumerable<SCASA.Models.ModelClasses.SalesReceiptsModel>
+ 
+@{
+    int rCnt = 1;
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+}
+<style>
+    .hideloader {
+        display: none;
+    }
+</style>
+<script>
+//const { Toast } = require("../../wwwroot/lib/bootstrap/dist/js/bootstrap.bundle");
+
+    $(document).ready(function () {
+       
+    });
+
+    function ShowReceipt(trid, soid) {
+
+        $("#ReceiptPanel").load("/Finance/GetSOReceiptPartial?trid=" + trid + "&soid=" + soid);
+
+
+    }
+    function PostToFinance(trid) {
+      
+        $('#loaderPost_' + trid).attr("style", "display:block")
+        $.ajax({
+            url: GlobalUrl + "Finance/PostToFinance?trid=" + trid,
+            method: 'post',
+            data: '{}',
+            success: function (res) {
+                if (res.result.statusCode == 1) {
+                    toastr["success"]("Successuflly posted!");
+                    window.location.href = window.location.href;
+                }
+            }
+        });
+    }
+</script>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-users"></i>
+        </div>
+        <div class="header-title">
+            <h1>Receipts of Sale Order</h1>
+            <small>@*Staff List*@</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 pinpin">
+                <div class="card" data-sortable="true">
+                    <div class="card-header">
+                        <div class="card-title custom_title">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    @*<form action="~/Staff/ReportingManagerList" method="post">
+
+                                            <div class="col-md-4">
+                                                <h4>Sales Executives</h4>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="sear" placeholder="search">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <button type="submit" class="btn btn-success btn-sm">
+                                                    Search
+                                                </button>
+                                            </div>
+
+                                        </form>*@
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="btn-group float-right" role="group">
+                                        <div class="buttonexport" id="buttonlist">
+                                            <a class="btn btn-add" href="~/Finance/OpenOrders">
+                                                <i class="fa fa-reply mr-2"></i> Back
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>#</th>
+                                        <th>Customer Name</th>
+                                        <th>Sales Executive</th>
+                                        <th>Received By</th>
+                                        <th>Received On</th>
+                                        <th>Amount</th>
+                                        <th>Method</th>
+                                        <th>Instrument Details</th>
+                                        <th>Posted to Accounts ?</th>
+                                        <th>Actions</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var c in Model)
+                                        {
+                                            <tr>
+                                                <td>@(rCnt++)</td>
+                                                <th>@c.CustomerDetails</th>
+                                                <th>@c.StaffDetails</th>
+                                                <th>@c.RecievedBy_Name</th>
+                                                <th>@(Convert.ToDateTime(c.RecievedOn).ToString("dd-MMM-yyyy"))</th>
+
+                                                <th>Rs. @(String.Format(Indian,"{0:N}", c.AmountReceived))</th>
+                                                <th>@c.PaymentMode</th>
+                                                <th>@c.InstrumentNumber <br />@c.InstrumentDetails</th>
+                                                <th>
+                                                    <div class="row" style="padding-left:20px;">
+                                                        @if (c.IsPostedToFinance == true)
+                                                        {
+                                                            <span class="text-success">Yes</span>
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="text-danger">No</span>
+                                                            <a class="btn btn-primary" style="padding-left:20px;" href="javscript:void(0);" onclick="PostToFinance(@c.TRId)">Post</a>
+
+                                                        }
+                                                        <span class="spinner-border text-primary hideloader" id="loaderPost_@c.TRId"></span>
+                                                    </div>
+                                                   
+                                                </th>
+                                                <td>
+                                                    <a class="btn btn-success" href="javascript:void(0);" onclick="ShowReceipt(@c.TRId,@c.SOId)">Print</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="content" id="ReceiptPanel">
+      
+
+
+    </section>
+    <!-- /.content -->
+</div>
+
+ 

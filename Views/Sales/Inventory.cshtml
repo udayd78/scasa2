@@ -1,0 +1,172 @@
+﻿@model IEnumerable< SCASA.Models.ModelClasses.ProductsDisplaySales>
+@{
+    Layout = "~/Views/Shared/_SalesMaster.cshtml";
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+    var psiz = ViewBag.ps;
+    var pnum = ViewBag.pn;
+    var total = ViewBag.totProds;
+    var cid = ViewBag.cid;
+}
+
+<div class="products-area ptb-100">
+    @*<input type="text" hidden id="nSize" value="@psiz"/>*@
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="sorting-menu">
+                    <ul class="justify-content-center">
+                       
+                        @foreach (var c in ViewBag.cats)
+                        {
+                            @if (ViewBag.cid == c.CategoryId)
+                            {
+                                
+                        <li class="filter active">
+                            <a href="~/Sales/Inventory?catid=@c.CategoryId">
+                                <div class="products-thumb">
+                                    <img src="~/SApp/assets/images/products/shape1.png" alt="Shape" />
+                                    <img src="~/SApp/assets/images/products/shape2.png" alt="Shape" />
+                                    <i class="@c.CategoryImage"></i>
+                                    <span>@c.CategoryName</span>
+                                </div>
+                            </a>
+                        </li>                               
+                            }
+                            else
+                            {                                
+                    <li class="filter">
+                        <a href="~/Sales/Inventory?catid=@c.CategoryId">
+                            <div class="products-thumb">
+                                <img src="~/SApp/assets/images/products/shape1.png" alt="Shape" />
+                                <img src="~/SApp/assets/images/products/shape2.png" alt="Shape" />
+                                <i class="@c.CategoryImage"></i>
+                                <span>@c.CategoryName</span>
+                            </div>
+                        </a>
+                    </li>                               
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div id="prods" class="row justify-content-center">
+                    @if (Model != null)
+                    {
+                                foreach (var p in Model)
+                                {
+                                    <div class="col-sm-6 col-lg-4 mix center-table" id="item_@p.InventroyId">
+                                        <div class="products-item">
+                                            <div class="top">
+                                                @{
+                                                    string[] allImges = p.MainImages.Split(",");
+                                                }
+                                                <a href="~/Sales/ProductDetails?id=@p.InventroyId" target="_blank">
+                                                    <img src="~/ProductImages/@allImges[0]" alt="Products" />
+                                                </a>
+                                                <div class="inner">
+                                                    <h3>
+                                                        <a href="~/Sales/ProductDetails?id=@p.InventroyId" target="_blank">
+                                                            @p.Title
+                                                        </a>
+                                                    </h3>
+                                                    <span>
+                                                        @{
+                                                                     string mrp = String.Format(Indian, "{0:N}", p.MRP);
+                                                        }
+                                                        Rs. @p.MRP
+                                                    </span>
+                                                    <span>
+                                                        Available Qty @p.AvaliableQtyW (W),  @p.AvailableQtyS (S),@p.AvaliableQtyR (R)
+                                                    </span>
+                                                </div>
+                                            </div>
+                                                                                   </div>
+                                    </div>
+                        }
+                                
+                    }                   
+                </div>
+                <div class="text-center" > 
+                    <a class="common-btn" href="javascript:void(0)" id="moreprod" onclick="MoreLoad()">
+                        Load More Products
+                        <img src="~/SApp/assets/images/shape1.png" alt="Shape" />
+                        <img src="~/SApp/assets/images/shape2.png" alt="Shape" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var noOfProdsLoaded = @pnum*@psiz;
+    var pnu =@pnum+1;
+    var nps =@psiz;
+    //var hor
+    $(document).ready(function () {
+        if (noOfProdsLoaded >=  @total)
+        {
+            $("#moreprod").hide();
+        }
+        //$(document).scrollTop(@ViewBag.top);
+    });
+    @*function MoreLoad() {
+        var newS =@psiz+10;
+        window.location = "Inventory?catid=@ViewBag.cid&pageNumber=@pnum&pageSize=" + newS;
+    }*@
+    function MoreLoad() {
+
+        $.ajax({
+            url: GlobalUrl + "Sales/LoadMoreInventory",
+            type: 'post',
+            data: {
+                'catid': @cid,
+                'pageNumber' : pnu,
+                'pageSize': @psiz,
+            }, success: function (response) {
+                if (response.re != null) {
+                    var i = 0;
+                    for (; i < response.re.length; i++) {
+
+                        var abc = response.re[i].mainImages;
+
+                        var join = `<div id="next" class="col-sm-6 col-lg-4 mix center-table" id="item_` + response.re[i].inventroyId+`">
+<div class="products-item">
+                                            <div class="top">
+
+                                                <a href="ProductDetails?id=`+ response.re[i].inventroyId +`" target="_blank">
+                                                    <img src="../ProductImages/`+abc+`" alt="Products" />
+                                                </a>
+                                                <div class="inner">
+                                                    <h3>
+                                                        <a href="ProductDetails?id=`+ response.re[i].inventroyId +`" target="_blank">
+                                                            `+ response.re[i].title+`
+                                                        </a>
+                                                    </h3>
+                                                    <span>
+                                                        Rs. `+ response.re[i].mrp+`
+                                                    </span>
+                                                    <span>
+                                                        Available Qty `+ response.re[i].avaliableQtyW + '(W),' + response.re[i].availableQtyS + '(S),' + response.re[i].avaliableQtyR + '(R)' +`
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+</div>`
+
+                        $('#prods').append(join);
+                       nps++;
+                    }
+                    noOfProdsLoaded +=@psiz;
+                    if (noOfProdsLoaded >=  @total)
+                    {
+                        $("#moreprod").hide();
+                    }
+                    pnu++;
+                    //$("#nSize").val(nps);
+                }
+            }
+        })
+    }    
+</script>

@@ -1,0 +1,222 @@
+﻿@model IEnumerable<SCASA.Models.ModelClasses.QuotesSubmittedForApprovalModel>
+
+@{
+    int rCnt = 1;
+    
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1>Total :  @Model.Count()</h1>
+                    <small>Quotations submitted for additional discount.</small>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="btn-group float-right" role="group">
+                         
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 pinpin">
+                <div class="card" data-sortable="true">
+                    <div class="card-header">
+                    </div>
+                    <div class="card-body">
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="mydatatable" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>#</th>
+                                        <th>Customer Name</th> 
+                                        <th>Sales Executive</th>
+                                        <th>Submitted ON</th>
+                                        <th>Order Amount</th>
+                                        <th>SE Disc.</th>
+                                        <th>Head Disc.</th>
+                                        <th>Admin Disc.</th>
+                                        <th>Total Disc.</th>
+                                        <th>Total Amt</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                     
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var v in Model)
+                                        {
+                                            <tr>
+                                                <td >@(rCnt++)</td>
+                                                <td width="15%"> <div> <strong>@v.CustomerName</strong> </div> <div> @v.CustomerAddress </div>
+                                                </td> <td> @v.SubmittedBy </td>
+                                                <td>
+                                                    @(Convert.ToDateTime(v.SubmittedOn).ToString("dd/MMM/yyyy HH:ss"))
+                                                </td>
+                                                <td class="text-right"> Rs. @(String.Format(Indian,"{0:N}", (v.quoteDetails.crfqDetails.Sum(a => a.OrderLineTotal))))</td>
+                                                <td class="text-right">
+                                                     @v.SalesExecDiscount %
+                                                </td>
+                                                <td class="text-right">
+                                                              @v.DiscountGiven %
+                                                </td>
+                                                <td class="text-right">
+                                                    @v.AdminDiscount %
+                                                </td>
+                                                @{
+                                                    var adDis = v.AdminDiscount == null ? 0 : v.AdminDiscount;
+                                                }
+                                                <td class="text-center">
+                                                    Rs. @(String.Format(Indian,"{0:N}",(v.quoteDetails.crfqDetails.Sum(a=>a.OrderLineTotal) * ((v.SalesExecDiscount + v.DiscountGiven+adDis) /100))))
+
+                                                </td>
+                                                <td class="text-right">
+                                                    Rs. @(String.Format(Indian,"{0:N}", v.quoteDetails.crfqDetails.Sum(a=>a.TotalPrice)))
+                                                </td> 
+                                                <td style="background-color:blueviolet; color:white;">
+                                                    @v.CurrentStatus
+                                                </td>
+                                                <td>
+                                                    @if (v.CurrentStatus == "Submitted for Discount" || (v.CurrentStatus == "Submitted for Extra Discount" && ViewBag.LoggedUser.userTypeCode < 5))
+                                                    {
+                                                        <a href="~/AdminSales/HeadDiscount?trid=@v.TRId">
+                                                            <button type="button" class="btn btn-success btn-sm"
+                                                                    data-toggle="modal">
+                                                                <i class="fa fa-money" title="Give Discount"></i>
+                                                            </button>
+                                                        </a>
+                                                    }                                                    
+
+                                                </td>
+
+                                            </tr>
+                                        }
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-inn">
+                             
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- customer Modal1 -->
+        <div class="modal fade" id="customer1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-primary">
+                        <h3><i class="fa fa-user m-r-5"></i> Update List</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="form-horizontal">
+                                    <div class="row">
+                                        <!-- Text input-->
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Model No:</label>
+                                            <input type="text" placeholder="Customer Name" class="form-control">
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Descriprtion:</label>
+                                            <input type="email" placeholder="Email" class="form-control">
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Mobile</label>
+                                            <input type="number" placeholder="Mobile" class="form-control">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="control-label">Address</label><br>
+                                            <textarea name="address" rows="3"></textarea>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="control-label">type</label>
+                                            <input type="text" placeholder="type" class="form-control">
+                                        </div>
+                                        <div class="col-md-12 form-group user-form-group">
+                                            <div class="float-right">
+                                                <button type="button" class="btn btn-danger btn-sm">Cancel</button>
+                                                <button type="submit" class="btn btn-add btn-sm">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- Modal -->
+        <!-- Customer Modal2 -->
+        <div class="modal fade" id="customer2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-primary">
+                        <h3><i class="fa fa-user m-r-5"></i> Delete List Item</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="form-horizontal">
+                                    <div class="row">
+                                        <div class="col-md-12 form-group user-form-group">
+                                            <label class="control-label">Delete List </label>
+                                            <div class="float-right">
+                                                <button type="button" class="btn btn-danger btn-sm">NO</button>
+                                                <button type="submit" class="btn btn-add btn-sm">YES</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </section>
+    <!-- /.content -->
+</div>
+ 
+  
+
+<script>
+     
+</script>

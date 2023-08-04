@@ -1,0 +1,256 @@
+﻿@model IEnumerable<SCASA.Models.ModelClasses.UserMasterDisplay>
+@*
+    <a href="E:\New Empire\SCASA\Views\Staff\StaffList.cshtml">E:\New Empire\SCASA\Views\Staff\StaffList.cshtml</a>
+        For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int rCnt = 1;
+
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-users"></i>
+        </div>
+        <div class="header-title">
+            <h1>Staff </h1>
+            <small>Staff List</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 pinpin">
+                <div class="card" data-sortable="true">
+                    <div class="card-header">
+                        <div class="card-title custom_title">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <form action="~/Staff/StaffList" method="post">
+
+                                        <div class="col-md-4">
+                                            <h4>Staff Details </h4>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="uData" placeholder="Search">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button type="submit" class="btn btn-success btn-sm">
+                                                Search
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                  
+                                <div class="col-md-3">
+                                    @*<div class="btn-group float-right" role="group">
+                                        <div class="buttonexport" id="buttonlist">
+                                            <a class="btn btn-add" href="~/Staff/AddNewStaff">
+                                                <i class="fa fa-plus"></i> Add Employee
+                                            </a>
+                                        </div>
+                                    </div>*@
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>#</th>
+                                        <th>Photo</th>
+                                        <th>Employee Code</th>
+                                        <th>Employee Name</th>
+                                        <th>Designation</th>
+                                        <th>Mobile</th>
+                                        <th>Join</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var s in Model)
+                                        {
+                                            <tr>
+                                                <td>@(rCnt++)</td>
+                                                <td><a href="~/Staff/Profile?id=@s.UserId"><img src="~/ProductImages/@s.ProfileImage" width="150" height="150" /></a></td>
+                                                <td><a href="~/Staff/Profile?id=@s.UserId">@s.EmployeeCode</a></td>
+                                                <td><a href="~/Staff/Profile?id=@s.UserId">@s.UserName</a></td>
+                                                <td>@s.UserTypeName</td>
+                                                <td>@s.MobileNumber</td>
+                                                @{
+                                                    DateTime co = Convert.ToDateTime(s.DateOfJoin);
+                                                }
+                                                <td>@co.ToString("dd/MMM/yyyy")</td>
+                                                <td>
+                                                    @if (s.IsActive == true)
+                                                    {
+                                                        <span class="label-custom label label-default">Active</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="label label-danger">@s.CurrentStatus</span>
+                                                    }
+                                                </td>
+                                                <td>
+                                                   @if (s.Address1 != null)
+                                                    {
+                                                    <a href="~/Staff/UpdateUser?id=@s.UserId"><button type="button" class="btn btn-add btn-sm" title="Edit"><i class="fa fa-pencil"></i></button></a>
+                                                    }
+                                                   @if (s.CurrentStatus != "Relieved")
+                                                    {
+                                                        <a href="~/Staff/ReleiveStaff?id=@s.UserId"><button type="button" class="btn btn-add btn-sm" title="Releive"><i class="fa fa-sign-out"></i></button></a>
+                                                    }
+
+                                                    <a href="javascript:void(0);" onclick="ShowDelete(@s.UserId)" title="Delete">
+                                                        <button type="button" class="btn btn-danger btn-sm"
+                                                                data-toggle="modal">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </button>
+                                                    </a>
+                                                    <a href="javascript:void(0);" onclick="ShowResend(@s.UserId)"><button type="button" class="btn btn-add btn-sm" title="Resend">Login Details</button></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<div class="modal fade" id="customer2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-primary">
+                <h3><i class="fa fa-user m-r-5"></i> Delete List Item</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal">
+                            <div class="row">
+                                <div class="col-md-12 form-group user-form-group">
+                                    <label class="control-label">Delete List </label>
+                                    <div class="float-right">
+                                        <button type="button" class="btn btn-danger btn-sm">NO</button>
+                                        <button type="submit" class="btn btn-add btn-sm">YES</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<script>
+    function ShowRelieve(id, name) {
+        $('#staffId').val(id);
+        $('#rUserName').html(name);
+        $('#customer2').modal('show');
+         
+    }
+    function SaveRemarks() {
+        var remarks = $('#releiveRemarks').val();
+        var id = $('#staffId').val();
+        $.ajax({
+            url: GlobalUrl + "Staff/ReleiveStaff",
+            type: 'post',
+            data: { 'UserId': id, 'ReleivedRemarks': remarks },
+            success: function (result) {
+                toastr["success"]("Successuflly Releived!");
+                window.location.href = window.location.href;
+            }
+        });
+    }
+
+    function ShowDelete(id) {
+        swal("Are you sure?", {
+            buttons: {
+                yes: {
+                    text: "Yes",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+                $.ajax({
+                    url: GlobalUrl + "Staff/DeleteStaff?id=" + id,
+                    type: 'post',
+                    data: '{}',
+                    success: function (result) {
+                        toastr["success"]("Successuflly deleted!");
+                        window.location.href = window.location.href;
+                    }
+                });
+            }
+            else {
+                toastr["error"]("Delete cancelled!")
+            }
+            return false;
+        });
+    }
+    function ShowResend(id) {
+        swal("Are you sure To Resend Login Details ?", {
+            buttons: {
+                yes: {
+                    text: "Resend",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+                $.ajax({
+                    url: GlobalUrl + "Staff/ResendCredentials?id=" + id,
+                    type: 'post',
+                    data: '{}',
+                    success: function (result) {
+                        if (result.result.statusCode == 1) {
+                            toastr["success"]("Successuflly Sent!");
+                            //window.location.href = window.location.href;
+                        } else {
+                            toastr["error"](result.result.statusMessage);
+                            //window.location.href = window.location.href;
+                        }
+                    }
+                });
+            }
+            else {
+                toastr["error"]("Resend cancelled!")
+            }
+            return false;
+        });
+    }
+</script>

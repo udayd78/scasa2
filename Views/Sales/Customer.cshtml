@@ -1,0 +1,156 @@
+﻿@model IEnumerable<SCASA.Models.ModelClasses.CustomerListModel>
+@{
+    Layout = "~/Views/Shared/_SalesMaster.cshtml";
+    int rCnt = 1;
+    int curentPage = ViewBag.pageNumber;
+    var totalPages = ViewBag.totalPages;
+    int pageSize = ViewBag.pageSize;
+}
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-content">
+                    <h2>Customers - @ViewBag.TotalRecords</h2>
+                    <ul>
+                        <li>
+                            <a href="~/Sales/index">Home</a>
+                        </li>
+                        <li>
+                            <span>Register</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="title-img">
+        <img src="~/SApp/assets/images/page-title1.jpg" alt="About" />
+        <img src="~/SApp/assets/images/shape16.png" alt="Shape" />
+        <img src="~/SApp/assets/images/shape17.png" alt="Shape" />
+        <img src="~/SApp/assets/images/shape18.png" alt="Shape" />
+    </div>
+</div>
+
+<div class="user-area ptb-60">
+    <div class="container">
+
+        <div class="searchBox mb-2">
+            <form action="~/Sales/Customer" method="post">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search Name or Number or Mail" name="search">
+                    <button type="submit" class="btn common-btn">
+                        Search
+                        <img src="~/SApp/assets/images/shape1.png" alt="Shape">
+                        <img src="~/SApp/assets/images/shape2.png" alt="Shape">
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="searchBox">
+            <div id="no-more-tables">
+                <table class="col-md-12 table-bordered table-striped table-condensed cf">
+                    <thead class="cf">
+                        <tr>
+                            <th>S No</th>
+                            <th>Name</th>
+                            <th>Mobile Number</th>
+                            <th>Email</th>
+                            <th>WhatsApp Number</th>
+                            @*<th>Address</th>*@
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            foreach (var c in Model)
+                            {
+                                <tr>
+                                    <td>@(rCnt++)</td>
+                                    <td>
+                                        <a href="~/Sales/SelectCustomer?id=@c.Cid">@c.FullName</a>
+                                    </td>
+                                    <td>@c.MobileNumber</td>
+                                    <td>@c.EmailId</td>
+                                    <td>@c.WhatsAppNumber</td>
+                                    @*<td>
+                                        @if (c.Street != "") {
+                                            <p>@c.Street,@c.CityName</p>
+                                         }
+                                    </td>*@
+                                    <td>
+                                        <a href="~/Sales/RegisterCustomer?id=@c.Cid">
+                                            <button type="button" class="btn btn-add btn-sm">
+                                                <i class="fa fa-pencil"></i>
+                                            </button>
+                                        </a>
+                                        @*<a href="javascript:void(0);" onclick="ShowDelete(@c.Cid)">
+                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal">
+                                                <i class="fa fa-trash-o"></i>
+                                            </button>
+                                        </a>*@
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+                <a class="btn common-btn mt-3" href="~/Sales/RegisterCustomer">
+                    Register
+                </a>
+                <div class="tab-inn">
+                    <form action="~/Inventory/All" method="post">
+                        <span>Total @ViewBag.TotalCount records</span>
+                        <ul class="pagination">
+                            <!--<li class="waves-effect"><a href="#!"><i class="material-icons"><</i></a></li>-->
+                            @{
+                                int pre = curentPage - 1;
+                            }
+                            @if (curentPage == 1)
+                            {
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#!" tabindex="-1">Previous</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="page-item">
+                                    <a class="page-link" href="~/Sales/Customer?pageNumber=@pre&pageSize=@ViewBag.pageSize&search=@ViewBag.search">Previous</a>
+                                </li>
+                            }
+                            @for (int cnt = 1; cnt <= totalPages; cnt++)
+                            {
+                                if (cnt == curentPage)
+                                {
+                                    <li class="page-item active"><a class="page-link" href="~/Sales/Customer?pageNumber=@cnt&pageSize=@ViewBag.pageSize&search=@ViewBag.search">@cnt</a></li>
+
+                                }
+                                else
+                                {
+                                    <li class="page-item"><a class="page-link" href="~/Sales/Customer?pageNumber=@cnt&pageSize=@ViewBag.pageSize&search=@ViewBag.search">@cnt</a></li>
+                                }
+                            }
+                            @{
+                                int next = curentPage + 1;
+                            }
+                            @if (curentPage != totalPages)
+                            {
+                                <li class="page-item">
+                                    <a class="page-link" href="~/Sales/Customer?pageNumber=@next&pageSize=@ViewBag.pageSize&search=@ViewBag.search">Next</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#!">Next</a>
+                                </li>
+                            }
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

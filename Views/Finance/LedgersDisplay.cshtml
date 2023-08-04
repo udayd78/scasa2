@@ -1,0 +1,155 @@
+﻿@model SCASA.Models.ModelClasses.LedgerScreenModel
+@{
+    var creditTotal = 0.0;
+    var debitTotal = 0.0;
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Ledger</h1>
+            <small>Select Ledgers</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="card-title custom_title">
+                            <h5>Empire Home</h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="~/Finance/LedgersDisplay">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Select Ledgers</label>
+                                        @Html.DropDownListFor(x => Model.LedId, new SelectList(ViewBag.heads, "HeadId", "HeadName", Model.LedId), new { @class = "form-control select2" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="pull-right">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="commentForm">
+                                                    <fieldset>
+                                                        <div class="input-row form-group row">
+                                                            <div class="col-md-6">
+                                                                <span class="label"> From</span>
+                                                                @Html.EditorFor(modal => modal.FromDate, new { htmlAttributes = new { @class = "form-control", @value = Model.FromDate } })
+                                                                @*<input type='date' class="form-control" name="FromDate" value="@Model.FromDate" />*@
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <span class="label"> To </span>
+                                                                @Html.EditorFor(modal => modal.ToDate, new { htmlAttributes = new { @class = "form-control", @value = Model.ToDate } })
+                                                                @*<input type='date' class="form-control" name="ToDate" value="@Model.ToDate" />*@
+                                                                <span class="text-danger">@ViewBag.ermsg</span>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="pull-right mt-4">
+                                                    <button class="btn btn-success btn-sm" type="submit"> Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="pull-right mt-4">
+                                        <a class="btn btn-primary btn-sm" href="~/Finance/PrintLedgerTransaction?from=@Model.FromDate&to=@Model.ToDate&id=@Model.LedId" target="_blank"> Print</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="table-responsive">
+                            <div id="no-more-tables" style="height: 600px; overflow-x: auto;">
+                                <table class="col-md-12 table-bordered table-striped table-condensed cf">
+                                    <thead class="bg-green cf">
+                                        <tr style="background: #98d17a;">
+                                            <th>Date</th>
+                                            <th style="width:50%">Particulars</th>
+                                            <th>Vchr Type</th>
+                                            <th>Vchr NO</th>
+                                            <th>Debit</th>
+                                            <th>Credit</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var h in Model.Ledgers)
+                                        {
+                                            <tr>
+                                                @{
+                                                    DateTime co = Convert.ToDateTime(h.DateOfTransaction);
+                                                }
+                                                <td data-title="Date">@co.ToString("dd/MM/yyyy")</td>
+                                                @if (h.VoucherType == "Payment")
+                                                {
+                                                    <td data-title="Particulars"><a href="~/Finance/Payments?id=@h.TRID"> @h.FromHeadID_Name</a></td>
+                                                }
+                                                else if (h.VoucherType == "Receipt")
+                                                {
+                                                    <td data-title="Particulars"><a href="~/Finance/Receipt?id=@h.TRID"> @h.FromHeadID_Name</a></td>
+                                                }
+                                                else if (h.VoucherType == "Contra")
+                                                {
+                                                    <td data-title="Particulars"><a href="~/Finance/ContraEntry?id=@h.TRID"> @h.FromHeadID_Name</a></td>
+                                                }
+                                                <td data-title="Vocher Type">@h.VoucherType</td>
+                                                <td data-title="Vocher No">@h.VoucherNumber</td>
+                                                <td data-title="Debit">@h.Debit</td>
+                                                <td data-title="Credit">@h.Credit</td>
+                                                <td data-title="Actions">
+                                                    <a href="javascript:void(0);" onclick="ShowReceipt(@h.TRID)">Print</a>
+                                                </td>
+                                            </tr>
+                                            {
+                                                debitTotal += (double)h.Debit;
+                                                creditTotal += (double)h.Credit;
+                                            }
+                                        }
+                                        <tr style="min-height:300px; height: 300px; ">
+                                            <td style="padding-top: 200px; text-align: right" colspan="5">
+                                                <h6 class="color-green"><strong>@debitTotal</strong></h6>
+                                            </td>
+                                            <td style="padding-top: 200px;">
+                                                <h6 class="color-green"><strong>@creditTotal</strong></h6>
+                                            </td>
+                                        </tr>
+                                        <tr style="">
+                                            <td style="text-align: right" colspan="7">
+                                                <h4>Closing Balance : <span class="color-green">Rs @(String.Format(Indian,"{0:N}", Model.CurrentBallance)) cr</span></h4>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<script>
+    $('.select2').select2();
+    function ShowReceipt(trid) {
+        $("#ReceiptPanel").load("/Finance/GetFinaniceReceiptPartial?trid=" + trid);
+    }
+</script>
+
+<section class="content" id="ReceiptPanel">
+</section>

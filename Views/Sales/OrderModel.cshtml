@@ -1,0 +1,299 @@
+﻿
+@model SCASA.Models.ModelClasses.OrderModerForMail
+@{
+    int rCnt = 1;
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+    var totQty = 0;
+    decimal totPrice = 0;
+    Layout = null;
+
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width" name="viewport" />
+    <!--[if !mso]><!-->
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <!--<![endif]-->
+    <title>Sales Order</title>
+    <!--[if !mso]><!-->
+    <!--<![endif]-->
+
+</head>
+<body style="font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(237, 237, 240);
+        }
+
+        table,
+        td,
+        tr {
+            vertical-align: top;
+            border-collapse: collapse;
+        }
+
+        * {
+            line-height: inherit;
+        }
+
+        a[x-apple-data-detectors=true] {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+    </style>
+    <table width="700px" style="margin: 0 auto; border:2px solid #a3080d;background-color: #fff; padding: 20px;" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td>
+                    <table width="100%;">
+                        <tbody>
+                            <tr bgcolor="#5e3f37">
+                                <td>
+                                    <img src="~/SApp/assets/images/header-sales.jpg" width="700">
+                                </td>
+                            </tr>
+                            @*<tr bgcolor="#5e3f37">
+                                    <td style="text-align: center; font-size:18px; color: #d7b56d; padding-bottom: 10px;">4F,8-2-686/B2N, Rd Number 12, Banjara Hills, Hyderabad, Telangana - 500034.</td>
+                                </tr>
+                                <tr bgcolor="#5e3f37">
+                                    <td style="text-align: center; font-size: 40px; font-weight: bold;">
+                                        <img src="~/SApp/assets/images/qutationHead.jpg" width="200">
+                                    </td>
+                                </tr>*@
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" border="1" bordercolor="#5e3f37" style="color:#5e3f37">
+                        <tr>
+                            <td width="50%">
+                                Date : <strong>@DateTime.Now.ToString("d")</strong>
+                            </td>
+                            <td width="50%">
+                                Attn : <strong>@Model.sExecutive.UserName</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%">
+                                Company : <strong>@Model.companyDetails.CompanyDisplayName</strong>
+                            </td>
+                            <td width="50%">
+                                Contact  : <strong>@Model.sExecutive.UserName </strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%">
+                                E-mail : <strong>@Model.companyDetails.ShowroomEmail</strong>
+                            </td>
+                            <td width="50%">
+                                Mobile : <strong>7995562304</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%">
+                                Website : <strong>@Model.companyDetails.CompanyWebsite</strong>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td height="20px"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <table width="100%" border="1" bordercolor="#5e3f37" style="color:#5e3f37">
+                        <tr>
+                            <td width="100%">
+                                To,
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%">
+                                Customer Name: <strong>@Model.custMaster.FullName</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%">
+                                E-mail : <strong>@Model.custMaster.EmailId</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%">
+                                Mobile : <strong>@Model.custMaster.MobileNumber</strong>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td height="20px"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <table width="100%" style="color:#5e3f37;">
+                        <tr style="border-top:2px solid #5e3f37;">
+                            <th style="border-right:2px solid #5e3f37;">Sl No.</th>
+                            <th style="border-right:2px solid #5e3f37;">Brand</th>
+                            <th style="border-right:2px solid #5e3f37;">Product Name</th>
+                            <th style="border-right:2px solid #5e3f37;">Image</th>
+                            <th style="border-right:2px solid #5e3f37;">Unit price </th>
+                            <th style="border-right:2px solid #5e3f37;">Discount %</th>
+                            <th style="border-right:2px solid #5e3f37;">Discounted Price </th>
+                            <th style="border-right:2px solid #5e3f37;">Quantity </th>
+                            <th style="border-right:2px solid #5e3f37;">Total  Price </th>
+                        </tr>
+                        @foreach (var a in Model.Orders)
+                        {
+                            <tr style="border-top:2px solid #5e3f37; border-bottom: 2px solid #5e3f37;">
+                                <td style="border-right: 2px solid #5e3f37;">@(rCnt++)</td>
+                                <td style="border-right: 2px solid #5e3f37;">Scasa</td>
+                                <td style="border-right: 2px solid #5e3f37;">@a.InventoryTitle</td>
+                                @{
+                                    var imgname = a.InventoryImage.Split(",");
+                                }
+                                <td style="border-right: 2px solid #5e3f37;"><img src="@Model.imgURL@imgname[0]" width="110" height="77"></td>
+
+                                @{
+                                    decimal dis = (decimal)(a.DisAmtByHead + a.DisAmtBySE);
+                                    decimal adDis = (decimal)(a.AdminDiscount == null ? 0 : a.AdminDiscount);
+                                    dis += adDis;
+                                    var disPrice = ((decimal)a.ItemPrice) - ((decimal)a.ItemPrice * dis / 100);
+                                    totQty += (int)a.Quantity;
+                                    totPrice += (decimal)(a.TotalPrice);
+                                }
+                                <td style="border-right: 2px solid #5e3f37;">@String.Format(Indian, "{0:N}", a.ItemPrice)</td>
+                                <td style="border-right: 2px solid #5e3f37;">@dis%</td>
+                                <td style="border-right: 2px solid #5e3f37;">@String.Format(Indian, "{0:N}", disPrice)</td>
+                                <td style="border-right: 2px solid #5e3f37;">@a.Quantity</td>
+                                <td style="border-right: 2px solid #5e3f37;"> ₹@String.Format(Indian, "{0:N}", a.TotalPrice)</td>
+                            </tr>
+                        }
+                        @if (Model.delivaryCharges != 0)
+                        {
+                            <tr>
+                                <td colspan="8" style="border-right: 2px solid #000; text-align: center; border-bottom: 2px solid #000;">
+                                    Delivery Charges  : -
+                                </td>
+                                <td style=" text-align: right; text-align: right; border-bottom: 2px solid #000;">
+                                    @Model.delivaryCharges
+                                </td>
+                            </tr>
+                        }
+                        @if (Model.roundedValue != 0)
+                        {
+                            <tr>
+                                <td colspan="8" style="border-right: 2px solid #000; text-align: center">
+                                    Rounding value : -
+                                </td>
+                                <td style=" text-align: right; text-align: right">
+                                    @Model.roundedValue
+                                </td>
+                            </tr>
+                        }
+                        @*<tr style="border-top:2px solid #5e3f37; border-bottom: 2px solid #5e3f37;">
+            <td style="border-right: 2px solid #5e3f37;">2</td>
+            <td style="border-right: 2px solid #5e3f37;">Scasa</td>
+            <td style="border-right: 2px solid #5e3f37;">Leisure Chair</td>
+            <td style="border-right: 2px solid #5e3f37;"><img src="img/sofa.jpg" width="110" height="77"></td>
+            <td style="border-right: 2px solid #5e3f37;">180950</td>
+            <td style="border-right: 2px solid #5e3f37;">25%</td>
+            <td style="border-right: 2px solid #5e3f37;">135712</td>
+            <td style="border-right: 2px solid #5e3f37;">1</td>
+            <td style="border-right: 2px solid #5e3f37;"> ₹1,35,712.00</td>
+        </tr>*@
+
+                        <tr bgcolor="#5e3f37" style="color:#fff; padding: 10px;">
+                            <td style="border-right: 2px solid #5e3f37; border-bottom: 2px solid #5e3f37; padding: 5px" colspan="7"><strong>Total No. Of Items and Total Cost : </strong></td>
+                            <td style="border-right: 2px solid #5e3f37; border-bottom: 2px solid #5e3f37; padding: 5px"><strong>@totQty</strong></td>
+                            <td style="border-right: 2px solid #5e3f37; border-bottom: 2px solid #5e3f37; padding: 5px"> <strong>₹@String.Format(Indian, "{0:N}", (totPrice+ Model.roundedValue+Model.delivaryCharges)) </strong></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td height="10px"></td>
+            </tr>
+
+            <tr>
+                <td style="background-color: #5e3f37; color: #fff; text-align: center; height: 20px">
+                    <b>Terms of Sales</b>
+                </td>
+            </tr>
+            <tr>
+                <td style=" font-size: 13px;">
+                    <table>
+                        <tr>
+                            <td><strong>1) Price</strong> -The prices mentioned above are subject to revision , in case of any change in the above BOQ</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2) Taxes</strong> -GST 18% is inclusive on the above prices.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3) Trans charges</strong> -No transportation charges if delivery is within Hyderabad, Transportation charges extra as per actuals if delivered outside Hyderabad.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4) Delivery</strong> -Immediate delivery will be processed within 48 hours for available products, products on order will take 12-16 weeks from the date of Order placed/ Advance received.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5) Payment</strong> - 70% advance against order received and 30% before delivery, Delivery is subject to realization of cheque payments.  Amount once received on order finalisation will not be refunded. </td>
+                        </tr>
+                        <tr>
+                            <td><strong>6) Validity</strong> - Quotation is valid for 15 days.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>7) Forms </strong>- Please provide statutory forms as may be required.</td>
+                        </tr>
+                        <tr>
+                            <td><p style="color: red;">8) Cancellation - Order once placed cannot be cancelled or altered, incase of cancellation complete deposit amount shall be forfieted.</p></td>
+                        </tr>
+                        @*<p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>*@
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td height="10px"></td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <table width="100%">
+                        <tr>
+                            <td width="70%" style="text-align: left">
+                                <div><strong>EMPIRE HOME Acceptance</strong></div>
+                            </td>
+                            <td width="30%" style="text-align: center; font-style: italic; padding: 5px">
+                                <div>For <strong>Client Acceptance</strong></div>
+                                <div style="padding-top: 50px;"><strong>Authorised Signatory</strong></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+</html>

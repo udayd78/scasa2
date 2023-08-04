@@ -1,0 +1,230 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Empire Home New Staff</title>
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="~/WebApp/assets/dist/img/ico/favicon.png" type="image/x-icon">
+    <!-- Start Global Mandatory Style
+       =====================================================================-->
+    <!-- lobicard tather css -->
+    <link rel="stylesheet" href="~/WebApp/assets/plugins/lobipanel/css/tether.min.css" />
+    <!-- Bootstrap -->
+    <link href="~/WebApp/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- lobicard tather css -->
+    <link rel="stylesheet" href="~/WebApp/assets/plugins/lobipanel/css/jquery-ui.min.css" />
+    <!-- lobicard min css -->
+    <link href="~/WebApp/assets/plugins/lobipanel/css/lobicard.min.css" rel="stylesheet" />
+    <!-- lobicard github css -->
+    <link href="~/WebApp/assets/plugins/lobipanel/css/github.css" rel="stylesheet" />
+    <!-- Pace css -->
+    <link href="~/WebApp/assets/plugins/pace/flash.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="~/WebApp/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Pe-icon -->
+    <link href="~/WebApp/assets/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <!-- Themify icons -->
+    <link href="~/WebApp/assets/themify-icons/themify-icons.css" rel="stylesheet" />
+    <!-- End Global Mandatory Style
+       =====================================================================-->
+    <!-- Start page Label Plugins
+       =====================================================================-->
+    <!-- Emojionearea -->
+    <link href="~/WebApp/assets/plugins/emojionearea/emojionearea.min.css" rel="stylesheet" />
+    <!-- Monthly css -->
+    <link href="~/WebApp/assets/plugins/monthly/monthly.css" rel="stylesheet" />
+    <!-- End page Label Plugins
+       =====================================================================-->
+    <!-- Start Theme Layout Style
+       =====================================================================-->
+    <!-- Theme style -->
+    <link href="~/WebApp/assets/dist/css/stylecrm.css" rel="stylesheet" />
+    <!-- Theme style rtl -->
+    <!--<link href="~/WebApp/assets/dist/css/stylecrm-rtl.css" rel="stylesheet" />-->
+    <!-- End Theme Layout Style
+       =====================================================================-->
+</head>
+<body class="hold-transition sidebar-mini">
+    <!--preloader-->
+    @*<div id="preloader">
+            <div id="status"></div>
+        </div>*@
+    <!-- Site wrapper -->
+    <div class="wrapper">
+
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <img src="~/WebApp/assets/dist/img/logo.png" width="150px;">
+            </section>
+
+            <!-- Main content -->
+
+
+            <div class="content" style="text-align:center;width:40%;margin-top:10%">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true" style="text-align:center;">
+                    <h4>Welcome to Empire Home Family! </h4>
+                    <h3>You will get an email with password to login into Empire Home portal</h3>
+                    <br />
+                </div>
+            </div>
+
+
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        @*<footer class="main-footer">
+                <strong>Copyright &copy; 2021 <a href="#">Empire Home</a>.</strong> All rights reserved.
+            </footer>*@
+    </div>
+    <!-- /.wrapper -->
+    <!-- Start Core Plugins
+       =====================================================================-->
+    <!-- jQuery -->
+    <script src="~/WebApp/assets/plugins/jQuery/jquery-1.12.4.min.js"></script>
+    <!-- Bootstrap proper -->
+    <script src="~/WebApp/assets/bootstrap/js/popper.min.js"></script>
+    <!-- lobicard ui min js -->
+    <script src="~/WebApp/assets/plugins/lobipanel/js/jquery-ui.min.js"></script>
+    <!-- lobicard ui touch-punch-improved js -->
+    <script src="~/WebApp/assets/plugins/lobipanel/js/jquery.ui.touch-punch-improved.js"></script>
+    <!-- lobicard tether min js -->
+    <script src="~/WebApp/assets/plugins/lobipanel/js/tether.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/WebApp/assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- lobicard js -->
+    <script src="~/WebApp/assets/plugins/lobipanel/js/lobicard.js"></script>
+    <!-- lobicard highlight js -->
+    <script src="~/WebApp/assets/plugins/lobipanel/js/highlight.js"></script>
+    <!-- Pace js -->
+    <script src="~/WebApp/assets/plugins/pace/pace.min.js"></script>
+    <!-- NIceScroll -->
+    <script src="~/WebApp/assets/plugins/slimScroll/jquery.nicescroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/WebApp/assets/plugins/fastclick/fastclick.min.js"></script>
+    <!-- CRMadmin frame -->
+    <script src="~/WebApp/assets/dist/js/custom.js"></script>
+    <!-- End Core Plugins
+       =====================================================================-->
+    <!-- Start Page Lavel Plugins
+       =====================================================================-->
+    <!-- ChartJs JavaScript -->
+    <script src="~/WebApp/assets/plugins/chartJs/Chart.min.js"></script>
+    <!-- Counter js -->
+    <script src="~/WebApp/assets/plugins/counterup/waypoints.js"></script>
+    <script src="~/WebApp/assets/plugins/counterup/jquery.counterup.min.js"></script>
+    <!-- Monthly js -->
+    <script src="~/WebApp/assets/plugins/monthly/monthly.js"></script>
+    <!-- End Page Lavel Plugins
+       =====================================================================-->
+    <!-- Start Theme label Script
+       =====================================================================-->
+    <!-- Dashboard js -->
+    <script src="~/WebApp/assets/dist/js/dashboard.js"></script>
+    <!-- End Theme label Script
+       =====================================================================-->
+
+    <script>
+        div.container4 {
+            height: 10em;
+            position: relative
+        }
+        div.container4 p {
+            margin: 0;
+            background: yellow;
+            position: absolute;
+            top: 50 %;
+            left: 50 %;
+            margin - right: -50 %;
+            transform: translate(-50 %, -50 %)
+        }
+        function dash() {
+            // single bar chart
+            var ctx = document.getElementById("singelBarChart");
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Sun", "Mon", "Tu", "Wed", "Th", "Fri", "Sat"],
+                    datasets: [
+                        {
+                            label: "My First dataset",
+                            data: [40, 55, 75, 81, 56, 55, 40],
+                            borderColor: "rgba(0, 150, 136, 0.8)",
+                            width: "1",
+                            borderWidth: "0",
+                            backgroundColor: "rgba(0, 150, 136, 0.8)"
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            //monthly calender
+            $('#m_calendar').monthly({
+                mode: 'event',
+                //jsonUrl: 'events.json',
+                //dataType: 'json'
+                xmlUrl: 'events.xml'
+            });
+
+            //bar chart
+            var ctx = document.getElementById("barChart");
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["January", "February", "March", "April", "May", "June", "July", "august", "september", "october", "Nobemver", "December"],
+                    datasets: [
+                        {
+                            label: "My First dataset",
+                            data: [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56],
+                            borderColor: "rgba(0, 150, 136, 0.8)",
+                            width: "1",
+                            borderWidth: "0",
+                            backgroundColor: "rgba(0, 150, 136, 0.8)"
+                        },
+                        {
+                            label: "My Second dataset",
+                            data: [28, 48, 40, 19, 86, 27, 90, 28, 48, 40, 19, 86],
+                            borderColor: "rgba(51, 51, 51, 0.55)",
+                            width: "1",
+                            borderWidth: "0",
+                            backgroundColor: "rgba(51, 51, 51, 0.55)"
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            //counter
+            $('.count-number').counterUp({
+                delay: 10,
+                time: 5000
+            });
+        }
+        dash();
+    </script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+﻿@model SCASA.Models.ModelClasses.StockMovementMasterModel
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Stock Movement Process</h1>
+            <small>Stock Management</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <form action="~/Inventory/MoveStock" method="post" id="frmStock">
+
+
+                <div class="col-sm-12">
+                    <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                        <div class="card-header all_card_btn">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="card-title custom_title">
+                                        <h4>Move Stock</h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="card-title custom_title pull-right">
+                                        <a href="~/Inventory/All" class="btn btn-outline-success">Back to list</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+                            <h3>Moving Stock </h3>
+                            <br />
+
+                            @Html.HiddenFor(m => m.SMRId)
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Move From</label>
+                                    <select class="form-control" name="MovedFrom" id="movedFromD">
+                                        <option value="Warehouse">Warehouse</option>
+                                        <option value="Showroom">Showroom</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Move To</label>
+                                    <select class="form-control" name="MovedTo" id="movedToD" onchange="CheckStandBY()">
+                                        <option value="Warehouse">Warehouse</option>
+                                        <option value="Showroom">Showroom</option>
+                                        <option value="StandBY">Stand By</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3" id="CustOptin">
+                                <div class="form-group">
+                                    <label>Select Customer</label>
+                                    @Html.DropDownListFor(x => Model.customerID, new SelectList(ViewBag.customers, "cusId", "Name", Model.customerID), new { @id = "subcatDD", @class = "form-control select2", @onchange = "SelectGst()" })
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+
+                                <div class="form-group">
+                                    <label>References/Notes</label>
+                                    <input type="text" name="Remarks" class="form-control" id="MoStNot" />
+                                    @Html.ValidationMessageFor(m => m.Remarks, null, new { @class = "text-danger" })
+                                    <span class="text-danger" id="notErro"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <button class="btn btn-success serchgaptop" id="btnSave">Save</button>
+                                    <br />
+                                    <span class="text-danger" id="mainError"></span>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <span class="text-danger">@ViewBag.ErrorMessage</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body all_card_btn">
+                    <!-- Form controls -->
+
+                    <div class="col-sm-12">
+                        <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                            <div class="card-body">
+                                <h4>Select Items to be moved</h4><br/>
+
+                                <div class="row">
+                                    <table id="daiomndsData" class="table table-active table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Model Number
+                                                </th>
+                                                <th>Image</th>
+                                                <th>Warehouse Qty</th>
+                                                <th>Showroom Qty</th>
+                                                <th>Moving Qty</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @Html.DropDownListFor(x => Model.InventoryId1, new SelectList(Model.modelDrop, "InventoryId", "ModelNumber", Model.InventoryId1), htmlAttributes: new { id = "invId", @class = "form-control select2", @onchange = "GetBasicInfo()" })
+                                                    <span id="InvError" class="text-danger"></span>
+                                                </td>
+                                                <td>
+                                                    <img src="#" id="productImage" width="100px;" />
+                                                </td>
+                                                <td>
+                                                    <span id="wqty"></span>
+                                                </td>
+                                                <td>
+                                                    <span id="sqty"></span>
+                                                </td>
+                                                <td>
+                                                    @Html.TextBoxFor(a => a.Qty1, null, new { @placeholder = "Enter Qty", @id = "qtymoving", @class = "form-control" })
+                                                    <span id="QtyError" class="text-danger"></span>
+                                                </td>
+                                                <td>
+                                                    <input type="button" id="btnAdd" value="Add" class="btn btn-primary" />
+                                                    <input type="hidden" id="tempImageUrl" />
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <div class="card-body">
+                                        <h4>Selected Items information</h4><br/>
+                                        <table id="addedDaimnondData" class="table table-avatar table-bordered table-responsive-lg">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Model Number
+                                                    </th>
+                                                    <th>Image</th>
+                                                    <th>Warehouse Qty</th>
+                                                    <th>Showroom Qty</th>
+                                                    <th>Moving Qty</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <!-- /.content -->
+                        </div>
+                    </div>
+
+
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+<script>
+    /* $('.select2').select2();*/
+    $(document).ready(function () {
+        CheckStandBY();
+    });
+    var itemsAdded = 0;
+    $("body").on("click", "#btnAdd", function () {
+        var inventoryid = $('#invId option:selected').val();
+        var modelNumber = $('#invId option:selected').text();
+        var wqty = $('#wqty').html();
+        var sqty = $('#sqty').html();
+        var qty = $('#qtymoving').val();
+        var imgurl = $('#tempImageUrl').val();
+        if (inventoryid == "0") {
+            $('#InvError').html('Select Modal');
+            return false;
+        }
+        else {
+            $('#InvError').html('');
+        }
+        if (qty === "") {
+            $('#QtyError').html('Enter quantity');
+            return false;
+        }
+        if (qty == "0" || parseInt(qty) < 1) {
+            $('#QtyError').html('Enter quantity');
+            return false;
+        }
+        if ($('#movedFromD').val() == "Warehouse") {
+            if (parseInt(qty) > parseInt(wqty)) {
+                $('#QtyError').html('Quantity Exceeding the limit');
+                return false;
+            }
+        }
+        if ($('#movedFromD').val() == "Showroom") {
+            if (parseInt(qty) > parseInt(sqty)) {
+                $('#QtyError').html('Quantity Exceeding the limit');
+                return false;
+            }
+        }
+
+
+        var str = "<tr><td>" + modelNumber + " <input type='hidden' name='InventoryId[]' value='" + inventoryid + "'/></td>";
+        str += "<td> <img src='" + imgurl + "' width='100px:' /></td>";
+        str += "<td>" + wqty + " <input type='hidden' name='wQty[]' value='" + wqty + "'/></td>";
+        str += "<td>" + sqty + " <input type='hidden' name='sQty[]' value='" + sqty + "'/></td>";
+            str += "<td>" + qty + " <input type='hidden' name='Qty[]' value='" + qty + "'/></td>";
+            str += "<td><input type='button' value='Remove' onclick='Remove(this)'<td/></tr>";
+        $('#addedDaimnondData').append(str);
+        $('#QtyError').html('');
+
+        itemsAdded += 1;
+
+
+    });
+
+    function Remove(button) {
+        var row = $(button).closest("TR");
+        var name = $("TD", row).eq(0).html();
+        if (confirm("Do you want to delete: ")) {
+            var table = $("#addedDaimnondData")[0];
+            table.deleteRow(row[0].rowIndex);
+            itemsAdded -= 1;
+        }
+    };
+
+
+    function GetBasicInfo() {
+        var inventoryid = $('#invId option:selected').val();
+        $.ajax({
+            url: GlobalUrl + "Inventory/GetInvBasicInfo?id=" + inventoryid,
+            type: 'post',
+            data: '{}',
+            success: function (res) {
+                var r = res.result;
+                if (r != null) {
+                    $('#sqty').html(r.showroomQty);
+                    $('#wqty').html(r.warehouseQty);
+                    $('#productImage').attr('src', '../ProductImages/' + r.productImage);
+                    $('#tempImageUrl').val("../ProductImages/" + r.productImage);
+                    $('#qtymoving').val(0);
+                }
+            }
+        });
+    }
+
+    $('#frmStock').submit(function (e) {
+        var allOk = true;
+        var eq = $('#MoStNot').val();
+        e.preventDefault;
+        if ($('#movedFromD option:selected').val() == $('#movedToD option:selected').val()) {
+            $('#mainError').html('Select different Sources');
+            allOk = false;
+        }
+        else {
+
+        }
+
+        if (itemsAdded == 0) {
+            $('#mainError').html('Add items');
+            allOk = false;
+        }
+        else {
+
+        }
+        if ($('#MoStNot').val() == null || $('#MoStNot').val()=="") {
+            $('#notErro').html('Please Enter Note');
+            allOk = false;
+        }
+        if (allOk == false) {
+            return false;
+        }
+    });
+    function CheckStandBY() {
+        var to = $('#movedToD option:selected').val();
+        if (to == "StandBY") {
+            $("#CustOptin").show();
+        }
+        else {
+            $("#CustOptin").hide();
+        }
+    }
+</script>
+
+

@@ -1,0 +1,270 @@
+﻿@model SCASA.Models.ModelClasses.SalesProductDetailModel
+@{
+    Layout = "~/Views/Shared/_SalesMaster.cshtml";
+}
+  <div class="page-title-area">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="title-content">
+                                <h2>Product Details > @Model.Title</h2>
+                                <ul>
+                                    <li>
+                                        <a href="~/Sales/Index">Home</a>
+                                    </li>
+                                    <li>
+                                        <span>Single Product</span>
+                                    </li>
+                                </ul>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            @*@if (ViewBag.pn == "Inv")
+                            {
+                                <div class="pull-right">
+                                    <a class="btn btn-success" href="~/Sales/Inventory?catId=@Model.CategoryId&pageSize=@ViewBag.ps&horPos=@ViewBag.side&verPos=@ViewBag.top"><i class="fa fa-arrow-left mr-1"></i> Back </a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="pull-right">
+                                    <a class="btn btn-success" href="~/Sales/Search?catId=@Model.CategoryId&pageSize=@ViewBag.ps&search=@ViewBag.srch"><i class="fa fa-arrow-left mr-1"></i> Back </a>
+                                </div>
+                            }*@
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-details-area ptb-60">
+        <div class="container">
+            <div class="top">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">                       
+                        <div id="sync1" class="owl-carousel owl-theme">
+                            <div class="item is-active">
+                                <img src="~/ProductImages//@Model.MainImage1" />
+                            </div>
+                            @foreach (var i in Model.MainImagesList)
+                            {
+                                <div class="item">
+                                    <img src="~/ProductImages//@i" />
+                                </div>
+                            }
+                            @if (Model.OtherImages.Count > 0)
+                            {
+                                @foreach (var oi in Model.OtherImages)
+                                {
+                                    <div class="item">
+                                        <img src="~/ProductImages//@oi.ImageURL" />
+                                    </div>
+                                }
+                            }
+                        </div>
+
+                        <div id="sync2" class="owl-carousel owl-theme">
+                            <div class="item is-active">
+                            <img src="~/ProductImages//@Model.MainImage1" />
+                        </div>
+                           @foreach (var i in Model.MainImagesList)
+                            {
+                                <div class="item">
+                                    <img src="~/ProductImages/@i" />
+                                </div>
+                            }
+                           @if (Model.OtherImages.Count > 0)
+                            {
+                               @foreach (var oi in Model.OtherImages)
+                                {
+                                    <div class="item">
+                                        <img src="~/ProductImages/@oi.ImageURL" />
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="top-content">
+                            <h2>@Model.Title</h2>
+                            <h5>Model Number : @Model.ModelNumber</h5>
+                            <h5>Brand Name: @Model.Brand</h5>
+                            <p>
+                                Dimensions : <span>
+                                    @Model.Height (Height)
+                                </span> X
+
+                                <span>@Model.Width (Width)</span> X <span> @Model.Breadth (Breadth)</span>
+                            </p>
+
+                            <ul class="tag">
+                                @*<li>Model Number: <span>@Model.ModelNumber</span></li>*@
+                                <li>Category: <span>@Model.CategoryName > @Model.SubCategoryName</span></li>
+                                <li>
+                                    MRP : @{
+                                        System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+                                        string mrp = String.Format(Indian, "{0:N}", Model.MRPPrice);
+                                        //string price = String.Format(Indian, "{0:N}", Model.ActualPrice);
+                                    }
+                                    Rs. @mrp
+                                </li>
+                                <li>Available Qty: <span>@Model.WharehouseQty (W), @Model.ShowroomQty (S), @Model.ReservedQty (R)</span></li>
+                                <input type="hidden" id="availableQty" value="@(Model.WharehouseQty + Model.ShowroomQty)" />
+                                <li>Color : @Model.ColorName</li>
+                                @{ 
+                                    var cimg = Model.ColorImage.Split(",");
+                                }
+                                <li> 
+                                @foreach (var ci in cimg)
+                                {
+                                    <img width="100px;" src="~/ProductImages/@ci" />
+                                }</li>
+                            </ul>
+                            <ul class="cart">
+                                <li>
+                                    <ul class="number">
+                                        <li>
+                                            <span class="minus">-</span>
+                                            <input type="text" id="prdQty" value="1" />
+                                            <span class="plus">+</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="common-btn" href="javascript:void(0)" onclick="AddToCart(@Model.InventoryId)">
+                                        Add To Cart
+                                        <img src="~/SApp/assets/images/shape1.png" alt="Shape" />
+                                        <img src="~/SApp/assets/images/shape2.png" alt="Shape" />
+                                    </a>
+                                </li>
+                            </ul>
+                            <h4>Documents</h4>
+                            <ol class="uploadDocs">
+                                @*<li><a href="" class="btn btn-info">assa</a></li>*@
+                                @foreach (var d in Model.DocsUploaded)
+                                {
+                                <li><a href="~/ProductImages/@d.DocumentURL">@d.DocumentName</a></li>
+                                }
+                                @*<li><a href="">assa</a></li>
+                                <li><a href="">assa</a></li>
+                                <li><a href="">assa</a></li>*@
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+
+                <div>
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class="bottom-description">
+                            <h4>Description</h4>
+                            <p>@Model.ItemDescription</p>
+                             
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="products-area pb-70">
+        <div class="container">
+            <div class="section-title">
+                <h2>Related Products</h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="products-item">
+                        <div class="top">
+                            <a class="wishlist" href="#">
+                                <i class="bx bx-heart"></i>
+                            </a>
+                            <img src="~/SApp/assets/images/products/products10.png" alt="Products" />
+                            <div class="inner">
+                                <h3>
+                                    <a href="single-product.html">White Luxury Wardrobe</a>
+                                </h3>
+                                <span>$200.00</span>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <a class="cart-text" href="#">Add To Cart</a>
+                            <i class="bx bx-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="products-item">
+                        <div class="top">
+                            <a class="wishlist" href="#">
+                                <i class="bx bx-heart"></i>
+                            </a>
+                            <img src="~/SApp/assets/images/products/products11.png" alt="Products" />
+                            <div class="inner">
+                                <h3>
+                                    <a href="single-product.html">Wooden Wardrobe</a>
+                                </h3>
+                                <span>$180.00</span>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <a class="cart-text" href="#">Add To Cart</a>
+                            <i class="bx bx-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="products-item">
+                        <div class="top">
+                            <a class="wishlist" href="#">
+                                <i class="bx bx-heart"></i>
+                            </a>
+                            <img src="~/SApp/assets/images/products/products12.png" alt="Products" />
+                            <div class="inner">
+                                <h3>
+                                    <a href="single-product.html">Three Door Wardrobe</a>
+                                </h3>
+                                <span>$170.00</span>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <a class="cart-text" href="#">Add To Cart</a>
+                            <i class="bx bx-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="products-item">
+                        <div class="top">
+                            <a class="wishlist" href="#">
+                                <i class="bx bx-heart"></i>
+                            </a>
+                            <img src="~/SApp/assets/images/products/products13.png" alt="Products" />
+                            <div class="inner">
+                                <h3>
+                                    <a href="single-product.html">Classic Wooden Table</a>
+                                </h3>
+                                <span>$190.00</span>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <a class="cart-text" href="#">Add To Cart</a>
+                            <i class="bx bx-plus"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+<script>
+     
+</script>
+
+ 

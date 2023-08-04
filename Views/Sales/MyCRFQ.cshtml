@@ -1,0 +1,163 @@
+﻿@model IEnumerable<SCASA.Models.ModelClasses.CRFQMasterModel>
+@{
+    Layout = "~/Views/Shared/_SalesMaster.cshtml";
+}
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-content">
+                    <h2>My CRFQ</h2>
+                    <ul>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <span>My CRFQs</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="title-img">
+            <img src="~/SApp/assets/images/page-title1.jpg" alt="About" />
+            <img src="~/SApp/assets/images/shape16.png" alt="Shape" />
+            <img src="~/SApp/assets/images/shape17.png" alt="Shape" />
+            <img src="~/SApp/assets/images/shape18.png" alt="Shape" />
+        </div>
+</div>
+
+<div class="user-area ptb-60">
+    <div class="container">
+
+        <div class="searchBox">
+            <div id="no-more-tables">
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    @foreach (var v in Model)
+                    {
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne_@v.CRFQId">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne_@v.CRFQId" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <div>
+                                        <table class="col-md-12 table-bordered cf">
+                                            <thead>
+                                                <tr>
+                                                    <td>Customer: </td>
+                                                    <td><strong>@v.CustomerName</strong></td>
+                                                    <td>Created On: </td>
+                                                    <td><strong>@(Convert.ToDateTime(v.CreatedOn).ToString("dd/MMM/yyyy HH:ss"))</strong></td>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne_@v.CRFQId" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Qty</th>
+                                                <th>Price</th>
+                                                <th>SE Discount %</th>
+                                                <th>Total</th>
+                                                <th>Image</th>
+                                            </tr>
+                                        </thead>
+                                        @foreach (var d in v.crfqDetails)
+                                        {
+                                        <tr>
+                                            <td>@d.InventoryTitle</td>
+                                            <td>@d.Quantity</td>
+                                            <td>@d.ItemPrise</td>
+                                            <td>@d.DisAmtBySE</td>
+                                            <td>@d.TotalPrice</td>
+                                            <td><img src="~/ProductImages/@d.InventoryImage" alt="Cart" width="100"/></td>
+                                        </tr>
+                                        }
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+
+                @*<table class="col-md-12 table-bordered table-striped table-condensed cf">
+                        <thead class="cf">
+                            <tr>
+                                <th>S No</th>
+                                <th>Order No</th>
+                                <th>Invoice No</th>
+                                <th>Order Date</th>
+                                <th>Billing Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-title="S.no">1</td>
+                                <td data-title="Order No">OD258795</td>
+                                <td data-title="Invoice No">IN85684</td>
+                                <td data-title="Order Date">20-10-2021</td>
+                                <td data-title="Billing Date">20-10-2021</td>
+                                <td data-title="Status">
+                                    <span class="btn btn-success btn-sm">
+                                        Approve
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-title="S.no">2</td>
+                                <td data-title="Order No">OD258795</td>
+                                <td data-title="Invoice No">IN85684</td>
+                                <td data-title="Order Date">20-10-2021</td>
+                                <td data-title="Billing Date">20-10-2021</td>
+                                <td data-title="Status">
+                                    <span class="btn btn-primary btn-sm">
+                                        Approve
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-title="S.no">3</td>
+                                <td data-title="Order No">OD258795</td>
+                                <td data-title="Invoice No">IN85684</td>
+                                <td data-title="Order Date">20-10-2021</td>
+                                <td data-title="Billing Date">20-10-2021</td>
+                                <td data-title="Status">
+                                    <span class="btn btn-primary btn-sm">
+                                        Approve
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-title="S.no">4</td>
+                                <td data-title="Order No">OD258795</td>
+                                <td data-title="Invoice No">IN85684</td>
+                                <td data-title="Order Date">20-10-2021</td>
+                                <td data-title="Billing Date">20-10-2021</td>
+                                <td data-title="Status">
+                                    <span class="btn btn-primary btn-sm">
+                                        Approve
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                    <button type="submit" class="btn common-btn mt-3">
+                        Register
+                        <img src="~/SApp/assets/images/shape1.png" alt="Shape" />
+                        <img src="~/SApp/assets/images/shape2.png" alt="Shape" />
+                    </button>*@
+            </div>
+        </div>
+    </div>
+</div>

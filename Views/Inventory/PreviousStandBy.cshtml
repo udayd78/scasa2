@@ -1,0 +1,194 @@
+﻿@model IEnumerable<SCASA.Models.Repositories.Entity.StandByInvoice>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int rCnt = 1;
+    int curentPage = ViewBag.pageNumber;
+    int totalPages = (ViewBag.TotalCount / ViewBag.pageSize) + 1;
+    int pageSize = ViewBag.pageSize;
+    int rowCount = 1;
+    DateTime dt = Convert.ToDateTime(DateTime.Now);
+    var a = dt.ToString("d");
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1>Stand By Register : From @ViewBag.FromDate - @ViewBag.ToDate </h1>
+                    <small>View stock Movement.</small>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="btn-group float-right" role="group">
+                        <div class="buttonexport" id="buttonlist">
+                            <a class="btn btn-add" href="~/Inventory/All">
+                                <i class="fa fa-reply mr-2"></i> Back to Inventory
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 pinpin">
+                <div class="card" data-sortable="true">
+                    <div class="card-header">
+                        <form action="~/Inventory/PreviousStandBy" method="post">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="card-title custom_title">
+                                        <h4>Previous Stand By register</h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Search</label>
+                                        <input type="text" class="form-control" name="search" placeholder="Search">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>From Date</label>
+                                        <input type="date" class="form-control" name="fromDate" placeholder="From Date" id="checkdate">
+                                    </div>
+                                    <div>
+                                        <p id="Message" class="text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>To Date</label>
+                                        <input type="date" class="form-control" name="toDate" placeholder="To Date">
+                                    </div>
+                                </div>
+                                <div clas="col-md-2">
+                                    <button type="submit" class="btn btn-success btn-sm serchgaptop">
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-body">
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="mydatatable" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>#</th>
+
+                                        <th>ST Number</th>
+                                        <th>Moved From</th>
+                                        <th>Moved To</th>
+                                        <th>Date</th>
+                                        <th>E-Way Bill</th>
+                                        <th>Dispatched Through</th>
+                                        <th>Total Value</th>
+                                        <th>Notes</th>
+                                        <th>Actions</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var v in Model)
+                                        {
+                                            <tr>
+                                                <td>@(rCnt ++)</td>
+                                                <td>
+                                                    <div>
+                                                        <strong>
+                                                            @v.StockTransferNumber
+                                                        </strong>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        @v.MovedFrom
+                                                    </div>
+                                                    <div style="font-style:12px;color:cadetblue">
+                                                        @v.FromAddress
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        @v.MovedTo
+                                                    </div>
+                                                    <div style="font-style:12px;color:cadetblue">
+                                                        @v.ToAddress
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    @v.STDate
+                                                </td>
+                                                <td>
+                                                    @(v.EWayBillNo == null ? "NA" : v.EWayBillNo)                                                    
+                                                </td>
+                                                <td>
+                                                    @(v.DespatchTrough == null ? "NA" : v.DespatchTrough)                                                    
+                                                </td>
+                                                <td>
+                                                    @v.TotalValue
+                                                </td>
+                                                <td>
+                                                    @v.Notes
+                                                </td>
+                                                <td class="minWidth100">
+
+                                                    <a href="~/Inventory/StandByInvoice?id=@v.SbiId" target="_blank">
+                                                        <button type="button" class="btn btn-add btn-sm"><i class="fa fa-eye" title="View Invoice"></i></button>
+                                                    </a>
+                                                    @*<button type="button" class="btn btn-danger btn-sm" data-toggle="modal"><i class="fa fa-trash-o"></i> </button>*@
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-inn">
+                            <form action="~/Inventory/All" method="post">
+                                <span>Total @ViewBag.TotalCount records</span>
+                                <ul class="pagination">
+                                    <!--<li class="waves-effect"><a href="#!"><i class="material-icons"><</i></a></li>-->
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#!" tabindex="-1">Previous</a>
+                                    </li>
+                                    @for (int cnt = 1; cnt <= totalPages; cnt++)
+                                    {
+                                        if (cnt == curentPage)
+                                        {
+                                            <li class="page-item active"><a class="page-link" href="~/Inventory/StockMovement?pageNumber=@cnt&pageSize=@ViewBag.pageSize&toDate=@ViewBag.ToDate&fromDate=@ViewBag.fromDate">@cnt</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="page-item"><a class="page-link" href="~/Inventory/StockMovement?pageNumber=@cnt&pageSize=@ViewBag.pageSize&toDate=@ViewBag.ToDate&fromDate=@ViewBag.fromDate">@cnt</a></li>
+                                        }
+                                    }
+                                    <li class="page-item">
+                                        <a class="page-link" href="#!">Next</a>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>

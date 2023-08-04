@@ -1,0 +1,121 @@
+﻿@model SCASA.Models.Repositories.Entity.FinanceHeads
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Add Finance Head</h1>
+            <small>Master Data Management.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="row">
+                            <div class="card-title custom_title col-sm-6">
+                                <h5>Add Finance Head</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group float-right" role="group">
+                                    <div class="buttonexport" id="buttonlist">
+                                        <a class="btn btn-add" href="~/Master/FinanceHead">
+                                            <i class="fa fa-reply mr-2"></i>Back
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="~/Master/FinanceHeadData" method="post">
+                            @Html.HiddenFor(m => m.HeadId)
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Finance Group</label>
+                                        @Html.DropDownListFor(x => Model.GroupId, new SelectList(ViewBag.Groups, "GroupId", "GroupName", Model.GroupId), new { @id = "subcatDD", @class = "form-control select2" })
+                                    </div>
+                                </div>
+                                @*<div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="focus-label">Head Code</label>
+                                        <select name="HeadCode" class="form-control select2">
+                                            @if (Model.HeadCode == "Bank")
+                                            {
+                                                <option value="Bank" selected>Bank</option>
+                                                <option value="Cash">Cash</option>
+                                                <option value="Staff">Staff</option>
+                                                <option value="Customer">Customer</option>
+                                            }
+                                            else if (Model.HeadCode == "Cash")
+                                            {
+                                                <option value="Bank" >Bank</option>
+                                                <option value="Cash"selected>Cash</option>
+                                                <option value="Staff">Staff</option>
+                                                <option value="Customer">Customer</option>
+                                            }
+                                            else if (Model.HeadCode == "Staff")
+                                            {
+                                                <option value="Bank" >Bank</option>
+                                                <option value="Cash">Cash</option>
+                                                <option value="Staff"selected>Staff</option>
+                                                <option value="Customer">Customer</option>
+                                            }
+                                            else if (Model.HeadCode == "Customer")
+                                            {
+                                                <option value="Bank" >Bank</option>
+                                                <option value="Cash">Cash</option>
+                                                <option value="Staff">Staff</option>
+                                                <option value="Customer"selected>Customer</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="Bank">Bank</option>
+                                                <option value="Cash">Cash</option>
+                                                <option value="Staff">Staff</option>
+                                                <option value="Customer">Customer</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>*@
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Head Name</label>
+                                        @Html.TextBoxFor(m => m.HeadName, null, new { @placeholder = "Enter Head Name", @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.HeadName, null, new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+                                @if (Model.HeadId == 0)
+                                {
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Opening Balance</label>
+                                        @Html.TextBoxFor(m => m.StartingBallance, null, new { @placeholder = "Enter Opening Balance", @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.StartingBallance, null, new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+                                }
+                                <div class="col-sm-3">
+                                    <button type="submit" class="btn btn-success serchgaptop"> Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<script>
+    $('.select2').select2();
+</script>

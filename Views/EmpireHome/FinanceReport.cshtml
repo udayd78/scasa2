@@ -1,0 +1,335 @@
+﻿@model SCASA.Models.ModelClasses.ProductDisplaySalesModel
+@{
+    string[] months = { "", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+    DateTime dtfrom = new DateTime();
+    dtfrom = DateTime.Now;
+    DateTime dt = new DateTime(dtfrom.Year, dtfrom.Month, 1);
+    int maxdt = (new DateTime(dtfrom.Year, dtfrom.Month, 1).AddMonths(1).AddDays(-1)).Day;
+    int dtCount = 0;
+    int todayDay = dtfrom.Day;
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+}
+
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Finance Reports</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="row">
+            @*daily report*@
+            <div class="col-lg-12 pinpin ui-sortable" data-lobicard-child-inner-id="4IovlaQMiI">
+                <div class="card" data-sortable="true" data-inner-id="4IovlaQMiI" data-index="0" style="display: block;">
+                    <div class="card-header ui-sortable-handle">
+                        <div class="card-title custom_title" style="max-width: calc(100% + 0px);">
+                            <div class="btn-group buttonexport d-flex" role="group">
+                                <h4>Day Wise Report - @DateTime.Now.ToString("dddd"), @(DateTime.Now.ToString("dd-MMM-yyyy"))</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th colspan="3">Income</th>
+                                        <th colspan="3">Expenditure</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td width="10%">@DateTime.Now.ToString("dd-MMM-yyyy")</td>
+                                        <td width="25%">
+                                            <span class="text-black">Sales - Mahipal Reddy</span><br />
+                                            <span class="text-body"> Purchase of Items Wide sales order # 1000</span>
+
+                                        </td>
+                                        <td class="text-right">
+                                            <span>Rs. 20,00,000</span>
+                                        </td>
+                                        <td width="10%">@DateTime.Now.ToString("dd-MMM-yyyy")</td>
+                                        <td width="25%">
+                                            <span class="text-black">Miscellanious - Purchase of Stationary</span><br />
+                                            <span class="text-body"> Purchase of Items Wide Voucher no #1</span>
+
+                                        </td>
+                                        <td class="text-right">
+                                            Rs. 1,000
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="10%">@DateTime.Now.ToString("dd-MMM-yyyy")</td>
+                                        <td width="25%">
+                                            <span class="text-black">Sales - Vishnu Reddy</span><br />
+                                            <span class="text-body"> Purchase of Items Wide sales order # 1001</span>
+
+                                        </td>
+                                        <td class="text-right">
+                                            <span>Rs. 56,00,000</span>
+                                        </td>
+                                        <td width="10%">@DateTime.Now.ToString("dd-MMM-yyyy")</td>
+                                        <td width="25%">
+                                        </td>
+                                        <td class="text-right">
+                                        </td>
+                                    </tr>
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th colspan="2">Total Day Report</th>
+                                        <th class="text-right">Rs, 76,00,000</th>
+                                        <th class="text-right"></th>
+
+
+                                        <th class="text-right"></th>
+                                        <th class="text-right">Rs. 1,000</th>
+                                    </tr>
+                                </thead>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Total Reciepts</strong></td>
+                                                <td class="text-right">Rs. 76,00,000</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Total Payments</strong></td>
+                                                <td class="text-right">Rs. 1,000</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Cash in Hand</strong></td>
+                                                <td class="text-right">Rs. 80,34,000</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Bank Balances</strong></td>
+                                                <td class="text-right">Rs. 1,20,34,000</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td width="50%"> <a href="#" class="btn btn-success">Download to excel</a></td>
+                                                <td> <a href="#" class="btn btn-primary">Export to PDF</a></td>
+
+                                            </tr>
+                                             
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            @*weekly report*@
+            <div class="col-lg-12 pinpin ui-sortable" data-lobicard-child-inner-id="4IovlaQMiI">
+                <div class="card" data-sortable="true" data-inner-id="4IovlaQMiI" data-index="0" style="display: block;">
+                    <div class="card-header ui-sortable-handle">
+                        <div class="card-title custom_title" style="max-width: calc(100% + 0px);">
+                            <div class="btn-group buttonexport d-flex" role="group">
+                                
+                                <h4>Date Wise</h4>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <Lable>
+                                        From
+                                    </Lable>
+                                    <input type="date" class="form-control" />
+                                </div>
+
+                            </div>
+                            <div class="col-3">
+
+                                <div class="form-group">
+                                    <Lable>
+                                        To
+                                    </Lable>
+                                    <input type="date" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <label>&nbsp;</label>
+                                <div class="form-group" style="padding-bottom:10px;">
+                                    <a href="#" class="btn btn-success">Get Report</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>Report From @DateTime.Now.ToString("dd-MMM-yyyy") TO @DateTime.Now.ToString("dd-MMM-yyyy")</h5>
+
+                            </div>
+
+                        </div>
+                        <br />
+                        <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th colspan="3">Income</th>
+                                        <th colspan="3">Expenditure</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td width="10%">@DateTime.Now.ToString("dd-MMM-yyyy")</td>
+                                        <td width="25%">
+                                            <span class="text-black">Sales - Mahipal Reddy</span><br />
+                                            <span class="text-body"> Purchase of Items Wide sales order # 1000</span>
+
+                                        </td>
+                                        <td class="text-right">
+                                            <span>Rs. 20,00,000</span>
+                                        </td>
+                                        <td width="10%">@DateTime.Now.ToString("dd-MMM-yyyy")</td>
+                                        <td width="25%">
+                                            <span class="text-black">Miscellanious - Purchase of Stationary</span><br />
+                                            <span class="text-body"> Purchase of Items Wide Voucher no #1</span>
+
+                                        </td>
+                                        <td class="text-right">
+                                            Rs. 1,000
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="10%">@DateTime.Now.ToString("dd-MMM-yyyy")</td>
+                                        <td width="25%">
+                                            <span class="text-black">Sales - Vishnu Reddy</span><br />
+                                            <span class="text-body"> Purchase of Items Wide sales order # 1001</span>
+
+                                        </td>
+                                        <td class="text-right">
+                                            <span>Rs. 56,00,000</span>
+                                        </td>
+                                        <td width="10%">@DateTime.Now.ToString("dd-MMM-yyyy")</td>
+                                        <td width="25%">
+                                        </td>
+                                        <td class="text-right">
+                                        </td>
+                                    </tr>
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th colspan="2">Total Day Report</th>
+                                        <th class="text-right">Rs, 76,00,000</th>
+                                        <th class="text-right"></th>
+
+
+                                        <th class="text-right"></th>
+                                        <th class="text-right">Rs. 1,000</th>
+                                    </tr>
+                                </thead>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Total Reciepts</strong></td>
+                                                <td class="text-right">Rs. 76,00,000</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Total Payments</strong></td>
+                                                <td class="text-right">Rs. 1,000</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Cash in Hand</strong></td>
+                                                <td class="text-right">Rs. 80,34,000</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Bank Balances</strong></td>
+                                                <td class="text-right">Rs. 1,20,34,000</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td width="50%"> <a href="#" class="btn btn-success">Download to excel</a></td>
+                                                <td> <a href="#" class="btn btn-primary">Export to PDF</a></td>
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            @*Monthly report*@
+         
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

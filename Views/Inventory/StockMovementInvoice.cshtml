@@ -1,0 +1,371 @@
+﻿@model SCASA.Models.ModelClasses.StockMovementForPrint
+@{    
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+    string totalValue = String.Format(Indian, "{0:N}", Model.TotalValue);
+    int rCnt = 1;
+    var dt = DateTime.Now;
+    var sty = 0;
+    var ety = 0;
+    if (dt.Month <= 3)
+    {
+        sty = dt.Year - 1;
+        ety = dt.Year;
+    }
+    else
+    {
+        sty = dt.Year;
+        ety = dt.Year + 1;
+    }
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Stock Movement Invoice</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <br />
+    <section class="content">
+        <div class="row" style="align-content:center;">
+            <div id="Print" class="order_summery">
+                <style type="text/css">
+
+                    table,
+                    td,
+                    tr {
+                        vertical-align: top;
+                        border-collapse: collapse;
+                    }
+
+                    * {
+                        line-height: inherit;
+                    }
+
+                    a[x-apple-data-detectors=true] {
+                        color: inherit !important;
+                        text-decoration: none !important;
+                    }
+                </style>
+                <div class="col-lg-12 pinpin">
+                    <div style="font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;">
+                        <table width="800px" style="margin: 0 auto; border:2px solid #a3080d;background-color: #fff;" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 15px;">
+                                        <table width="100%;">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="text-align: center; font-size: 18px; font-weight: bold;">Delivery Challan</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="border: 1px solid #000;">
+                                        <table width="100%">
+                                            <tr>
+                                                <td style="width:50%; border-right:2px solid #000;">
+                                                    <table style=" width: 100%; font-size: 13px;">
+                                                        <tr style="border-bottom: 1px solid #000;">
+                                                            <td style="padding: 10px;">
+                                                                <h4 style="margin: 0 0 10px 0; ">SCASA @Model.MovedFrom</h4>
+                                                                <div>
+                                                                    <span>
+                                                                        @Model.FromAddress
+                                                                    </span>
+                                                                </div>
+                                                                <div>E-Mail : @Model.FromEmail, Phone : @Model.FromMobile</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="padding: 10px;">
+                                                                <h4 style="margin: 0 0 10px 0;">SCASA @Model.MovedTo</h4>
+                                                                <div>
+                                                                    <span>
+                                                                        @Model.ToAddress
+                                                                </span>
+                                                            </div>
+                                                            <div>E-Mail : @Model.ToEmail, Phone : @Model.ToMobile</div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td style="width:50%">
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td style="border:1px solid #000; padding: 5px;">
+                                                            <div>
+                                                                <p style="margin: 0; font-size: 13px">Dispatch Document No.</p>
+                                                                <h5 style="margin: 0">@Model.DespatchDocumnetNo</h5>
+                                                            </div>
+                                                        </td>
+                                                        <td style="border:1px solid #000; padding: 5px;">
+                                                            <div>
+                                                                <p style="margin: 0; font-size: 13px">E-Way Bill No.</p>
+                                                                <h5 style="margin: 0">@Model.EWayBillNo</h5>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border:1px solid #000; padding: 5px;">
+                                                            <div>
+                                                                <p style="margin: 0; font-size: 13px">Dispatched Through</p>
+                                                                <h5 style="margin: 0">@Model.DespatchThrough</h5>
+                                                            </div>
+                                                        </td>
+                                                        <td style="border:1px solid #000; padding: 5px;">
+                                                            <div>
+                                                                <p style="margin: 0; font-size: 13px">Dated</p>
+                                                                @{
+                                                                    DateTime co = Convert.ToDateTime(Model.STDate);
+                                                                }                                                                
+                                                            <h5 style="margin: 0">@co.ToString("dd/MMM/yyyy hh:mm")</h5>
+</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border:1px solid #000; padding: 5px;">
+                                                            <div>
+                                                                <p style="margin: 0; font-size: 13px">References</p>
+                                                                <h5 style="margin: 0">@Model.Notes</h5>
+                                                            </div>
+                                                        </td>
+                                                        <td style="border:1px solid #000; padding: 5px;">
+                                                            <div>
+                                                                <p style="margin: 0; font-size: 13px"></p>
+                                                                <h5 style="margin: 0"></h5>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                            <tr>
+                                <td style="font-size: 13px;">
+                                    <table style="border:1px solid black;border-collapse:collapse" width="100%">
+                                        <thead>
+                                            <tr style="background-color: #dcdcdc; color:#000; font-size: 13px;">
+                                                <th style="padding:5px;border:1px solid black">S.No</th>
+                                                <th style="padding:5px;border:1px solid black">Model Number</th>
+                                                <th style="padding:5px;border:1px solid black">Image</th>
+                                                <th style="padding:5px;border:1px solid black">Description</th>
+                                                <th style="padding:5px;border:1px solid black">Quantity</th>
+                                                <th style="padding:5px;border:1px solid black">Actual Price</th>
+                                                <th style="padding:5px;border:1px solid black">per</th>
+                                                <th style="padding:5px;border:1px solid black">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var v in Model.stockMaster.items)
+                                            {
+                                                <tr>
+                                                    <td style="padding:5px;text-align:center;background:rgba(210, 210, 210, 0.18);border:1px solid #000;">@(rCnt++)</td>
+                                                    <td style="padding:5px;text-align:center;background:rgba(210, 210, 210, 0.18); border:1px solid #000;">@v.ModelNumber</td>
+                                                    @{
+                                                        var proImg = v.ProductImage.Split(",");
+                                                     }
+                                                    <td style="padding:5px;text-align:center;background:rgba(210, 210, 210, 0.18); border:1px solid #000;"><img src="../ProductImages/@proImg[0]" width="100px;" /></td>
+                                                    <td style="padding:5px;text-align:center;background:rgba(210, 210, 210, 0.18);border:1px solid #000;">@v.Description</td>
+                                                    <td style="padding:5px;text-align:center;background:rgba(210, 210, 210, 0.18); border:1px solid #000;">@v.Qty</td>
+                                                    <td style="padding:5px;text-align:center;background:rgba(210, 210, 210, 0.18); border:1px solid #000;">@String.Format(Indian, "{0:N}", v.ItemPrice  )</td>
+                                                    <td style="padding:5px;text-align:center;background:rgba(210, 210, 210, 0.18); border:1px solid #000;">Nos</td>
+                                                    <td style="padding:5px;text-align:right;background:rgba(210, 210, 210, 0.18); border:1px solid #000; font-weight: bold">@String.Format(Indian, "{0:N}", v.TotalPrice)</td>
+
+                                                </tr>
+                                            }
+
+                                            <tr>
+                                                <td style="padding:5px;text-align:right;background:rgba(210, 210, 210, 0.18);border:1px dashed black" colspan="7"> Total</td>
+                                                <td style="padding:5px;text-align:right;background:rgba(210, 210, 210, 0.18);border:1px dashed black; font-weight: bold;">Rs @totalValue</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            
+
+                            <tr>
+                                <td style="padding: 10px;">
+                                    <div>
+                                        <p style="margin: 0">Goods Value(In words)</p>
+                                        <h4 style="margin: 0">INR @Model.AmountInWords</h4>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @*<table border="1" width="100%">
+                                            <tr>
+                                                <td style="width: 60%; text-align: right">Goods Value</td>
+                                                <td style="width: 25%">
+                                                    <table style="width: 100%">
+                                                        <tr>
+                                                            <td colspan="2" style="border:1px solid #000;  text-align: center;">
+                                                                Integrated Tax
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border:1px solid #000; text-align:center; width: 40%">Rate</td>
+                                                            <td style="border:1px solid #000; text-align:center;">Amount</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td style="width:15%; text-align: right">Total Tax Amount</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right;">2,54,237.00</td>
+                                                <td>
+                                                    <table style="width: 100%;" border="0">
+                                                        <tr border="0">
+                                                            <td style="border:1px solid #000;  text-align: center; width: 40%">18%</td>
+                                                            <td style="border:1px solid #000;  text-align: center;">45,762.66</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td style="text-align: right;">45,762.66</td>
+                                            </tr>
+                                        </table>*@
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="padding: 10px;">
+                                    <p>
+                                        Total Amount (In words) : <strong>
+                                            INR @Model.AmountInWords
+                                        </strong>
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table style="width: 100%;  font-size: 13px;">
+                                        <tr>
+                                            <td style="width:45%; padding: 10px;">
+                                                <div><span style="width: 40%">Company’s PAN</span> : <strong>AJKPM8342C</strong></div>
+                                            </td>
+                                            <td style="padding: 10px;">
+                                                @*<div>
+                                                        Company’s Bank Details
+                                                    </div>
+                                                    <div style="width:100%;">
+                                                        <div style="width: 30%; float: left">Bank Name</div>
+                                                        <div style="width: 70%; float: left">:<strong>HDFC BANK LTD </strong></div>
+                                                    </div>
+                                                    <div style="width:100%;">
+                                                        <div style="width: 30%; float: left">A/c No.</div>
+                                                        <div style="width: 70%; float: left">:<strong>50200021454801</strong></div>
+                                                    </div>
+                                                    <div style="width:100%;">
+                                                        <div style="width: 30%; float: left">Branch </div>
+                                                        <div style="width: 70%; float: left">:<strong>BANJARA HILLS, ROAD NO:12, HYDERABAD</strong></div>
+                                                    </div>
+                                                    <div style="width:100%;">
+                                                        <div style="width: 30%; float: left">IFS Code</div>
+                                                        <div style="width: 70%; float: left">:<strong> HDFC0001995</strong></div>
+                                                    </div>*@
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table style="width:100%;">
+                                        <tr>
+                                            <td style="width: 45%; padding: 10px;">
+                                                <h5 style="margin: 0">Declaration</h5>
+                                                <div style="font-size: 12px">
+                                                    We declare that this invoice shows the actual price
+                                                    of the goods described and that all particulars are
+                                                    true and correct.
+                                                </div>
+                                            </td>
+                                            <td style="border:1px solid #000">
+                                                <table style="width: 100%">
+                                                    <tr>
+                                                        <td style="text-align: right">for SCASA-(@sty - @ety)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr style="text-align: right">
+                                                        <td>Authorised Signatory</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-12 pinpin">
+            <div style="font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;">
+                <a href="#" class="btn btn-success" onclick='printDiv();'>Print</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- /.content -->
+</div>
+<script>
+    function printDiv() {
+
+        var divContents = $(".order_summery").html();//div which have to print
+        var printWindow = window.open('', '', 'height=700,width=900');
+        printWindow.document.write('<html><head><title></title>');
+        printWindow.document.write('<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" >');//external styles
+        printWindow.document.write('<link rel="stylesheet" href="/css/custom.css" type="text/css"/>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(divContents);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+
+        printWindow.onload = function () {
+            printWindow.focus();
+            printWindow.print();
+            printWindow.close();
+        };
+
+        //var divToPrint = document.getElementById('Print');
+
+        //var newWin = window.open('', 'Print-Window');
+
+        //newWin.document.open();
+
+        //newWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</body></html>');
+
+        //newWin.document.close();
+
+        //setTimeout(function () { newWin.close(); }, 10);
+
+    }
+</script>

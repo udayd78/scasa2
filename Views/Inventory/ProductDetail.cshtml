@@ -1,0 +1,366 @@
+﻿@model SCASA.Models.ModelClasses.InventoryMasterModel  
+@{
+    var invId = Model.InventoryId;
+}
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <div class="row">
+                <div class="col-md-9">
+                    <h1>Product Detail Page</h1>
+                    <small>Product Details.</small>
+                </div>
+                <div class="col-md-3">
+                    <div class="btn-group float-right" role="group">
+                        <div class="buttonexport" id="buttonlist">
+                            <a class="btn btn-add" href="~/Inventory/All?pageNumber=@ViewBag.pn&pageSize=@ViewBag.ps&type=@ViewBag.ty&search=@ViewBag.ser&CategoryId=@ViewBag.catId&SubCategoryId=@ViewBag.suCId">
+                                <i class="fa fa-reply mr-2"></i>Back
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	<!-- Main content -->
+	<div class="content">
+		<div class="row">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-5">
+							<div class="galleryContainer">                               
+                                <div class="master">
+                                    <img class="active" src="~/ProductImages/@Model.MainImage1">
+                                    @*@foreach (var m in Model.MainImagesList)
+                                    {
+                                        <img src="~/ProductImages//@m">
+                                    }
+                                    @if (Model.OtherImages != null)
+                                    {
+                                        @foreach (var i in Model.OtherImages)
+                                        {
+                                            <img src="~/ProductImages//@i.ImageURL">
+                                        }
+                                    }*@
+                                    <i class="fa fa-chevron-left"></i>
+                                    <i class="fa fa-chevron-right"></i>
+                                </div>
+                                <div class="thumbnails ">                                    
+                                        <img class="active" src="~/ProductImages/@Model.MainImage1">
+                                        
+                                    @foreach (var m in Model.MainImagesList)
+                                    {
+                                       
+                                    <img src="~/ProductImages/@m" >
+                                    
+                                    }
+                                    @if (Model.OtherImages != null)
+                                    {
+                                        @foreach (var i in Model.OtherImages)
+                                        {
+                                            
+                                            <img src="~/ProductImages/@i.ImageURL">
+                                          }
+                                    }
+                                </div>
+							</div>
+						</div>
+						<div class="col-md-7">
+                            <div class="detailContent">
+                                <h4>@Model.Title</h4>
+                                <h4>@Model.ItemDescription</h4>
+                                <h5>Model Number : @Model.ModelNumber</h5>
+                                <h5>Brand Name: @Model.Brand</h5>
+
+                                <div class="mt-2">
+                                    <p>
+                                        Dimensions : <span>
+                                            @Model.Height (Height)
+                                        </span> X
+
+                                        <span>@Model.Width (Width)</span> X <span> @Model.Breadth (Breadth)</span>
+                                    </p>
+
+                                    @{
+                                        string[] cimage = Model.ColorImage.Split(",");
+                                    }
+                                    <p>Color : @Model.ColorName</p>
+                                    @foreach (var ci in cimage)
+                                    {
+                                        <div class="custom-radios">
+                                            <div style="padding:5px;">
+                                                <img width="50px;" src="~/ProductImages/@ci" />
+                                            </div>
+                                            <br />
+                                        </div>
+                                    }
+
+
+
+                                    <h4 class="mb-2">
+                                        MRP : @{
+                                            System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+                                            string mrp = String.Format(Indian, "{0:N}", Model.MRPPrice);
+                                            string price = String.Format(Indian, "{0:N}", Model.ActualPrice);
+                                        }
+
+                                        Rs. @mrp
+                                        <div>Inclusive of all taxes</div>
+                                        <br />
+                                        @if (ViewBag.LoggedUser.userTypeName == "CEO")
+                                        {
+                                            string ap = "Price: Rs. " + price.ToString();
+                                            @ap
+                                        }
+
+                                    </h4>
+
+                                    <div class="quantity">
+                                        <label>Total Quantity : </label><strong>@Model.Qty</strong>
+                                    </div>
+                                    <div class="quantity">
+                                        <label>Warehouse Qty : </label><strong> @Model.WharehouseQty</strong>
+                                    </div>
+                                    <div class="quantity">
+                                        <label>Showroom Qty : </label> <strong> @Model.ShowroomQty</strong>
+                                    </div>
+                                    <p>
+
+                                    </p>
+
+                                    <div>
+                                        <i class="fa fa-truck" aria-hidden="true"></i>  Age :
+                                        @{
+                                            int days = 0;
+                                            if (Model.RecievedDate != null)
+                                            {
+                                                days = DateTime.Now.Date.Subtract(Convert.ToDateTime(Model.RecievedDate)).Days;
+
+                                            }
+                                            //string reciveddate = Model.RecievedDate == null ? "Expected Soon" : "(Recieved on: " + @Model.RecievedDate + ")";
+                                        }
+                                        @days  (Days) @*, @reciveddate*@
+                                    </div>
+
+                                    <div>
+                                        <ul>
+                                            <li>
+                                                In : @(Model.categoryDrops.Find(a=>a.CategoryId==Model.CategoryId).CategoryName) > @(Model.subCategoryDrops.Find(a=>a.SubCategoryId==Model.SubCategoryId).SubCategoryName)
+                                            </li>
+                                            <li>
+                                                HSN Code : @Model.HSNCode
+                                            </li>
+                                            <li>
+                                                Rack Name : @Model.RackName
+                                            </li>
+
+                                            <li>
+                                                Condition : @(Model.conditionDrops.Find(a=>a.ConditionId == Model.InventoryConditonId).ConditionName)
+                                            </li>
+                                            <li>
+                                                Velocity : @Model.Velocity
+                                            </li>
+                                            <li>
+                                                Supplier Details : @Model.PODetails
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <h4>Uploaded Documents</h4>
+                                        <ul class="docsUpload">
+                                            @foreach (var i in Model.DocsUploaded)
+                                            {
+                                                <li ><span class="label-custom label label-default"><a href="~/ProductImages/@i.DocumentURL" target="_blank" class="color-white">@i.DocumentName</a></span>
+                                                @*<li><a href="~/ProductImages/@i.DocumentURL" target="_blank">@i.DocumentName</a></li>*@
+                                                <button type="button" class="btn btn-warning btn-circle m-b-5" onclick="DeleteDocument(@i.DocumentId)"><i class="fa fa-times"></i></button>
+                                            </li>
+                                                @*<a ><i class="fa fa-times"></i></a>*@
+                                            }
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Form controls -->
+
+		</div>
+	</div>
+	<!-- /.content -->
+</div>
+
+
+
+<script>
+	  	$(function() {
+
+    $(".master").css({
+        height: $(".master img").height() + 13
+    });
+
+    //make the width of the thumbnails images is dynamic
+    var imagesNumber        = $(".thumbnails").children().length,
+        marginBetweenImages =  1,
+        totalMargins        = marginBetweenImages * (imagesNumber - 1),
+        imageWidth          = (100 - totalMargins) / (imagesNumber);
+
+    $(".thumbnails img").css({
+        width: imageWidth + "%",
+        marginRight: marginBetweenImages + "%"
+    });
+
+
+    //remove the active class from all thumbnails images and add it to the selected one, then add this selected as the master image in the master div
+    $(".thumbnails img").on("click", function() {
+        $(this).addClass("active").siblings().removeClass("active");
+        $(".master img").hide().attr("src", $(this).attr("src")).fadeIn(300);
+    });
+
+
+    //use the chevron left and right to select images and translate between them
+    $(".master .fas").on("click", function() {
+        if($(this).hasClass("fa-chevron-left")) {
+            if($(".thumbnails img.active").is(":first-child")) {
+                $(".thumbnails img:last-child").click();
+            } else {
+                $(".thumbnails img.active").prev().click();
+            }
+        } else {
+            if($(".thumbnails img.active").is(":last-child")) {
+                $(".thumbnails img:first-child").click();
+            } else {
+                $(".thumbnails img.active").next().click();
+            }
+        }
+    })
+})
+</script>
+<script>
+	  	 jQuery(document).ready(($) => {
+        $('.quantity').on('click', '.plus', function(e) {
+            let $input = $(this).prev('input.qty');
+            let val = parseInt($input.val());
+            $input.val( val+1 ).change();
+        });
+
+        $('.quantity').on('click', '.minus',
+            function(e) {
+            let $input = $(this).next('input.qty');
+            var val = parseInt($input.val());
+            if (val > 0) {
+                $input.val( val-1 ).change();
+            }
+        });
+    });
+</script>
+<script>
+    function DeleteOtherImage(id) {
+        swal("Are you sure to delete the Image?", {
+            buttons: {
+                yes: {
+                    text: "Yes",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+                $.ajax({
+                    url: GlobalUrl + "Inventory/DeleteOtherImage?id=" + id,
+                    type: 'post',
+                    data: '{}',
+                    success: function (result) {
+                        toastr["success"]("Successuflly deleted!");
+                        window.location.href = window.location.href;
+                    }
+                });
+            }
+            else {
+                toastr["error"]("Delete cancelled!")
+            }
+            return false;
+        });
+    }
+    function DeleteMainImage(nme) {
+        var imgId =@invId;
+        swal("Are you sure to delete the Image?", {
+            buttons: {
+                yes: {
+                    text: "Yes",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+                $.ajax({
+                    url: GlobalUrl + "Inventory/DeleteMainImage",
+                    type: 'post',
+                    data: {
+                        'name': nme,
+                        'id': imgId,
+                    },
+                    success: function (result) {
+                        if (result.result.statusCode == 1) {
+                            toastr["success"]("Successuflly deleted!");
+                            window.location.href = window.location.href;
+                        } else if (result.result.statusCode == 5) {
+                            toastr["error"]("There Should Be 1 Primary Image Atleast!")
+                        }
+                    }
+                });
+            }
+            else {
+                toastr["error"]("Delete cancelled!")
+            }
+        });
+    }
+     function DeleteDocument(doId) {        
+        swal("Are you sure to delete the Document?", {
+            buttons: {
+                yes: {
+                    text: "Yes",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+                $.ajax({
+                    url: GlobalUrl + "Inventory/DeleteInvDoc?docId=" + doId,
+                    type: 'post',
+                    data: '{}',
+                    success: function (result) {
+                        if (result.result.statusCode == 1) {
+                            toastr["success"]("Successuflly deleted!");
+                            window.location.href = window.location.href;
+                        } else {
+                            toastr["error"]("There Should Be 1 Primary Image Atleast!")
+                        }
+                    }
+                });
+            }
+            else {
+                toastr["error"]("Delete cancelled!")
+            }
+        });
+    }
+</script>

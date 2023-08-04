@@ -1,0 +1,480 @@
+﻿@model SCASA.Models.ModelClasses.DashBoardClass
+@{ 
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+    decimal daiSaleTot = 0;
+    decimal weekSaleTot = 0;
+    decimal monSaleTot = 0;
+    int daiAtt = 0;
+    int weekAtt = 0;
+    int monAtt = 0;
+    int daiClo = 0;
+    int weekClo = 0;
+    int monClo = 0;
+    decimal tarTotal = 0;
+    decimal achveTotal = 0;
+    double achivePer = 0;
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>CRM Admin Dashboard</h1>
+            <small>Very detailed & featured admin.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    @if(ViewBag.LoggedUser.userTypeCode < 5)
+    {
+    <section class="content">
+        <div class="row">
+            <div class=" col-sm-6 col-md-6 col-lg-3">
+                <div id="cardbox1">
+                    <div class="statistic-box">
+                        <i class="fa fa-money fa-3x"></i>
+                        <div class="counter-number pull-right">
+                            <span class="count-number">Rs. @String.Format(Indian, "{0:N}", Model.FinalValues.SalesTotal)/-</span>
+                            <span class="slight">
+                                <i class="fa fa-play fa-rotate-270"> </i>
+                            </span>
+                        </div>
+                        <h3> Sales @((DateTime.Now).ToString("MMM")), @DateTime.Now.Year</h3>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-sm-6 col-md-6 col-lg-3">
+                <div id="cardbox2">
+                    <div class="statistic-box">
+                        <i class="fa fa-money fa-3x"></i>
+                        <div class="counter-number pull-right">
+                            <span class="count-number">Rs. @String.Format(Indian, "{0:N}", Model.FinalValues.collectionTotal)/-</span>
+                            <span class="slight">
+                                <i class="fa fa-play fa-rotate-270"> </i>
+                            </span>
+                        </div>
+                        <h3> Collections @((DateTime.Now).ToString("MMM")), @DateTime.Now.Year</h3>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-sm-6 col-md-6 col-lg-3">
+                <div id="cardbox3">
+                    <div class="statistic-box">
+                        <i class="fa fa-money fa-3x"></i>
+                        <div class="counter-number pull-right">
+                            <span class="count-number">Rs. @String.Format(Indian, "{0:N}", Model.FinalValues.delivered)/-</span>
+                            <span class="slight">
+                                <i class="fa fa-play fa-rotate-270"> </i>
+                            </span>
+                        </div>
+                        <h3> Delivered @((DateTime.Now).ToString("MMM")), @DateTime.Now.Year</h3>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-sm-6 col-md-6 col-lg-3">
+                <div id="cardbox4">
+                    <div class="statistic-box">
+                        <i class="fa fa-money fa-3x"></i>
+                        <div class="counter-number pull-right">
+                            <span class="count-number">Rs. @String.Format(Indian, "{0:N}", Model.FinalValues.expendeture)/-</span>
+                            <span class="slight">
+                                <i class="fa fa-play fa-rotate-270"> </i>
+                            </span>
+                        </div>
+                        <h3> Expenditure @((DateTime.Now).ToString("MMM")), @DateTime.Now.Year</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @*daily report*@
+            <div class="col-lg-12 pinpin ui-sortable" data-lobicard-child-inner-id="4IovlaQMiI">
+                <div class="card" data-sortable="true" data-inner-id="4IovlaQMiI" data-index="0" style="display: block;">
+                    <div class="card-header ui-sortable-handle">
+                        <div class="card-title custom_title" style="max-width: calc(100% + 0px);">
+                            <div class="btn-group buttonexport d-flex" role="group">
+                                <h4>Day Wise Report - @DateTime.Now.ToString("dddd"), @(DateTime.Now.ToString("dd-MMM-yyyy"))</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>S E Name</th>
+                                        <th>Total Sales</th>
+                                        <th>Total Attened</th>
+                                        <th>Closed</th>
+                                        <th>Closed %</th>
+                                        @*<th>ATS</th>*@
+                                        <th>Monthly Target</th>
+                                        <th>Achieved</th>
+                                        <th>Achieved %</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var dR in Model.dailyReport)
+                                    {
+                                    <tr>
+                                        <td><a href="~/EmpireHome/SaleExecutiveReport">@dR.sEName</a></td>
+                                        <td class="text-right">@String.Format(Indian, "{0:N}",dR.salesValue)</td>
+                                        <td class="text-right">@dR.attendCnt</td>
+                                        <td class="text-right">@dR.closedCount</td>
+                                        @{
+                                            double cldPer = 0;
+                                            if (dR.attendCnt != 0)
+                                            {
+                                                cldPer = Math.Round((((double)dR.closedCount / (double)dR.attendCnt) * 100),2);
+                                            }
+                                            double tarPer = 0;
+                                            if (dR.Monthtarget != 0) {
+
+                                                tarPer = Math.Round((((double)dR.AchievedTarget / (double)dR.Monthtarget) * 100),2);
+                                            }
+                                            daiSaleTot += dR.salesValue;
+                                            daiAtt += dR.attendCnt;
+                                            daiClo += dR.closedCount;
+                                            tarTotal += dR.Monthtarget;
+                                            achveTotal += dR.AchievedTarget;                                            
+                                        }
+                                        <td class="text-right">@cldPer</td>
+                                        @*<td class="text-right">5,00,000</td>*@
+                                        <td class="text-right">@String.Format(Indian, "{0:N}", dR.Monthtarget)</td>
+                                        <td class="text-right">@String.Format(Indian, "{0:N}", dR.AchievedTarget)</td>
+                                        <td class="text-right">@tarPer%</td>
+                                    </tr>
+                                    }
+                                    @{
+                                        if (tarTotal != 0)
+                                        {
+                                            achivePer = Math.Round((((double)achveTotal / (double)tarTotal) * 100),2);
+                                        }
+                                        double daiCloPercent = 0;
+                                        if (daiAtt != 0) {
+                                            daiCloPercent = Math.Round((((double)daiClo / (double)daiAtt) * 100),2);
+                                        }
+                                    }
+                                    <tr class="info back_table_color">
+                                        <th>Total Day Report</th>
+                                        <th class="text-right">@String.Format(Indian, "{0:N}", daiSaleTot)</th>
+                                        <th class="text-right">@daiAtt</th>
+                                        <th class="text-right">@daiClo</th>
+                                        <th class="text-right">@daiCloPercent %</th>
+                                        @*<th class="text-right">20,00,000</th>*@
+                                    <th class="text-right">@String.Format(Indian, "{0:N}", tarTotal)</th>
+                                    <th class="text-right">@String.Format(Indian, "{0:N}", achveTotal)</th>
+                                        <th class="text-right">@achivePer%</th>
+                                    </tr>                                
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Receipts</strong></td>
+                                                <td class="text-right">Rs. @String.Format(Indian, "{0:N}",Model.FinalValues.dailyReceipt)</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-6"></div>
+                            <div class="col-2">
+                                @*<button class="btn btn-success" onclick="exportExel('xlsx')">
+                                    <span class="glyphicon glyphicon-download"></span>
+                                    Export list
+                                </button>*@
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>TOTAL WALKINS</strong></td>
+                                                <td><strong>@daiAtt</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>CONVERSIONS</strong></td>
+                                                <td> <strong>@(daiClo)</strong> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<a href="~/EmpireHome/DailyReports">Send</a>*@
+            @*weekly report*@
+            <div class="col-lg-12 pinpin ui-sortable" data-lobicard-child-inner-id="4IovlaQMiI">
+                <div class="card" data-sortable="true" data-inner-id="4IovlaQMiI" data-index="0" style="display: block;">
+                    <div class="card-header ui-sortable-handle">
+                        <div class="card-title custom_title" style="max-width: calc(100% + 0px);">
+                            <div class="btn-group buttonexport d-flex" role="group">
+                                @{
+                                    var monday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
+                                    var sunday = Convert.ToDateTime(monday).AddDays(7);
+                                }
+                                <h4>This Week Report - @(Convert.ToDateTime(monday).ToString("dd-MMM-yyyy")) TO @(Convert.ToDateTime(sunday).ToString("dd-MMM-yyyy"))</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample2" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>S E Name</th>
+                                        <th>Total Sales</th>
+                                        <th>Total Attened</th>
+                                        <th>Closed</th>
+                                        <th>Closed %</th>
+                                        @*<th>ATS</th>*@
+                                        <th>Monthly Target</th>
+                                        <th>Achieved</th>
+                                        <th>Achieved %</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var wR in Model.weeklyReport)
+                                    {
+                                        <tr>
+                                            <td><a href="~/EmpireHome/SaleExecutiveReport">@wR.sEName</a></td>
+                                            <td class="text-right">@String.Format(Indian, "{0:N}", wR.salesValue)</td>
+                                            <td class="text-right">@wR.attendCnt</td>
+                                            <td class="text-right">@wR.closedCount</td>
+                                            @{
+                                                double cldPer = 0;
+                                                if (wR.attendCnt != 0)
+                                                {
+                                                    cldPer = Math.Round((((double)wR.closedCount / (double)wR.attendCnt) * 100),2);
+                                                }
+                                                double tarPer = 0;
+                                                if (wR.Monthtarget != 0)
+                                                {
+                                                    tarPer = Math.Round((((double)wR.AchievedTarget / (double)wR.Monthtarget) * 100),2);
+                                                }
+                                                weekSaleTot += wR.salesValue;
+                                                weekAtt += wR.attendCnt;
+                                                weekClo += wR.closedCount;
+                                            }
+                                            <td class="text-right">@cldPer</td>
+                                            @*<td class="text-right">5,00,000</td>*@
+                                        <td class="text-right">@String.Format(Indian, "{0:N}", wR.Monthtarget)</td>
+                                        <td class="text-right">@String.Format(Indian, "{0:N}", wR.AchievedTarget)</td>
+                                            <td class="text-right">@tarPer%</td>
+                                        </tr>
+                                    }
+                                    <tr class="info back_table_color">
+                                        @{ 
+                                            double weekCloPercent = 0;
+                                            if (weekAtt != 0)
+                                            {
+                                                weekCloPercent = Math.Round((((double)weekClo / (double)weekAtt) * 100),2);
+                                            }
+                                        }
+                                        <th>Total Day Report</th>
+                                        <th class="text-right">@String.Format(Indian, "{0:N}",weekSaleTot)</th>
+                                        <th class="text-right">@weekAtt</th>
+                                        <th class="text-right">@weekClo</th>
+                                        <th class="text-right">@weekCloPercent %</th>
+                                        @*<th class="text-right">20,00,000</th>*@
+                                        <th class="text-right">@String.Format(Indian, "{0:N}",tarTotal)</th>
+                                        <th class="text-right">@String.Format(Indian, "{0:N}", achveTotal)</th>
+                                        <th class="text-right">@achivePer%</th>
+                                    </tr>                               
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Receipts</strong></td>
+                                                <td class="text-right">Rs. @String.Format(Indian, "{0:N}",Model.FinalValues.weeklyReceipt)</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>TOTAL WALKINS</strong></td>
+                                                <td><strong>@weekAtt</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>CONVERSIONS</strong></td>
+                                                <td> <strong>@(weekClo)</strong> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            @*Monthly report*@
+            <div class="col-lg-12 pinpin ui-sortable" data-lobicard-child-inner-id="4IovlaQMiI">
+                <div class="card" data-sortable="true" data-inner-id="4IovlaQMiI" data-index="0" style="display: block;">
+                    <div class="card-header ui-sortable-handle">
+                        <div class="card-title custom_title" style="max-width: calc(100% + 0px);">
+                            <div class="btn-group buttonexport d-flex" role="group">
+
+                                <h4>This Month Report - @DateTime.Now.ToString("MMMM"), @DateTime.Now.Year</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample3" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>S E Name</th>
+                                        <th>Total Sales</th>
+                                        <th>Total Attened</th>
+                                        <th>Closed</th>
+                                        <th>Closed %</th>
+                                        @*<th>ATS</th>*@
+                                        <th>Monthly Target</th>
+                                        <th>Achieved</th>
+                                        <th>Achieved %</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var mR in Model.MonthlyReport)
+                                    {
+                                        <tr>
+                                            <td><a href="~/EmpireHome/SaleExecutiveReport">@mR.sEName</a></td>
+                                            <td class="text-right">@String.Format(Indian, "{0:N}", mR.salesValue)</td>
+                                            <td class="text-right">@mR.attendCnt</td>
+                                            <td class="text-right">@mR.closedCount</td>
+                                            @{
+                                                double cldPer = 0;
+                                                if (mR.attendCnt != 0)
+                                                {
+                                                    cldPer = Math.Round((((double)mR.closedCount / (double)mR.attendCnt) * 100),2);
+                                                }
+                                                double tarPer = 0;
+                                                if (mR.Monthtarget != 0)
+                                                {
+
+                                                    tarPer = Math.Round((((double)mR.AchievedTarget / (double)mR.Monthtarget) * 100),2);
+                                                }
+                                                monSaleTot += mR.salesValue;
+                                                monAtt += mR.attendCnt;
+                                                monClo += mR.closedCount;
+                                            }
+                                            <td class="text-right">@cldPer</td>
+                                            @*<td class="text-right">5,00,000</td>*@
+                                        <td class="text-right">@String.Format(Indian, "{0:N}", mR.Monthtarget)</td>
+                                        <td class="text-right">@String.Format(Indian, "{0:N}", mR.AchievedTarget)</td>
+                                            <td class="text-right">@tarPer%</td>
+                                        </tr>
+                                    }
+                                    <tr class="info back_table_color">
+                                        @{ 
+                                            double monCloPercent = 0;
+                                            if (monAtt != 0)
+                                            {
+                                                monCloPercent = Math.Round((((double)monClo / (double)monAtt) * 100),2);
+                                            }
+                                        }
+                                        <th>Total Day Report</th>
+                                        <th class="text-right">@String.Format(Indian, "{0:N}", monSaleTot)</th>
+                                        <th class="text-right">@monAtt</th>
+                                        <th class="text-right">@monClo</th>
+                                        <th class="text-right">@monCloPercent %</th>
+                                        @*<th class="text-right">20,00,000</th>*@
+                                    <th class="text-right">@String.Format(Indian, "{0:N}", tarTotal)</th>
+                                    <th class="text-right">@String.Format(Indian, "{0:N}", achveTotal)</th>
+                                        <th class="text-right">@achivePer%</th>
+                                    </tr>                                
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Receipts</strong></td>
+                                                <td class="text-right">Rs. @String.Format(Indian, "{0:N}",Model.FinalValues.collectionTotal)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>TOTAL WALKINS</strong></td>
+                                                <td><strong>@monAtt</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>CONVERSIONS</strong></td>
+                                                <td> <strong>@(monClo)</strong> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    }
+    else
+    {
+    <section class="content">
+        <h3>Welcome</h3>
+    </section>
+    }
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+@*<script>
+    function exportExel(type, fn, dl) {
+
+        var elt = document.getElementById('mydatatable');
+        var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+        return dl ?
+            XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+            XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+
+    }
+</script>*@

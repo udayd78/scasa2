@@ -1,0 +1,88 @@
+﻿@model SCASA.Models.Repositories.Entity.FinanceGroups
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Add Finance Group</h1>
+            <small>Master Data Management.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="row">
+                            <div class="card-title custom_title col-sm-6">
+                                <h5>Add Finance Group</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group float-right" role="group">
+                                    <div class="buttonexport" id="buttonlist">
+                                        <a class="btn btn-add" href="~/Master/FinanceGroup">
+                                            <i class="fa fa-reply mr-2"></i>Back
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="~/Master/FinanceGroupData" method="post">
+                            <div class="row">
+                                @Html.HiddenFor(m => m.GroupId)
+
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Group Name</label>
+                                        @Html.TextBoxFor(m => m.GroupName, null, new { @class = "form-control", @placeholder = "Enter Group Name" })
+                                        @Html.ValidationMessageFor(m => m.GroupName, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Group Code</label>
+                                        <select name="GroupCode" class="form-control select2">
+                                            @if (Model.GroupCode == "SALE")
+                                            {
+                                                <option value="SALE" selected>Sale</option>
+                                                <option value="CASH">Cash</option>                                                
+                                            }
+                                            else if (Model.GroupCode == "CASH")
+                                            {
+                                                <option value="SALE">Sale</option>
+                                                <option value="CASH" selected>Cash</option>                                                
+                                            }                                            
+                                            else
+                                            {
+                                                <option value="SALE">Sale</option>
+                                                <option value="CASH">Cash</option>                                                
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                               
+                                <div>
+                                    <button type="submit" class="btn btn-success serchgaptop"> Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+

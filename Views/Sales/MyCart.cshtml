@@ -1,0 +1,210 @@
+﻿@model SCASA.Models.ModelClasses.CartMasterModel
+@{
+    Layout = "~/Views/Shared/_SalesMaster.cshtml";
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+    decimal totalPrice = 0;
+    if (Model != null)
+    {
+        if (Model.cartDetails != null)
+        {
+            if (Model.cartDetails.Count > 0)
+            {
+                totalPrice = (decimal)Model.cartDetails.Sum(b => b.TotalPrice);
+            }
+        }
+    }
+}
+
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-content">
+                    <h2>Cart</h2>
+                    <ul>
+                        <li>
+                            <a href="~/Sales/Index">Home</a>
+                        </li>
+                        <li>
+                            <span>Cart</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="user-area ptb-60">
+    <div class="container">
+        <div class="searchBox mb-2">
+            <div class="modal-header">
+                <h5>Shopping Cart <span>@ViewBag.CartCount Items</span></h5>               
+            </div>
+            <div class="cart-table">
+                <table class="table">
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            int rowcount = 0;
+                            if (Model.cartDetails.Count > 0)
+                            {
+                                foreach (var r in Model.cartDetails)
+                                {
+                                    <tr>
+                                        <td>
+                                            @(++rowcount)
+                                        </td>
+                                        <td>
+                                            @r.InventoryTitle
+                                        </td>
+                                        @{
+                                            var imgname = r.InventoryImage.Split(",");
+                                         }
+                                        <th scope="row">
+                                            <img src="~/ProductImages/@imgname[0]" alt="Cart" width="100">
+                                        </th>
+                                        <td>
+                                            @{
+                                                string amount = String.Format(Indian, "{0:N}", r.ItemPrice);
+                                            }
+                                            <span class="rate">
+                                                Rs. @amount x @r.Qty
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <ul class="number">
+                                                <li>
+                                                    <span class="minus">-</span>
+                                                    <input type="text" id="prdQty_@r.CartDetailId" value="@r.Qty">
+                                                    <span class="plus">+</span>
+                                                </li>
+                                            </ul>
+                                            <div style="padding:20px; align-content:center;">
+                                                <a class="btn btn-success" href="javascript:void(0);" onclick="UpdateCart(@r.CartDetailId)">Update Cart</a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @{
+                                                string lineTotal = String.Format(Indian, "{0:N}", (r.ItemPrice * r.Qty));
+                                            }
+                                            Rs. @lineTotal
+                                        </td>
+                                        <td>
+                                            <a class="close" href="~/Sales/DeleteCart?id=@r.CartDetailId">
+                                                <i class="bx bx-x"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+               @if (Model != null)
+                {
+                    if (Model.cartDetails.Count > 0)
+                    {
+                        <form  method="post" action="~/Sales/CreateCRFQ">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="text" name="seDisPercen" required placeholder="Discount Percent" value="0"/>
+                                    <p class="text-danger">@ViewBag.errorMsg</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-primary">Create Quote</button>
+                                </div>
+                                <div class="col-md-4 pull-right">
+                                   <h4>
+                                    Total: <span>
+                                        @{
+                                            string mrp = String.Format(Indian, "{0:N}", totalPrice);
+                                        }
+                                    Rs.  @mrp
+                                           </span>
+                                   </h4>
+                                </div>
+                            </div>    
+                        </form>
+                    }
+                }
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function CreateCRFQ(cid) {
+        swal("Are you sure to create CRFQ ?", {
+            buttons: {
+                yes: {
+                    text: "Yes",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+
+                item = $('#prdQty_' + prid).val(); 
+                //$.ajax({
+                //    url: GlobalUrl + "Sales/UpdateCart?detailId=" + prid + "&qty=" + item,
+                //    type: 'post',
+                //    data: '{}',
+                //    success: function (result) {
+                //        toastr["success"]("Successuflly Updated!");
+                //        window.location.href = window.location.href;
+                //    }
+                //}); 
+            }
+            else {
+                toastr["error"]("Add to cart Cancelled!")
+            }
+            return false;
+        });
+    }
+    function UpdateCart(prid) {
+        var userid = $('#cuid').val();
+        if (userid == 0) {
+            toastr["error"]("Login first to add to cart!");
+        }
+        else {
+            swal("Are you sure to update this to Cart ?", {
+                buttons: {
+                    yes: {
+                        text: "Yes",
+                        value: "yes"
+                    },
+                    no: {
+                        text: "No",
+                        value: "no"
+                    }
+                }
+            }).then((value) => {
+                if (value === "yes") {
+                    item = $('#prdQty_' + prid).val();
+                        $.ajax({    
+                            url: GlobalUrl + "Sales/UpdateCart?detailId=" + prid + "&qty=" + item,
+                            type: 'post',
+                            data: '{}',
+                            success: function (result) {
+                                if (result.result.statusCode == 1) {
+                                    toastr["success"]("Successuflly Updated!");
+                                    window.location.href = window.location.href;
+                                }
+                                else {
+                                    toastr["error"](result.result.statusMessage);
+                                }
+                            }
+                        });
+                }
+                else {
+                    toastr["error"]("Add to cart Cancelled!")
+                }
+                return false;
+            });
+        }
+    }
+</script>

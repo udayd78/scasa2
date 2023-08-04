@@ -1,0 +1,251 @@
+﻿@model SCASA.Models.ModelClasses.InventoryDisplayModelBase
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int rCnt = 1;
+
+    int curentPage = ViewBag.pageNumber;
+    int totalPages = (ViewBag.TotalCount / ViewBag.pageSize) + 1;
+    int pageSize = ViewBag.pageSize;
+    int rowCount = 1;
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Showroom Inventory  - Total :  @ViewBag.TotalRecords</h1>
+            <small>Detail Inventory.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="row">
+        <div class="col-lg-12 pinpin">
+            <div class="card" data-sortable="true">
+                <div class="card-header">
+                    <form action="~/Inventory/Showroom" method="post">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="card-title custom_title">
+                                    <h4>Inventory List</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Search</label>
+                                    <input type="text" class="form-control" name="search" placeholder="Search">
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    @Html.DropDownListFor(x => Model.CategoryId,
+                                            new SelectList(new[] {
+                                            new {CategoryId = 0,CategoryName = "-- Select Category --" }}
+                                            .Union(
+                                                Model.categoryDrops
+                                                .Select(o => new { CategoryId = o.CategoryId, CategoryName = o.CategoryName })),
+                                                "CategoryId", "CategoryName"), null,
+                                                new { @id = "catDD", @class = "form-control select2", @onchange = "GetSubCats()" })
+                                </div>
+
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Sub Category</label>
+
+                                    @Html.DropDownListFor(x => Model.SubCategoryId,
+                                            new SelectList(new[] {
+                                            new {SubCategoryId = 0,SubCategoryName = "-- Select SubCategory --" }}
+                                            .Union(
+                                                Model.subCategoryDrops
+                                                .Select(o => new { SubCategoryId = o.SubCategoryId, SubCategoryName = o.SubCategoryName })),
+                                                "SubCategoryId", "SubCategoryName"), null,
+                                                new { @id = "subcatDD", @class = "form-control select2" })
+                                    @*@Html.DropDownListFor(x => Model.SubCategoryId, new SelectList(Model.subCategoryDrops, "SubCategoryId", "SubCategoryName", Model.SubCategoryId), new { @id = "subcatDD", @class = "form-control" })*@
+
+                                </div>
+
+                            </div>
+                            <div clas="col-md-2">
+
+
+                                <button type="submit" class="btn btn-success serchgaptop">
+                                    Search
+                                </button>
+
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-body">
+                    <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                    <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                    <div class="table-responsive">
+                        <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                            <thead class="back_table_color">
+                                <tr class="info">
+                                    <th>#</th>
+                                    <th>M.No.</th>
+                                    <th>Image</th>
+                                    <th>Description</th>
+                                    <th>Dimension</th>
+                                    <th>Colour</th>
+                                    <th colspan="2" class="text-center">Status</th>
+                                    <th colspan="2" class="text-center">Location</th>
+                                    <th>MRP</th>
+                                    <th>Age</th>
+                                    <th>Actions</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="6"></th>
+                                    <th>Available Qty</th>
+                                    <th>Reserved Qty</th>
+                                    <th>Warehouse</th>
+                                    <th>Showroom</th>
+                                    <th colspan="4"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    foreach (var v in Model.myList)
+                                    {
+                                        <tr>
+                                            <td>@(rCnt ++)</td>
+                                            <td>
+                                                <div>
+                                                    <strong>
+                                                        @v.ModelNumber
+                                                    </strong>
+
+                                                </div>
+                                                <div>
+                                                    @v.CagoryId_Name
+                                                </div>
+                                                <div style="font-style:12px;color:cadetblue">
+                                                    @v.SubCategoryId_Name
+                                                </div>
+                                            </td>
+                                            <td>
+                                                @{
+                                                    string[] pImages = v.PrimaryImage.Split(",");
+                                                }
+                                                <img src="~/ProductImages/@pImages[0]" width="150">
+                                            </td>
+                                            <td>
+                                                @(v.ItemDescription.Length > 300 ? v.ItemDescription.Substring(0,300) : v.ItemDescription)
+                                            </td>
+                                            <td>@v.Height CM x  @v.Breadth CM x  @v.Width CM</td>
+                                            <td>
+                                                @v.ColorName <br />
+                                                <img src="~/ProductImages/@v.ColorImage" width="50">
+                                            </td>
+                                            <td class="text-center">
+                                                @v.Qty
+                                            </td>
+                                            <td class="text-center">
+                                                0
+                                            </td>
+                                            <td class="text-center">
+                                                NA
+                                            </td>
+                                            <td class="text-center">@v.ShowroomQty</td>
+                                            <td width="12%;">
+                                                @{
+                                                    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+                                                    string mrp = String.Format(Indian, "{0:N}", v.MRPPrice);
+                                                }
+
+                                                Rs. @mrp
+                                            </td>
+                                            <td>
+                                                @{
+                                                    int days = 0;
+                                                    if (v.RecievedDate != null)
+                                                    {
+                                                        days = DateTime.Now.Date.Subtract(Convert.ToDateTime(v.RecievedDate)).Days;
+
+                                                    }
+                                                }
+                                                @days  (Days)
+                                            </td>
+                                            <td class="minWidth100">
+                                                <a href="~/Inventory/InventoryData?id=@v.InventoryId"><button type="button" class="btn btn-add btn-sm"><i class="fa fa-pencil"></i></button></a>
+                                                @*<button type="button" class="btn btn-danger btn-sm" data-toggle="modal"><i class="fa fa-trash-o"></i> </button>*@
+                                            </td>
+
+                                        </tr>
+                                    }
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-inn">
+                        <form action="~/Inventory/All" method="post">
+                            <span>Total @ViewBag.TotalCount records</span>
+                            <ul class="pagination">
+                                <!--<li class="waves-effect"><a href="#!"><i class="material-icons"><</i></a></li>-->
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#!" tabindex="-1">Previous</a>
+                                </li>
+                                @for (int cnt = 1; cnt <= totalPages; cnt++)
+                                {
+                                    if (cnt == curentPage)
+                                    {
+                                        <li class="page-item active"><a class="page-link" href="~/Inventory/All?pageNumber=@cnt&pageSize=@ViewBag.pageSize&search=@ViewBag.search">@cnt</a></li>
+
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item"><a class="page-link" href="~/Inventory/All?pageNumber=@cnt&pageSize=@ViewBag.pageSize&search=@ViewBag.search">@cnt</a></li>
+                                    }
+                                }
+                                <li class="page-item">
+                                    <a class="page-link" href="#!">Next</a>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<script>
+    $(document).ready(function () {
+        $('.select2').select2();
+        GetSubCats();
+    });
+    function GetSubCats() {
+        var catid = $('#catDD option:selected').val();
+        $.ajax({
+            url: GlobalUrl + "Common/GetAllSubCats?catId=" + catid,
+            type: 'post',
+            data: '{}',
+            success: function (res) {
+                var r = res.result.length;
+                var row = '';
+
+                if (r > 0) {
+
+                    for (var i = 0; i < r; i++) {
+                        row = row + '<option value="' + res.result[i].subCategoryId + '">' + res.result[i].subCategoryName + '</option>';
+                        //$('#SubCategoryId').append('<option value="' + res.result[i].subCategryId + '">' + res.result[i].subCategoryName + '</option>');
+                    }
+                }
+                $('#subcatDD').html('');
+                $('#subcatDD').html(row);
+            }
+        });
+    }
+</script>

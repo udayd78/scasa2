@@ -1,0 +1,575 @@
+﻿@model SCASA.Models.ModelClasses.InventoryDisplayModelBase
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int rCnt = 1;
+    int curentPage = ViewBag.pageNumber;
+    var totalPages = ViewBag.totalPages;
+    int pageSize = ViewBag.pageSize;   
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1>All Inventory - Total :  @ViewBag.TotalRecords</h1>
+                    <small>Very Detail Inventory.</small>
+                </div>
+
+                <div class="col-md-2">
+                    @*@if(ViewBag.lo)*@
+                    <div class="btn-group float-right" role="group">
+                        <div class="buttonexport" id="buttonlist">
+                            <a class="btn btn-add" href="~/Inventory/InventoryData?CategoryId=@Model.CategoryId&SubCategoryId=@Model.SubCategoryId">
+                                <i class="fa fa-plus"></i> Add New
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 pinpin">
+                <div class="card" data-sortable="true">
+                    <div class="card-header">
+                        <form action="~/Inventory/All" method="post">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="card-title custom_title">
+                                        <h4>Inventory List</h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Search</label>
+                                        <input type="text" class="form-control" name="search" placeholder="Search">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Category</label>
+                                        @Html.DropDownListFor(x => Model.CategoryId,
+                                                new SelectList(new[] {
+                                                new {CategoryId = 0,CategoryName = "-- Select Category --" }}
+                                                .Union(
+                                                    Model.categoryDrops
+                                                    .Select(o => new { CategoryId = o.CategoryId, CategoryName = o.CategoryName })),
+                                                    "CategoryId", "CategoryName"), null,
+                                                    new { @id = "catDD", @class = "form-control select2", @onchange = "GetSubCats()" })
+                                    </div>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Sub Category</label>
+
+                                        @Html.DropDownListFor(x => Model.SubCategoryId,
+                                                new SelectList(new[] {
+                                                new {SubCategoryId = 0,SubCategoryName = "-- Select SubCategory --" }}
+                                                .Union(
+                                                    Model.subCategoryDrops
+                                                    .Select(o => new { SubCategoryId = o.SubCategoryId, SubCategoryName = o.SubCategoryName })),
+                                                    "SubCategoryId", "SubCategoryName"), null,
+                                                    new { @id = "subcatDD", @class = "form-control select2" })
+                                        @*@Html.DropDownListFor(x => Model.SubCategoryId, new SelectList(Model.subCategoryDrops, "SubCategoryId", "SubCategoryName", Model.SubCategoryId), new { @id = "subcatDD", @class = "form-control" })*@
+
+                                    </div>
+
+                                </div>
+                                <div clas="col-md-1">
+                                    <h1></h1>
+                                </div>
+                                <div clas="col-md-2">
+                                    <button type="submit" class="btn btn-success serchgaptop">
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+</form>
+
+                    </div>
+                    <div class="card-body">
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>#</th>
+                                        <th>M.No.</th>
+                                        <th>Image</th>
+                                        <th>Description</th>
+                                        <th>Dimension</th>
+                                        <th>Colour</th>
+                                        <th colspan="2" class="text-center">Status</th>
+                                        <th colspan="2" class="text-center">Location</th>
+                                        <th>MRP</th>
+                                        <th>Age</th>
+                                        @if (ViewBag.LoggedUser.userTypeName != "Accountant")
+                                        {
+                                        <th>Actions</th>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        <th colspan="6"></th>
+                                        <th>Available Qty</th>
+                                        <th>Reserved Qty</th>
+                                        <th>Warehouse</th>
+                                        <th>Showroom</th>
+                                        <th colspan="4"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.myList != null)
+                                    {
+                                        foreach (var v in Model.myList)
+                                        {
+                                    <tr>
+                                        <td>@(rCnt++)</td>
+                                        <td>
+                                            <div>
+                                                @*<strong>@v.Title</strong>
+                <br />*@
+                                                <strong>
+                                                    <a href="~/Inventory/ProductDetail?id=@v.InventoryId&pageNumber=@ViewBag.pageNumber&pageSize=@ViewBag.pageSize&search=@ViewBag.search&CategoryId=@Model.CategoryId&SubCategoryId=@Model.SubCategoryId">
+                                                        @v.ModelNumber
+                                                    </a>
+                                                </strong>
+
+                                            </div>
+                                            <div>
+                                                @v.CagoryId_Name
+                                            </div>
+                                            <div style="font-style:12px;color:cadetblue">
+                                                @v.SubCategoryId_Name
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @{
+                                                string[] pImages = v.PrimaryImage.Split(",");
+                                            }
+                                            <img src="~/ProductImages/@pImages[0]" width="150" height="150">
+                                        </td>
+                                        <td>
+                                            @(v.ItemDescription.Length > 100 ? v.ItemDescription.Substring(0,100) : v.ItemDescription)
+                                        </td>
+                                        <td>@v.Height Feet x  @v.Breadth Feet x  @v.Width Feet</td>
+                                        <td>
+                                            @{
+
+                                                string[] cImage = v.ColorImage.Split(",");
+
+                                            }
+                                            @foreach (var ci in cImage)
+                                            {
+
+                                                @v.ColorName <br />
+                                                <img src="~/ProductImages/@ci" width="50">
+                                            }
+
+
+
+                                        </td>
+                                        <td class="text-center">
+                                            @v.Qty
+                                        </td>
+                                        <td class="text-center">
+                                            @*@v.ReservedQty*@
+                                           @if (v.Reserved.Count > 0)
+                                            {
+                                                @foreach (var r in v.Reserved)
+                                                {
+                                                    <span>@r.qty &nbsp;@r.name</span>
+                                                    <br />
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <span>0</span>
+                                            }
+                                        </td>
+                                        <td class="text-center">
+                                            @v.WharehouseQty
+                                        </td>
+                                        <td class="text-center">@v.ShowroomQty</td>
+                                        <td width="12%;">
+                                            @{
+                                                System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+                                                string mrp = String.Format(Indian, "{0:N}", v.MRPPrice);
+                                            }
+
+                                            Rs. @mrp
+                                        </td>
+                                        <td>
+                                            @{
+                                                int days = 0;
+                                                if (v.RecievedDate != null)
+                                                {
+                                                    days = DateTime.Now.Date.Subtract(Convert.ToDateTime(v.RecievedDate)).Days;
+
+                                                }
+                                            }
+                                            @days  (Days)
+                                        </td>
+                                        @if (ViewBag.LoggedUser.userTypeName != "Accountant")
+                                        {
+                                            <td class="minWidth100">
+                                                <a href="~/Inventory/InventoryData?id=@v.InventoryId&pageNumber=@ViewBag.pageNumber&pageSize=@ViewBag.pageSize&search=@ViewBag.search&CatId=@Model.CategoryId&SubCatId=@Model.SubCategoryId">
+                                                    <button type="button" class="btn btn-add btn-sm"><i class="fa fa-pencil"></i></button>
+                                                </a>
+                                                <a href="javascript:void(0);" onclick="ShowDelete(@v.InventoryId)">
+                                                    <button type="button" class="btn btn-danger btn-sm"
+                                                            data-toggle="modal">
+                                                        <i class="fa fa-trash-o"></i>
+                                                    </button>
+                                                </a>
+                                                @*<a class="button open-EditTodo" id="myData"
+                      data-todo='{"id":@v.InventoryId, "model":@v.ModelNumber}, "wh" : @v.WharehouseQty, "sh": @v.ShowroomQty'
+                      href="#popup1"><i class="fa fa-plus"></i>
+                </a>*@
+
+
+                                                @*<a class="button open-EditTodo" id="myData"
+                data-todo='{"id":@v.InventoryId, "model":@v.ModelNumber, "wh" : @v.WharehouseQty, "sh": @v.ShowroomQty}'
+                href="#popup1"><i class="fa fa-dot-circle-o"></i></a>*@
+                                            </td>
+                                        }
+                                        </tr>
+                                        }
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-inn">
+                            <form action="~/Inventory/All" method="post">
+                                <span>Total @ViewBag.TotalCount records</span>
+                                <ul class="pagination">
+                                    <!--<li class="waves-effect"><a href="#!"><i class="material-icons"><</i></a></li>-->
+                                    @{
+                                        int pre = curentPage - 1;
+                                    }
+                                    @if (curentPage == 1)
+                                    {
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#!" tabindex="-1">Previous</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="~/Inventory/All?pageNumber=@pre&pageSize=@ViewBag.pageSize&search=@ViewBag.search&CategoryId=@Model.CategoryId&SubCategoryId=@Model.SubCategoryId" tabindex="-1">Previous</a>
+                                        </li>
+                                    }
+                                    @for (int cnt = 1; cnt <= totalPages; cnt++)
+                                    {
+                                        if (cnt == curentPage)
+                                        {
+                                            <li class="page-item active"><a class="page-link" href="~/Inventory/All?pageNumber=@cnt&pageSize=@ViewBag.pageSize&search=@ViewBag.search&CategoryId=@Model.CategoryId&SubCategoryId=@Model.SubCategoryId">@cnt</a></li>
+
+                                        }
+                                        else
+                                        {
+                                            <li class="page-item"><a class="page-link" href="~/Inventory/All?pageNumber=@cnt&pageSize=@ViewBag.pageSize&search=@ViewBag.search&CategoryId=@Model.CategoryId&SubCategoryId=@Model.SubCategoryId">@cnt</a></li>
+                                        }
+                                    }
+                                    @{
+                                        int next = curentPage + 1;
+                                    }
+                                   @if (curentPage != totalPages)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="~/Inventory/All?pageNumber=@next&pageSize=@ViewBag.pageSize&search=@ViewBag.search&CategoryId=@Model.CategoryId&SubCategoryId=@Model.SubCategoryId">Next</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#!">Next</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- customer Modal1 -->
+        <div class="modal fade" id="customer1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-primary">
+                        <h3><i class="fa fa-user m-r-5"></i> Update List</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="form-horizontal">
+                                    <div class="row">
+                                        <!-- Text input-->
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Model No:</label>
+                                            <input type="text" placeholder="Customer Name" class="form-control">
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Descriprtion:</label>
+                                            <input type="email" placeholder="Email" class="form-control">
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Mobile</label>
+                                            <input type="number" placeholder="Mobile" class="form-control">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="control-label">Address</label><br>
+                                            <textarea name="address" rows="3"></textarea>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="control-label">type</label>
+                                            <input type="text" placeholder="type" class="form-control">
+                                        </div>
+                                        <div class="col-md-12 form-group user-form-group">
+                                            <div class="float-right">
+                                                <button type="button" class="btn btn-danger btn-sm">Cancel</button>
+                                                <button type="submit" class="btn btn-add btn-sm">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- Modal -->
+        <!-- Customer Modal2 -->
+        <div class="modal fade" id="customer2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-primary">
+                        <h3><i class="fa fa-user m-r-5"></i> Delete List Item</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="form-horizontal">
+                                    <div class="row">
+                                        <div class="col-md-12 form-group user-form-group">
+                                            <label class="control-label">Delete List </label>
+                                            <div class="float-right">
+                                                <button type="button" class="btn btn-danger btn-sm">NO</button>
+                                                <button type="submit" class="btn btn-add btn-sm">YES</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </section>
+    <!-- /.content -->
+</div>
+<script>
+    $(document).ready(function () {
+        $('.select2').select2();
+        GetSubCats();
+        $('#loading').hide();
+    });
+
+    $(document).on("click", ".open-EditTodo", function () {
+        var todoId = $('#myData').data('todo').id;
+        var wh = $('#myData').data('todo').wh;
+        var sh = $('#myData').data('todo').sh;
+        $("#inventoryid").val(todoId);
+        $("#shqty").val(sh);
+        $("#avsh").html(sh);
+        $("#whqty").val(wh);
+        $("#avwh").html(wh);
+        $('#loading').show();
+        
+    });
+
+    function GetSubCats() {
+        var catid = $('#catDD option:selected').val();
+        $.ajax({
+            url: GlobalUrl + "Common/GetAllSubCats?catId=" + catid,
+            type: 'post',
+            data: '{}',
+            success: function (res) {
+                var r = res.result.length;
+                var row = '';
+
+                if (r > 0) {
+
+                    for (var i = 0; i < r; i++) {
+                        row = row + '<option value="' + res.result[i].subCategoryId + '">' + res.result[i].subCategoryName + '</option>';
+                        
+                    }
+                }
+                $('#subcatDD').html('');
+                $('#subcatDD').html(row);
+            }
+        });
+    }
+    function ShowSMModal() {
+        $('#popup1').modal('show');
+    }
+
+    function SaveMovement()
+    {
+        var qty = $('#Qty').val();
+        var sh = $('#shqty').val();
+        var wh = $('#whqty').val();
+        var n = $('#notes').val();
+        var inventoryid = $('#inventoryid').val();
+        var from = $('#From').val();
+        var to = $('#To').val();
+        var isAllOk = true;
+        if (from == to) {
+            $('#errorMessage').html('Select Differnt soruce and target');
+            isAllOk = false;
+        }
+        if (from == 'Warehouse') {
+            if (parseInt(qty) > parseInt(wh)) {
+                $('#errorMessage').html('Select Max Quatity ' + wh);
+                isAllOk = false;
+            }
+        }
+        if (from == 'Showroom') {
+            if (parseInt(qty) > parseInt(sh)) {
+                $('#errorMessage').html('Select Max Quatity ' + sh);
+                isAllOk = false;
+            }
+        }
+        if (parseInt(qty) < 1 || qty == undefined || qty== null) {
+            $('#errorMessage').html('Enter Quantity');
+            isAllOk = false;
+        }
+        if (isAllOk) {
+            $.ajax({
+                url: GlobalUrl + "Inventory/MoveStock",
+                type: 'post',
+                data: { 'InventoryId': inventoryid, 'MovedFrom': from, 'MovedTo': to , 'Qty':  qty, 'Notes' : n },
+                success: function (result) {
+                    toastr["success"]("Successuflly Moved!");
+                    window.location.href = window.location.href;
+                    $("#inventoryid").val('');
+                    $("#shqty").val('');
+                    $("#avsh").html('');
+                    $("#whqty").val('');
+                    $("#avwh").html('');
+                    $('#popup1').modal('hide');
+                }
+            });
+        }
+    }
+</script>
+
+<div id="popup1" class="overlay">
+    <div class="popup">
+        <h2>Stock Movement</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="popupbody">
+            <div class="form-group">
+
+                <span id="modelNumber">
+                </span>
+                <input type="hidden" id="inventoryid" />
+                <input type="hidden" id="whqty" />
+                <input type="hidden" id="shqty" />
+                Showroom Stock : <span id="avsh"></span>
+                <br />
+                Wharehouse Stock : <span id="avwh"></span><br />
+
+                <label>Enter Qty to Move </label>
+                <input type="text" class="form-control" id="Qty" placeholder="Enter Qty" required>
+                <label>From</label>
+                <select class="form-control" id="From">
+                    <option value="Warehouse">Warehouse</option>
+                    <option value="Showroom">Showroom</option>
+                </select>
+                <label>To </label>
+                <select class="form-control" id="To">
+                    <option value="Warehouse">Warehouse</option>
+                    <option value="Showroom">Showroom</option>
+                </select>
+                <label>Remarks</label>
+                <input type="textarea" class="form-control" id="notes">
+                <span class="text-danger" id="errorMessage"></span>
+                <br />
+
+                <button class="btn btn-success" onclick="SaveMovement()">
+                    Update
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function ShowDelete(id) {
+        swal("Are you sure?", {
+            buttons: {
+                yes: {
+                    text: "Yes",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+                $.ajax({
+                    url: GlobalUrl + "Inventory/DeleteInventory?id=" + id,
+                    type: 'post',
+                    data: '{}',
+                    success: function (result) {
+                        toastr["success"]("Successuflly deleted!");
+                        window.location.href = window.location.href;
+                    }
+                });
+            }
+            else {
+                toastr["error"]("Delete cancelled!")
+            }
+            return false;
+        });
+
+
+    }
+</script>

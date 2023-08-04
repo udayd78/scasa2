@@ -1,0 +1,262 @@
+﻿@model SCASA.Models.ModelClasses.ProductDisplaySalesModel
+@{
+    string[] months = { "", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+    DateTime dtfrom = new DateTime();
+    dtfrom = DateTime.Now;
+    DateTime dt = new DateTime(dtfrom.Year, dtfrom.Month, 1);
+    int maxdt = (new DateTime(dtfrom.Year, dtfrom.Month, 1).AddMonths(1).AddDays(-1)).Day;
+    int dtCount = 0;
+    int todayDay = dtfrom.Day;
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+}
+
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Sales Report - Customer Name</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="row">
+            @*daily report*@
+            <div class="col-lg-12 pinpin ui-sortable" data-lobicard-child-inner-id="4IovlaQMiI">
+                <div class="card" data-sortable="true" data-inner-id="4IovlaQMiI" data-index="0" style="display: block;">
+                    <div class="card-header ui-sortable-handle">
+                        <div class="card-title custom_title" style="max-width: calc(100% + 0px);">
+                            <div class="btn-group buttonexport d-flex" role="group">
+                                <h4>Day Wise Report - @DateTime.Now.ToString("dddd"), @(DateTime.Now.ToString("dd-MMM-yyyy"))</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+
+                                        <th colspan="4">Product Category</th>
+                                        <th>Status</th>
+                                        <th>Quote Value</th>
+                                        <th>Sale Value</th>
+                                        <th>Receipts</th>
+                                    </tr>
+                                    <tr>
+
+                                        <th>
+                                            Accessories
+                                        </th>
+                                        <th>Beds</th>
+                                        <th>Tables</th>
+                                        <th>Chairs</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                        <td>0</td>
+                                        <td class="text-right">0</td>
+                                        <td class="text-right">100000</td>
+                                        <td class="text-right">5</td>
+                                        <td class="text-center">Purchased</td>
+                                        <td class="text-right">1000000</td>
+                                        <td class="text-right">1000000</td>
+                                        <td class="text-right">1000000</td>
+                                    </tr>
+
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>Total Day Report</th>
+
+                                        <th class="text-right">0</th>
+                                        <th class="text-right">100000</th>
+                                        <th class="text-right">0</th>
+                                        <th></th>
+                                        <th class="text-right">1000000</th>
+                                        <th class="text-right">1000000</th>
+                                        <th class="text-right">1000000</th>
+                                    </tr>
+                                </thead>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Receipts</strong></td>
+                                                <td class="text-right">Rs. 200000</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td width="50%"> <a href="#" class="btn btn-success">Download to excel</a></td>
+                                                <td> <a href="#" class="btn btn-primary">Export to PDF</a></td>
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            @*weekly report*@
+             
+            @*Monthly report*@
+            <div class="col-lg-12 pinpin ui-sortable" data-lobicard-child-inner-id="4IovlaQMiI">
+                <div class="card" data-sortable="true" data-inner-id="4IovlaQMiI" data-index="0" style="display: block;">
+                    <div class="card-header ui-sortable-handle">
+                        <div class="card-title custom_title" style="max-width: calc(100% + 0px);">
+                            <div class="btn-group buttonexport d-flex" role="group">
+
+                                <h4>Month Report - @DateTime.Now.ToString("MMMM"), @DateTime.Now.Year</h4>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>Date</th>
+
+                                        <th colspan="4">Product Category</th>
+                                        <th>Status</th>
+                                        <th>Quote Value</th>
+                                        <th>Sale Value</th>
+                                        <th>Receipts</th>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+
+                                        <th>
+                                            Accessories
+                                        </th>
+                                        <th>Beds</th>
+                                        <th>Tables</th>
+                                        <th>Chairs</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        DateTime sDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                                        int daysInMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+                                    }
+                                    @for (int i = 0; i < daysInMonth; i++)
+                                    {
+                                        <tr>
+                                            <td>@(sDate.AddDays(i).ToString("dd-MMM-yyyy"))</td>
+
+                                            <td>0</td>
+                                            <td class="text-right">0</td>
+                                            <td class="text-right">100000</td>
+                                            <td class="text-right">0</td>
+                                            <td class="text-center">Purchased</td>
+                                            <td class="text-right">1000000</td>
+                                            <td class="text-right">1000000</td>
+                                            <td class="text-right">1000000</td>
+                                        </tr>
+                                    }
+
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>Total Month Report</th>
+                                        <th></th>
+                                        <th class="text-right">0</th>
+                                        <th class="text-right">0</th>
+                                        <th class="text-right">100000</th>
+                                        <th class="text-right">0</th>
+                                        
+                                        <th class="text-right">1000000</th>
+                                        <th class="text-right">1000000</th>
+                                        <th class="text-right">1000000</th>
+                                    </tr>
+                                </thead>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Receipts</strong></td>
+                                                <td class="text-right">Rs. 200000</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                     
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td width="50%"> <a href="#" class="btn btn-success">Download to excel</a></td>
+                                                <td> <a href="#" class="btn btn-primary">Export to PDF</a></td>
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

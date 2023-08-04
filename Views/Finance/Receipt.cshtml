@@ -1,0 +1,208 @@
+﻿@model SCASA.Models.ModelClasses.FinanceTransactionsModel
+@{
+  
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            @if (ViewBag.isNew == "No")
+            {
+            <h1>Update Receipt</h1>
+            }
+            else
+            {
+        <h1>Create Receipt</h1>
+            }
+            <small>Receipt</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card-title custom_title">
+                                    @if (ViewBag.isNew == "No")
+                                    {
+                                        <h5>Update Receipt</h5>
+                                    }
+                                    else
+                                    {
+                                    <h5>Create Receipt</h5>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+
+                            </div>
+                        </div>
+                    </div>
+                    @*<form method="post" action="~/Finance/Save">*@
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Account To</label>
+                                    @Html.DropDownListFor(a => a.ToHeaID, new SelectList(Model.toHeadDrops, "HeadId", "HeadName", Model.ToHeaID), new { @class = "form-control select2", @id = "tHead", @onChange = "ToChange()" })
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            Current Balance :
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span class="color-green"><strong><p> Rs. <span id="toCurBal"></span></p></strong></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2 serchgaptop">
+                                <div class="buttonexport">
+                                    <a href="~/Master/FinanceHeadData" class="btn btn-add"><i class="fa fa-plus"></i> Add Ledger</a>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-offset-2 col-sm-4 serchgaptop">
+                                <div class="pull-right">
+                                    Date
+                                    @Html.EditorFor(modal => modal.DateOfTransaction, new { htmlAttributes = new { @class = "form-control", @id = "dateofTrans", @value = Model.DateOfTransaction } })
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="bg-green">
+                                    <tr style="background: #98d17a;">
+                                        <th>Particulars</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td width="80%">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>From Head</label>
+                                                    @Html.DropDownListFor(a => a.FromHeadID, new SelectList(Model.fromHeadDrops, "HeadId", "HeadName", Model.FromHeadID), new { @class = "form-control select2", @id = "fHead", @onChange = "FromChange()" })
+                                                <div class=" row">
+                                                    <div class="col-sm-6">
+                                                        Current Balance :
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <span class="color-green"><strong><p>Rs. <span id="fromCurBal"></span></p></strong></span>
+                                                    </div>    
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="number" class="form-control" placeholder="Enter Amount" id="cred" oninput="totalDisplay()" value="@Model.Credit">
+                                            </div>
+                                            <div class="text-danger"><p id="erMsg"></p></div>
+                                        </td>
+                                    </tr>
+                                    <tr style="min-height:300px; height: 300px; ">
+                                        <td width="80%" style="padding-top: 250px;">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlTextarea1">Details</label>
+                                                    <textarea class="form-control" id="desciption" rows="3" name="Description">@Model.Description</textarea>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td style="padding-top: 250px;">
+                                            <div class="form-group">
+                                                <label>Total Amount</label>
+                                                <h4 class="color-green"><p id="totAmt">@Model.Credit</p></h4>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="col-md-12">
+                                <div class="reset-button pull-right">
+                                    <a href="javascript:void(0)" class="btn btn-success" onclick="CreatePayment()" id="saveReciptHere"> Save</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*</form>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<script>
+    $(document).ready(function () {
+        $('.select2').select2();
+        curBalDisplay();
+    })
+    function curBalDisplay() {
+     $("#toCurBal").text('@(String.Format(Indian,"{0:N}", @ViewBag.tCurBal))' );
+        $("#fromCurBal").text('@(String.Format(Indian,"{0:N}", @ViewBag.fCurBal))');
+    }
+    function FromChange() {
+        var fid = $("#fHead option:selected").val();
+        $.ajax({
+            url: GlobalUrl + 'Finance/GetCurrentBalance?hId=' + fid,
+            type: 'post',
+            data: '{}',
+            success: function (res) {
+                $("#fromCurBal").text(res.bal);
+            }
+        });
+    }
+    function ToChange() {
+        var fid = $("#tHead option:selected").val();
+        $.ajax({
+            url: GlobalUrl + 'Finance/GetCurrentBalance?hId=' + fid,
+            type: 'post',
+            data: '{}',
+            success: function (res) {
+                $("#toCurBal").text(res.bal);
+            }
+        });
+    }
+    function totalDisplay() {
+        var crd = $("#totAmt").text($("#cred").val());
+    }
+    function CreatePayment() {
+        $('#saveReciptHere').prop('disabled', true);
+        var td = $("#tHead option:selected").val();
+        $.ajax({
+            url: GlobalUrl + 'Finance/SaveRecipt',
+            type: 'post',
+            data: {
+                'FromHeadID': $("#fHead option:selected").val(),
+                'ToHeaID': $("#tHead option:selected").val(),
+                'DateOfTransaction': $("#dateofTrans").val(),
+                'Credit': $("#cred").val(),
+                'Description': $("#desciption").val(),
+                'TRID':@Model.TRID,
+            },
+            success: function (res) {
+                if (res.result.statusCode == 1) {
+                    window.location = "LedgersDisplay?LedId=" + td;
+                } else if (res.result.statusCode == 5) {
+                    $('#saveReciptHere').prop('disabled', false);
+                    toastr["error"](res.result.statusMessage)
+                } else {
+                    $('#saveReciptHere').prop('disabled', false);
+                    $("#erMsg").text(res.result.statusMessage);
+                }
+            }
+        })
+    }
+</script>

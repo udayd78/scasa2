@@ -1,0 +1,95 @@
+﻿@model SCASA.Models.ModelClasses.AppointmentPDFModel
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SCASA | Apppointment Letter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+    <script src="script.js"></script>
+    <link href="~/css/site.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="row">
+        <span><img src="http://crms.empirehome.in/emailimages/images/scasa_lhead.jpg" height="100px;" /></span>
+
+    </div>
+    <hr style="line-height:normal;" />
+    <br />
+    <br />
+    <div class="row">
+        <table width="100%">
+            <tr>
+                <td style="font-family:Verdana;font-size:18px;" align="center">OFFER LETTER</td>
+            </tr>
+            <tr>
+                <td style="font-family:Verdana;font-size:16px;" align="right">
+                    <br /> <br />
+                    Date : @DateTime.Now.ToString("dd-MMM-yyyy")
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <br />
+    <br />
+    <p style="font-family:Verdana;font-size:16px;text-align:justify">
+       Hi  <strong>@Model.EmployeeName</strong><br />
+        @Model.address1, @Model.address2 @if (Model.address2 != null) {<span>,</span> } @Model.City <br />
+        @Model.State, @Model.Country, - @Model.PIN.
+    </p>
+
+
+    <p style="font-family:Verdana;font-size:16px;text-align:justify">
+        Dear <strong> @Model.EmployeeName </strong>,
+
+        We are pleased to offer you the position of <strong> @Model.Designation </strong> at <strong>SCASA</strong> 
+        with a start date of <strong>@Model.DOJ.ToString("dd-MMM-yyyy")</strong>, 
+        contingent upon background check, I-9 form etc.
+        You will be reporting directly to <strong>@Model.ReportingManager</strong> at <strong>SCASA</strong>.
+        <br /><br />  We believe your skills and experience are an excellent match for our company.
+
+
+        <br /> <br />
+        The annual starting salary for this position is <strong>Rs. @Model.Salary/-</strong>
+        to be paid on a monthly basis by direct deposit, starting on <strong>@Model.DOJ.ToString("dd-MMM-yyyy")</strong>.
+        In addition to this starting salary.
+        <br />
+        <br />
+        Please confirm your acceptance of this offer by signing and returning this letter by <strong>@Model.DOJ.ToString("dd-MMM-yyyy")</strong>.
+        <br /> <br />
+        We are excited to have you join our team! If you have any questions, please feel free to reach out at any time.
+        <br /><br />
+        Sincerely,
+
+        <br /><br/>
+        For <strong>SCASA</strong>, <br />
+        <br /><br />
+        <br /><br />
+        HR, Operations
+
+
+    </p>
+    <p style="padding-top:300px;"></p>
+    <div class="row">
+    <table width="100%">
+    <tr>
+        <td style="font-family:Verdana;font-size:12px;" align="center">
+            SCASA India Pvt. Ltd. 8-2-694/B/3/4B Road. No. 12 Banjara Hills Hyderabad 34
+
+        </td>
+    </tr>
+    <tr>
+        <td style="font-family: Verdana; font-size: 12px; border-top: thin solid;" align="center">
+            Tel    • 91 40 6636 8888  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; www.scasa.in
+
+        </td>
+    </tr>
+    </table>
+    </div>
+</body>
+</html>

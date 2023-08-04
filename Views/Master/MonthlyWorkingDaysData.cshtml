@@ -1,0 +1,99 @@
+﻿@model SCASA.Models.Repositories.Entity.MonthlyWorkingDays;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Monthly Working Days</h1>
+            <small>Add Monthly Working Days.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        
+                                <div class="row">
+                                    <div class="card-title custom_title col-sm-6">
+                                        <h5>Add Monthly working days</h5>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="btn-group float-right" role="group">
+                                            <div class="buttonexport" id="buttonlist">
+                                                <a class="btn btn-add" href="~/Master/MonthlyWorkingDays">
+                                                    <i class="fa fa-reply mr-2"></i>Back
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>                            
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="~/Master/MonthlyWorkingDaysData" method="post">
+                            <div class="row">
+                                @Html.HiddenFor(m => m.TRId)
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Select Year</label>
+                                        <select class="form-control" name="YearNumber" value="@Model.YearNumber">
+                                            <option value="2019">2019</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2023">2023</option>
+                                        </select>
+                                    </div>
+                                    @if (ViewBag.ErrorMessage != null)
+                                    {
+                                <b><span class="text-danger">@ViewBag.ErrorMessage</span></b>
+                                    }
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Select Month</label>
+                                        <select class="form-control" name="MonthNumber" value="@Model.MonthNumber">
+                                            <option value="1">January</option>
+                                            <option value="2">February</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">August</option>
+                                            <option value="9">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
+                                        </select>
+                                    </div>
+                                   
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>No. of Working Days</label>
+                                        <input type="text" class="form-control" placeholder="Enter Days" required name="NumberOfDays" value="@Model.NumberOfDays">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3 serchgaptop">
+                                    <button type="submit" class="btn btn-success btn-block"> Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>

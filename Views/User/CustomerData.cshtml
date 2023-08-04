@@ -1,0 +1,140 @@
+﻿@model SCASA.Models.ModelClasses.CustomerDisplayModel;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Add Customer</h1>
+                    <small>Add Details of Customer.</small>
+                </div>
+                <div class="col-md-6">
+                    <div class="btn-group float-right" role="group">
+                        <div class="buttonexport" id="buttonlist">
+                            <a class="btn btn-add" href="~/User/CustomerList">
+                                <i class="fa fa-reply mr-2"></i>Back
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card-title custom_title">
+                                    <h5>Add Customer</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body all_card_btn">
+                        <!-- Form controls -->
+                        <form method="post" action="~/User/CustomerData">
+                            <div class="col-sm-12">
+                                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                                    <div class="card-body">
+                                        @Html.HiddenFor(m => m.Cid)
+
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Customer Name<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" placeholder="Enter Customer Name" name="FullName" value="@Model.FullName">
+                                                    @Html.ValidationMessageFor(m => m.FullName, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Mobile Number <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" placeholder="Enter Mobile Number" name="MobileNumber" value="@Model.MobileNumber">
+                                                    @Html.ValidationMessageFor(m => m.MobileNumber, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>EmailId <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" placeholder="Enter Email Id" name="EmailId" value="@Model.EmailId">
+                                                    @Html.ValidationMessageFor(m => m.EmailId, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>WhatsApp Number <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" placeholder="Enter Whatsapp Number" name="WhatsAppNumber" value="@Model.WhatsAppNumber">
+                                                    @Html.ValidationMessageFor(m => m.WhatsAppNumber, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Organization Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Organigation Name" name="OrganigationName" value="@Model.OrganigationName">
+                                                    @Html.ValidationMessageFor(m => m.OrganigationName, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Organization Address
+                                                    <input type="text" class="form-control" placeholder="Enter Orginization Address" name="OrginizationAddress" value="@Model.OrginizationAddress">
+                                                    @Html.ValidationMessageFor(m => m.OrginizationAddress, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Organization Numbers</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Organization Numbers" name="OrganizationNumber" value="@Model.OrganizationNumber">
+                                                    @Html.ValidationMessageFor(m => m.OrganizationNumber, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Organization EmailId</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Organization EmailId" name="OrganizationEmailId" value="@Model.OrganizationEmailId">
+                                                    @Html.ValidationMessageFor(m => m.OrganizationEmailId, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>GST Number</label>
+                                                    <input type="text" class="form-control" placeholder="Enter GST Number" name="GSTNumber" value="@Model.GSTNumber">
+                                                    @Html.ValidationMessageFor(m => m.GSTNumber, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="submit-button">
+                                    <button class="btn btn-success" type="submit"> Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>

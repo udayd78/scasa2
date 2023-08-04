@@ -1,0 +1,125 @@
+﻿@model SCASA.Models.ModelClasses.GSTMasterModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Add GST Type</h1>
+            <small>Master Data Management.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="row">
+                            <div class="card-title custom_title col-sm-6">
+                                <h5>Add GST</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group float-right" role="group">
+                                    <div class="buttonexport" id="buttonlist">
+                                        <a class="btn btn-add" href="~/Master/GST">
+                                            <i class="fa fa-reply mr-2"></i>Back
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="~/Master/GSTData" method="post">
+                            <div class="row">
+                                @Html.HiddenFor(m => m.GSTMasterId)
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Tax Name</label>
+                                        <select name="TaxName" class="form-control">
+                                            @if (Model.TaxName == "GST")
+                                            {                                                
+                                                <option value="GST" selected>GST</option>
+                                                <option value="IGST">IGST</option>
+                                            }                                            
+                                            else if (Model.TaxName == "IGST")
+                                            {
+                                                <option value="GST">GST</option>
+                                                <option value="IGST" selected>IGST</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="GST">GST</option>
+                                                <option value="IGST">IGST</option>
+                                            }
+                                        </select>
+                                        @*@Html.TextBoxFor(m => m.TaxName, null, new { @class = "form-control", @placeholder = "Enter Tax Name" })
+                                        @Html.ValidationMessageFor(m => m.TaxName, null, new { @class = "text-danger" })*@
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Tax Amount</label>
+                                        @Html.TextBoxFor(m => m.TaxAmount, null, new { @class = "form-control", @placeholder = "Enter Tax Amount" })
+                                        @Html.ValidationMessageFor(m => m.TaxAmount, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Category Name</label>
+                                        @Html.DropDownListFor(x => Model.CategoryId, new SelectList(Model.CatDros, "CategoryId", "CategoryName", Model.CategoryId), new { @id = "catDD", @class = "form-control select2", @onchange= "GetSubCats()" })
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Sub Category</label>
+                                        @Html.DropDownListFor(x => Model.SubCategoryId, new SelectList(Model.SubCatDros, "SubCategoryId", "SubCategoryName", Model.SubCategoryId), new { @id = "subcatDD", @class = "form-control select2" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type="submit" class="btn btn-success serchgaptop"> Save</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<script>
+    $(document).ready(function () {
+        $('.select2').select2();        
+    });
+    function GetSubCats() {
+        var catid = $('#catDD option:selected').val();
+        $.ajax({
+            url: GlobalUrl + "Common/GetAllSubCats?catId=" + catid,
+            type: 'post',
+            data: '{}',
+            success: function (res) {
+                var r = res.result.length;
+                var row = '';
+                var selectedSubcat = $('#selectedSubCat').val();
+                if (r > 0) {
+                    for (var i = 0; i < r; i++) {                        
+                        row = row + '<option value="' + res.result[i].subCategoryId + '">' + res.result[i].subCategoryName + '</option>';                        
+                    }
+                }
+                $('#subcatDD').html('');
+                $('#subcatDD').html(row);
+            }
+        });
+    }
+</script>

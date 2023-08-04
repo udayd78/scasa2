@@ -1,0 +1,270 @@
+﻿
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Sales Report</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="row">
+            @*daily report*@
+            <div class="col-lg-12 pinpin ui-sortable" data-lobicard-child-inner-id="4IovlaQMiI">
+                <div class="card" data-sortable="true" data-inner-id="4IovlaQMiI" data-index="0" style="display: block;">
+                    <div class="card-header ui-sortable-handle">
+                        <div class="card-title custom_title" style="max-width: calc(100% + 0px);">
+                            <div class="btn-group buttonexport d-flex" role="group">
+                                <h4>Monthly Sales Report - @DateTime.Now.ToString("MMMM"), @(DateTime.Now.Year)</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="table-responsive">
+                                    <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                        <thead class="back_table_color">
+                                            <tr class="info">
+                                                <th>Month</th>
+                                                <th>Current</th>
+                                                <th>Goal</th>
+                                                <th>% of Goal</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>@DateTime.Now.ToString("MMMM")</td>
+                                                <td class="text-right">25,00,00,000</td>
+                                                <td class="text-right"> 50,00,00,000</td>
+                                                <td class="text-right">50%</td>
+                                                <td rowspan="5" width="70%">
+
+                                                    <div>
+                                                        <script type="text/javascript">
+
+                                                            window.onload = function () {
+                                                                var chart = new CanvasJS.Chart("chartContainer", {
+                                                                    title: {
+                                                                        text: "Goal vs Achieved"
+                                                                    },
+                                                                    data: [
+                                                                        {
+                                                                            // Change type to "doughnut", "line", "splineArea", etc.
+                                                                            type: "column",
+                                                                            dataPoints: [
+                                                                                { label: "Goal", y: 50000000 },
+                                                                                { label: "Achieved", y: 25000000 },
+                                                                                { label: "Accessories", y: 5000000 },
+                                                                                { label: "Beds", y: 2400000 },
+                                                                                { label: "Chairs", y: 10000000 }
+
+
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                });
+                                                                chart.render();
+                                                            }
+                                                        </script>
+
+                                                        <div id="chartContainer" style="height: 300px; width: 90%;">
+
+                                                        </div>
+                                                    </div>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Avg Ticket</td>
+                                                <td class="text-right">20,00,000</td>
+                                                <td>
+                                                </td>
+                                                <td></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Accessories</td>
+                                                <td class="text-right">20,00,000</td>
+                                                <td>
+                                                </td>
+                                                <td></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Beds</td>
+                                                <td class="text-right">20,00,000</td>
+                                                <td>
+                                                </td>
+                                                <td></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Chairs</td>
+                                                <td class="text-right">1,20,00,000</td>
+                                                <td>
+                                                </td>
+                                                <td></td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            @*Monthly report*@
+            <div class="col-lg-12 pinpin ui-sortable" data-lobicard-child-inner-id="4IovlaQMiI">
+                <div class="card" data-sortable="true" data-inner-id="4IovlaQMiI" data-index="0" style="display: block;">
+                    <div class="card-header ui-sortable-handle">
+                        <div class="card-title custom_title" style="max-width: calc(100% + 0px);">
+                            <div class="btn-group buttonexport d-flex" role="group">
+
+                                <h4>This Month Report - @DateTime.Now.ToString("MMMM"), @DateTime.Now.Year</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>Day of The Month</th>
+                                        <th>Accessories</th>
+                                        <th>Beds</th>
+                                        <th>Chairs</th>
+                                        <th>Sofas</th>
+                                        <th>Total Sales</th>
+                                        <th>Total Received</th>
+                                        <th>Accessories %</th>
+                                        <th>Beds %</th>
+                                        <th>Chairs %</th>
+                                        <th>Sofas %</th>
+                                        <th>Close %</th>
+
+                                        <th>No. of Customers</th>
+                                        <th>Avt Tkt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        var sDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                                        int daysInMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+                                    }
+                                    @for (int i = 0; i < daysInMonth; i++)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <a href="~/EmpireHome/DailySalesReport">@((sDate.AddDays(i)).ToString("dd-MMM-yyyy"))</a>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                    </tr>
+                                </thead>
+                                </tbody>
+                                @*<thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>Day of The Month</th>
+                                        <th>Accessories</th>
+                                        <th>Beds</th>
+                                        <th>Chairs</th>
+                                        <th>Sofas</th>
+                                        <th>Total Sales</th>
+                                        <th>Total Recived</th>
+                                        <th>Acessries %</th>
+                                        <th>Beds %</th>
+                                        <th>Chairs %</th>
+                                        <th>Sofas %</th>
+                                        <th>Close %</th>
+
+                                        <th>No. of Customers</th>
+                                        <th>Avt Tkt</th>
+                                    </tr>
+                                </thead>*@
+                            </table>
+                        </div>
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="table-responsive mt-2">
+                                    <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>TOTAL WALKINS</strong></td>
+                                                <td><strong>31</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>CONVERSIONS</strong></td>
+                                                <td> <strong>10</strong> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="table-responsive mt-2">
+                                    <table id="" class="table table-bordered table-striped table-hover" width="400">
+                                        <tbody>
+                                            <tr>
+                                                <td width="50%"> <a href="#" class="btn btn-success">Download to excel</a></td>
+                                                <td> <a href="#" class="btn btn-primary">Export to PDF</a></td>
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+             
+
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

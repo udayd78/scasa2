@@ -1,0 +1,302 @@
+﻿@model IEnumerable<SCASA.Models.ModelClasses.SaleOrderMasterModel>
+@{
+
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+    int rowCount = 1;
+    int curentPage = ViewBag.pageNumber;
+    var totalPages = ViewBag.totalPages;
+    int pageSize = ViewBag.pageSize;
+}
+
+<style>
+	.hideloader {
+		display: none;
+	}
+</style>
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<div class="header-icon">
+			<i class="fa fa-dashboard"></i>
+		</div>
+		<div class="header-title">
+			<div class="row">
+				<div class="col-md-10">
+                    <h1>Total :  @ViewBag.TotalCount</h1>
+					<small>Sales Orders ready to despatch.</small>
+				</div>
+
+				<div class="col-md-2">
+					<div class="btn-group float-right" role="group">
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- Main content -->
+	<section class="content">
+		<div class="row">
+			<div class="col-lg-12 pinpin">
+                <div class="card" data-sortable="true">
+                    <div class="card-header">
+                        <div id="accordion" role="tablist">
+                            <div class="card">
+                                @foreach (var v in Model)
+                                {
+                                    <div class="card-header" role="tab" id="heading_@v.SOMId">
+                                        <h5 class="mb-0">
+                                            <a class="collapsed" data-toggle="collapse" href="#collapse_@v.SOMId" aria-expanded="false" aria-controls="collapse_@v.SOMId">
+                                                <table class="col-md-12" width="100%" style="font-size: 13px;margin: 5px; overflow-x:auto;">
+                                                    <thead>
+                                                        <tr style="align-items:flex-start;">
+                                                            <td style="width:2%">
+                                                                @(rowCount++).
+                                                            </td>
+                                                            <td style="width:8%">Cust : <strong>@v.CustomerName</strong> </td>
+                                                            <td style="width:8%">SE: <strong>@v.SalesExecutiveName</strong></td>
+                                                            <td style="width:10%">Ord Value : <strong>Rs. @(String.Format(Indian,"{0:N}", (v.saleOrderDetails.Sum(a => a.TotalPrice)+v.RoundedValue)))</strong></td>
+                                                            <td style="width:8%">DC : Rs. <strong>@(String.Format(Indian,"{0:N}",v.DelivaryCharges))</strong></td>
+                                                            <td style="width:10%">Invc Amt :Rs. <strong>@(String.Format(Indian,"{0:N}", (v.saleOrderDetails.Sum(a => a.TotalPrice) + v.DelivaryCharges+v.RoundedValue))) </strong>  </td>
+                                                            <td style="width:12%">Pmt Sts : <strong style="color:darkblue;">@v.CurrentStatus</strong></td>
+                                                            <td style="width:10%">Order Sts: <strong style="color:darkmagenta;">@v.SOStatus</strong></td>
+                                                            <td style="width:2%">
+                                                                @if (ViewBag.LoggedUser.userTypeCode < 5 && v.SOStatus == "Open" && v.CurrentStatus != "Paid Full" && v.CurrentStatus != "Partially Paid")
+                                                                {
+                                                                    <a href="javascript:void(0);" onclick="ShowDelete(@v.SOMId)">
+                                                                        <i class="fa fa-trash-o btn btn-danger btn-sm"></i>
+                                                                    </a>
+                                                                }
+                                                            </td>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div id="collapse_@v.SOMId" class="collapse" role="tabpanel" aria-labelledby="heading_@v.SOMId" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Title</th>
+                                                        <th>Qty</th>
+                                                        <th>Price</th>
+                                                        <th>Item Total</th>
+                                                        <th>SE Disc. %</th>
+                                                        <th>Other Disc.</th>
+                                                        <th>Total Discount</th>
+                                                        <th>Line Total</th>
+                                                        <th>Image</th>
+                                                        <th>Size</th>
+                                                        <th>Color</th>
+                                                    </tr>
+                                                </thead>
+                                                @foreach (var d in v.saleOrderDetails)
+                                                {
+                                                    <tr>
+                                                        <td>@d.InventoryTitle</td>
+                                                        <td>@d.Quantity</td>
+                                                        <td class="text-right">@(String.Format(Indian, "{0:N}", d.ItemPrice))</td>
+                                                        <td class="text-right">@(String.Format(Indian, "{0:N}",d.OrderLineTotal))</td>
+                                                        <td class="text-right">@d.DisAmtBySE</td>
+                                                        <td class="text-right">@d.DisAmtByHead </td>
+                                                        <td class="text-right">Rs. @(String.Format(Indian,"{0:N}", ((d.DisAmtByHead + d.DisAmtBySE) * d.OrderLineTotal / 100)))</td>
+                                                        <td class="text-right">
+                                                            Rs.
+                                                            @(String.Format(Indian, "{0:N}", d.TotalPrice))
+                                                        </td>
+                                                        <td>
+                                                            @{
+                                                                string[] pImages = d.InventoryImage.Split(",");
+
+                                                            }
+                                                            <img src="~/ProductImages/@pImages[0]" width="150">
+                                                        </td>
+                                                        <td>
+                                                            @d.Height X <br />  @d.Width X <br /> @d.Breadth
+                                                        </td>
+                                                        <td>
+                                                            @{
+
+                                                                string[] cImage = d.ColorImage.Split(",");
+
+                                                            }
+                                                            @foreach (var ci in cImage)
+                                                            {
+
+                                                                @d.ColorName <br />
+                                                                <img src="~/ProductImages/@ci" width="50">
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            </table>
+                                            <form method="post" action="~/AdminSales/CreateDC">
+                                                @if ((v.CurrentStatus == "Paid Full" && v.SOStatus == "Open") || (ViewBag.LoggedUser.userTypeCode < 5 && v.SOStatus == "Open") || (ViewBag.LoggedUser.userTypeCode == 6 && v.SOStatus == "Open"))
+                                                {
+                                                    @*<div class="row">
+                                            <div class="col-6">
+                                                <table class="table" style="background-color:antiquewhite;">
+
+                                                    @foreach (var d in v.saleOrderDetails)
+                                                    {
+                                                        <input type="hidden" name="SODId[]" value="@d.SODId" />
+                                                        <tr>
+                                                            <td>@d.InventoryTitle</td>
+                                                            <td>
+                                                                W-Qty (@d.CurrentWarehouseQty)
+                                                            </td>
+                                                            <td>
+                                                                <select class="form-control" name="SelWareHouseQty[]">
+                                                                    <option value="0">0</option>
+                                                                    @for (int i = 1; i <= d.Quantity; i++)
+                                                                    {
+                                                                        <option value="@i">@i</option>
+                                                                    }
+                                                                </select>
+
+                                                            </td>
+                                                            <td>
+                                                                S-Qty (@d.CurrentShowroomQty)
+                                                            </td>
+                                                            <td>
+                                                                <select class="form-control" name="SelShowRoomQty[]">
+                                                                    <option value="0">0</option>
+                                                                    @for (int i = 1; i <= d.Quantity; i++)
+                                                                    {
+                                                                        <option value="@i">@i</option>
+                                                                    }
+                                                                </select>
+                                                            </td>
+
+                                                        </tr>
+                                                    }
+                                                </table>
+                                            </div>
+                                        </div>*@
+
+                                                    <div class="row" style="padding-left:15px;">
+                                                        <input type="hidden" name="SOMId" value="@v.SOMId" />
+
+                                                        <div class="row">
+                                                            <div class="col-8">
+
+                                                                <input type="text" name="DCRemarks" placeholder="Remarks" class="form-control" required />
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <button type="submit" class="btn btn-success">Create DC</button>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                }
+
+                                                <a class="btn btn-primary mt-3" href="javascript:void(0)" @*"~/Sales/SendSOEmail?soid=@v.SOMId"*@>Send Invoice Email</a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                }
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-inn">
+                        <form action="~/Inventory/All" method="post">
+                            <span>Current Page  @Model.Count() records</span>
+                            <ul class="pagination">
+                                <!--<li class="waves-effect"><a href="#!"><i class="material-icons"><</i></a></li>-->
+                                @{
+                                    int pre = curentPage - 1;
+                                }
+                                @if (curentPage == 1)
+                                {
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#!" tabindex="-1">Previous</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="~/AdminSales/OpenOrders?pageNumber=@pre&pageSize=@ViewBag.pageSize">Previous</a>
+                                    </li>
+                                }
+                                @for (int cnt = 1; cnt <= totalPages; cnt++)
+                                {
+                                    if (cnt == curentPage)
+                                    {
+                                        <li class="page-item active"><a class="page-link" href="~/AdminSales/OpenOrders?pageNumber=@cnt&pageSize=@ViewBag.pageSize">@cnt</a></li>
+
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item"><a class="page-link" href="~/AdminSales/OpenOrders?pageNumber=@cnt&pageSize=@ViewBag.pageSize">@cnt</a></li>
+                                    }
+                                }
+                                @{
+                                    int next = curentPage + 1;
+                                }
+                                @if (curentPage != totalPages)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="~/AdminSales/OpenOrders?pageNumber=@next&pageSize=@ViewBag.pageSize">Next</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#!">Next</a>
+                                    </li>
+                                }
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+			</div>
+		</div>
+
+	</section>
+	<!-- /.content -->
+</div>
+<script>
+	$(document).ready(function () {
+		if ("@ViewBag.emgNft" != "") {
+			toastr["error"]("@ViewBag.emgNft");
+        }
+	})
+    function ShowDelete(id) {
+        swal("Are you sure?", {
+            buttons: {
+                yes: {
+                    text: "Yes",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+                $.ajax({
+                    url: GlobalUrl + "AdminSales/DeleteSaleOrder?id=" + id,
+                    type: 'post',
+                    data: '{}',
+                    success: function (result) {
+                        toastr["success"]("Successuflly deleted!");
+                        window.location.href = window.location.href;
+                    }
+                });
+            }
+            else {
+                toastr["error"]("Delete cancelled!")
+            }
+            return false;
+        });
+    }
+</script>

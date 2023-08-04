@@ -1,0 +1,172 @@
+﻿@model IEnumerable<SCASA.Models.ModelClasses.CompanyDisplayModel>
+@*
+    @*
+        For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int rCnt = 1;
+
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="header-icon">
+                    <i class="fa fa-users"></i>
+                </div>
+                <div class="header-title">
+                    <h1>Company </h1>
+                    <small>Company List</small>
+                </div>
+            </div>
+        <div class="btn-group float-right" role="group">
+            <div class="buttonexport" id="buttonlist">
+                <a class="btn btn-add" href="~/EmpireHome/Dashboard">
+                    <i class="fa fa-reply mr-2"></i> Back
+                </a>
+            </div>
+        </div>
+</div>
+    </section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12 pinpin">
+            <div class="card" data-sortable="true">
+                <div class="card-header">
+                    <div class="card-title custom_title">
+                        <div class="row">
+                            @*<form action="~/Staff/StaffList" method="post">*@
+
+                            <div class="col-md-9">
+                                <h4>Company Details </h4>
+                            </div>
+                            @*<div class="col-md-5">
+
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="uData" placeholder="Search">
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3">
+
+
+                                    <button type="submit" class="btn btn-success btn-sm">
+                                        Search
+                                    </button>
+
+                                </div>*@
+                            @*</for  m>*@
+
+                            <div class="col-md-3">
+                                @*<div class="btn-group float-right" role="group">
+                                    <div class="buttonexport" id="buttonlist">
+                                        <a class="btn btn-add" href="~/Master/CompanyData">
+                                            <i class="fa fa-plus"></i> Add Company
+                                        </a>
+                                    </div>
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                    <div class="table-responsive">
+                        <table id="mydatatable" class="table table-bordered table-striped table-hover">
+                            <thead class="back_table_color">
+                                <tr class="info">
+                                    <th>#</th>
+                                    <th>Company Name</th>
+                                    <th>Company Address</th>
+                                    <th>Warehouse Address</th>
+                                    <th>Showroom Address</th>
+                                    <th>CEO Name</th>
+                                    <th>CEO Email</th>
+                                    <th>CEO Number</th>
+                                    <th>Warehouse Numbers</th>
+                                    <th>Showroom Numbers</th>
+                                    <th>Warehouse Email</th>
+                                    <th>Showroom Email</th>
+                                    <th>GSTIN</th>
+                                    <th>Code</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    foreach (var s in Model)
+                                    {
+                                        <tr>
+                                            <td>@(rCnt++)</td>
+                                            <td>@s.CompanyName</td>
+                                            <td>@s.CompanyAddress</td>
+                                            <td>@s.WarehouseAddress</td>
+                                            <td>@s.ShowroomAddress</td>
+                                            <td>@s.CEOName</td>
+                                            <td>@s.CEOEmail</td>
+                                            <td>@s.CEOContactNumber</td>
+                                            <td>@s.WarehousePhoneNumbers</td>
+                                            <td>@s.ShowroomPhoneNumbers</td>
+                                            <td>@s.WarehouseEmail</td>
+                                            <td>@s.ShowroomEmail</td>
+                                            <td>@s.GSTIN</td>
+                                            <td>@s.Code</td>
+                                            <td>
+                                                <a href="~/Master/CompanyData?id=@s.CompanyId"><button type="button" class="btn btn-add btn-sm" title="Edit"><i class="fa fa-pencil"></i></button></a>
+                                                @*<a href="javascript:void(0);" onclick="ShowDelete(@s.CompanyId)">
+                                                    <button type="button" class="btn btn-danger btn-sm"
+                                                            data-toggle="modal">
+                                                        <i class="fa fa-trash-o"></i>
+                                                    </button>
+                                                </a>*@
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /.content -->
+</div>
+<script>
+    function ShowDelete(id) {
+        swal("Are you sure?", {
+            buttons: {
+                yes: {
+                    text: "Yes",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+                $.ajax({
+                    url: GlobalUrl + "Master/DeleteCompany?id=" + id,
+                    type: 'post',
+                    data: '{}',
+                    success: function (result) {
+                        toastr["success"]("Successuflly deleted!");
+                        window.location.href = window.location.href;
+                    }
+                });
+            }
+            else {
+                toastr["error"]("Delete cancelled!")
+            }
+            return false;
+        });
+    }
+</script>

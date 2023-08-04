@@ -1,0 +1,518 @@
+﻿@model SCASA.Models.ModelClasses.UserMasterDisplay;
+@{
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+			<div class="row">
+				<div class="col-md-9">
+					<h1>Profile</h1>
+					<small>Dashboard / Profile</small>
+				</div>
+				<div class="col-md-3">
+					<div class="btn-group float-right" role="group">
+						<div class="buttonexport" id="buttonlist">
+							<a class="btn btn-add" href="~/Staff/StaffList">
+								<i class="fa fa-reply mr-2"></i>Back
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card mb-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="profile-view">
+                                    <div class="profile-img-wrap">
+                                        <div class="profile-img">
+                                            @if (Model.ProfileImage != null)
+                                            {
+                                                <img alt="" src="~/ProductImages/@Model.ProfileImage">
+                                            }
+                                            else
+                                            {
+                                                <img alt="" src="~/ProductImages/dummy.png">
+                                            }
+
+                                        </div>
+                                    </div>
+                                    <div class="profile-basic">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="profile-info-left">
+                                                    <h4 class="user-name m-t-0 mb-4 font-weight-bold">@Model.UserName</h4>
+                                                    <h6 class="text-muted">@Model.UserTypeName</h6>
+                                                    <h5 class="text-danger" style="padding-top:5px;">Status :  @Model.CurrentStatus</h5>
+                                                    @*<small class="text-muted">Manager</small>*@
+                                                    <div class="staff-id">Employee Code : @Model.EmployeeCode </div>
+                                                    @{
+                                                        DateTime dj = Convert.ToDateTime(Model.DateOfJoin);
+                                                    }
+                                                    <div class="small doj text-muted">Date of Join : @dj.ToString("D")</div>
+                                                    <div class="small doj text-muted">Status : @Model.CurrentStatus</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <ul class="personal-info">
+                                                    <li>
+                                                        <div class="title">Phone:</div>
+                                                        <div class="text">@Model.MobileNumber</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Email:</div>
+                                                        <div class="text">@Model.EmailId</div>
+                                                    </li>
+                                                    @{
+                                                        DateTime db = Convert.ToDateTime(Model.DateOfBirth);
+                                                    }
+                                                    <li>
+                                                        <div class="title">Birthday:</div>
+                                                        <div class="text">@db.ToString("d")</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Address 1 :</div>
+                                                        <div class="text">@Model.Address1</div>
+                                                        @*<div class="text">@Model.Address2</div>*@
+                                                    </li>
+                                                    @if (Model.Address2 != null)
+                                                     {
+                                                        <li>
+                                                            <div class="title">Address 2 :</div>
+                                                            <div class="text">@Model.Address2</div>
+                                                        </li>
+                                                     }
+                                                     <li>
+                                                        <div class="title">Gender:</div>
+                                                        <div class="text">@Model.Gender</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pro-edit"><a class="edit-icon" href="~/Staff/AddStaff?id=@Model.UserId"><i class="fa fa-pencil"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                Other Details
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="personal-info">
+                                            <li>
+                                                <div class="title">Country :</div>
+                                                <div class="text">@Model.CountryId_Name</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">State :</div>
+                                                <div class="text">@Model.StateId_Name</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">City :</div>
+                                                <div class="text">@Model.CityId_Name</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Zip Code :</div>
+                                                <div class="text">@Model.ZipCode</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Referred By Name :</div>
+                                                <div class="text">@Model.ReferredbyName</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Reffered By Number :</div>
+                                                <div class="text">@Model.ReferredByMobile</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Emergency Contact Number :</div>
+                                                <div class="text">@Model.EmergencyContactNumber</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="personal-info">
+                                            <li>
+                                                <div class="title">Max Discount Percentage :</div>
+                                                <div class="text">@Model.MaxDiscoutPercentage</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Pan Number :</div>
+                                                <div class="text">@Model.PANNumber</div>
+                                                <span> <a href="~/ProductImages/@Model.PanCardUploaded" target="_blank">Front</a></span>
+                                            </li>
+                                            <li>
+                                                <div class="title">Pf Number :</div>
+                                                <div class="text">@Model.PFNumber</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">UAN Number :</div>
+                                                <div class="text">@Model.UANNumber</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">ESI Number :</div>
+                                                <div class="text">@Model.ESICNumber</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">BioMetric Id :</div>
+                                                <div class="text">@Model.BioMetricId</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                     <div class="col-md-6">
+                          <div class="card">
+                               <div class="card-header">
+                                    Income Salary
+                               </div>
+                               <div class="card-body">
+                                    <div class="row">
+                                         <div class="col-md-6">
+                                              <ul class="personal-info">
+                                                  <li>
+                                                      <div class="title">Basic Salary : </div>
+                                                      @if (Model.BasicSalary != null)
+                                                       {
+                                                           <div class="text">@Model.BasicSalary /-</div>
+                                                       }
+                                                  </li>
+                                                  <li>
+                                                      <div class="title">HRA : </div>
+                                                      @if (Model.HRA != null)
+                                                      {
+                                                          <div class="text">@Model.HRA /-</div>
+                                                      }
+                                                  </li>
+                                                  <li>
+                                                     <div class="title">D Allowance : </div>
+                                                     @if (Model.DearnessAllowance != null)
+                                                      {
+                                                         <div class="text">@Model.DearnessAllowance /-</div>
+                                                      }
+                                                  </li>
+                                                  <li>
+                                                     <div class="title">F Allowance : </div>
+                                                     @if (Model.FoodAllowance != null)
+                                                      {
+                                                         <div class="text">@Model.FoodAllowance /-</div>
+                                                      }
+                                                  </li>
+                                              </ul>
+                                         </div>
+                                         <div class="col-md-6">
+                                              <ul class="personal-info">
+                                                  <li>
+                                                      <div class="title">Conveyance : </div>
+                                                      @if (Model.Conveyance != null)
+                                                       {
+                                                          <div class="text">@Model.Conveyance /-</div>
+                                                       }
+                                                  </li>
+                                                  <li>
+                                                      <div class="title">M Allowances : </div>
+                                                      @if (Model.MedicalAllowances != null)
+                                                       {
+                                                          <div class="text">@Model.MedicalAllowances /-</div>
+                                                       }
+                                                  </li>
+                                                  <li>
+                                                      <div class="title">O Allowances : </div>
+                                                      @if (Model.OtherAllowances != null)
+                                                       {
+                                                          <div class="text">@Model.OtherAllowances/-</div>
+                                                       }
+                                                  </li>
+                                              </ul>
+                                         </div>
+                                    </div>
+                               </div>
+                          </div>
+                     </div>
+                     <div class="col-md-6">
+                          <div class="card">
+                               <div class="card-header">
+                                    Deductions
+                               </div>
+                               <div class="card-body">
+                                    <ul class="personal-info">
+                                        <li>
+                                            <div class="title">Provident Fund:</div>
+                                            @if (Model.ProvidentFund != null)
+                                             {
+                                                <div class="text">@Model.ProvidentFund /-</div>
+                                             }
+                                        </li>
+                                        <li>
+                                            <div class="title">Professional Tax : </div>
+                                            @if (Model.ProfessionalTax != null)
+                                             {
+                                                <div class="text">@Model.ProfessionalTax /-</div>
+                                             }
+                                        </li>
+                                        <li>
+                                            <div class="title">ESI Fund : </div>
+                                            @if (Model.ESIFund != null)
+                                             {
+                                                <div class="text">@Model.ESIFund /-</div>
+                                             }
+                                        </li>
+                                        <li>
+                                            <div class="title">TDS : </div>
+                                            @if (Model.TDS != null)
+                                             {
+                                                <div class="text">@Model.TDS  /-</div>
+                                             }
+                                        </li>
+                                    </ul>
+                               </div>
+                          </div>
+                     </div>
+                </div>
+
+                                            @*<div class="mt-4">
+                                        <div class="card all_btn_card">
+                                            <div class="page-header">
+                                                <div class="col-sm-12">
+                                                    <h4 class="page-title">Attendance</h4>
+                                                </div>
+                                            </div>
+                                            <div class="filter-row">
+                                                <div class="col-sm-6 col-md-3">
+                                                    <div class="form-group form-focus select-focus focused">
+                                                        <select class="select floating select2-hidden-accessible" data-select2-id="select2-data-1-ubjb" tabindex="-1" aria-hidden="true">
+                                                            <option data-select2-id="select2-data-3-hs61">-</option>
+                                                            <option value="1">Jan</option>
+                                                            <option value="2">Feb</option>
+                                                            <option value="3">Mar</option>
+                                                            <option value="4">Apr</option>
+                                                            <option value="5">May</option>
+                                                            <option value="6">Jun</option>
+                                                            <option value="7">Jul</option>
+                                                            <option value="8">Aug</option>
+                                                            <option value="9">Sep</option>
+                                                            <option value="10">Oct</option>
+                                                            <option value="11">Nov</option>
+                                                            <option value="12">Dec</option>
+                                                        </select>
+                                                        <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-2-a86g" style="width: 100%;">
+                                                            <span class="selection">
+                                                                <span class="select2-selection select2-selection--single"
+                                                                      role="combobox"
+                                                                      aria-haspopup="true"
+                                                                      aria-expanded="false"
+                                                                      tabindex="0"
+                                                                      aria-disabled="false"
+                                                                      aria-labelledby="select2-5qie-container"
+                                                                      aria-controls="select2-5qie-container">
+                                                                    <span class="select2-selection__rendered" id="select2-5qie-container" role="textbox" aria-readonly="true" title="-">-</span>
+                                                                    <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
+                                                                </span>
+                                                            </span>
+                                                            <span class="dropdown-wrapper" aria-hidden="true"></span>
+                                                        </span>
+                                                        <label class="focus-label">Select Month</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-3">
+                                                    <div class="form-group form-focus select-focus focused">
+                                                        <select class="select floating select2-hidden-accessible" data-select2-id="select2-data-4-eagg" tabindex="-1" aria-hidden="true">
+                                                            <option data-select2-id="select2-data-6-2dfu">-</option>
+                                                            <option>2019</option>
+                                                            <option>2019</option>
+                                                            <option>2018</option>
+                                                            <option>2017</option>
+                                                            <option>2016</option>
+                                                            <option>2015</option>
+                                                        </select>
+                                                        <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-5-3s5j" style="width: 100%;">
+                                                            <span class="selection">
+                                                                <span class="select2-selection select2-selection--single"
+                                                                      role="combobox"
+                                                                      aria-haspopup="true"
+                                                                      aria-expanded="false"
+                                                                      tabindex="0"
+                                                                      aria-disabled="false"
+                                                                      aria-labelledby="select2-v6td-container"
+                                                                      aria-controls="select2-v6td-container">
+                                                                    <span class="select2-selection__rendered" id="select2-v6td-container" role="textbox" aria-readonly="true" title="-">-</span>
+                                                                    <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
+                                                                </span>
+                                                            </span>
+                                                            <span class="dropdown-wrapper" aria-hidden="true"></span>
+                                                        </span>
+                                                        <label class="focus-label">Select Year</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-3">
+                                                    <a href="#" class="btn btn-success btn-block"> Search </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-12">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped custom-table table-nowrap mb-0 bg-white">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Employee</th>
+                                                                <th>1</th>
+                                                                <th>2</th>
+                                                                <th>3</th>
+                                                                <th>4</th>
+                                                                <th>5</th>
+                                                                <th>6</th>
+                                                                <th>7</th>
+                                                                <th>8</th>
+                                                                <th>9</th>
+                                                                <th>10</th>
+                                                                <th>11</th>
+                                                                <th>12</th>
+                                                                <th>13</th>
+                                                                <th>14</th>
+                                                                <th>15</th>
+                                                                <th>16</th>
+                                                                <th>17</th>
+                                                                <th>18</th>
+                                                                <th>19</th>
+                                                                <th>20</th>
+                                                                <th>22</th>
+                                                                <th>23</th>
+                                                                <th>24</th>
+                                                                <th>25</th>
+                                                                <th>26</th>
+                                                                <th>27</th>
+                                                                <th>28</th>
+                                                                <th>29</th>
+                                                                <th>30</th>
+                                                                <th>31</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <h4 class="table-avatar">
+                                                                        <a class="avatar avatar-xs" href="profile.html"><img alt="" src="assets/dist/img/m2.png" /></a>
+                                                                        <a href="profile.html">John Doe</a>
+                                                                    </h4>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="half-day">
+                                                                        <span class="first-off">
+                                                                            <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                        </span>
+                                                                        <span class="first-off"><i class="fa fa-close text-danger"></i></span>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td><i class="fa fa-close text-danger"></i></td>
+                                                                <td><i class="fa fa-close text-danger"></i></td>
+                                                                <td><i class="fa fa-close text-danger"></i></td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td><i class="fa fa-close text-danger"></i></td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="half-day">
+                                                                        <span class="first-off"><i class="fa fa-close text-danger"></i></span>
+                                                                        <span class="first-off">
+                                                                            <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                        </span>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td><i class="fa fa-close text-danger"></i></td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td><i class="fa fa-close text-danger"></i></td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#attendance_info"><i class="fa fa-check text-success"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.content -->
+                        </div>

@@ -1,0 +1,236 @@
+﻿@model SCASA.Models.ModelClasses.PrintList
+@{
+    int rCnt = 1;
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Inventory - Total :  @Model.Items.Count</h1>
+            <small>Very Detail Inventory.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 pinpin">
+                <div class="card" data-sortable="true">
+                    <div class="card-header">
+                        <form action="~/Inventory/StolckReport" method="post">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="card-title custom_title">
+                                        <h4>Inventory List</h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Category</label>
+                                        @Html.DropDownListFor(x => Model.CategoryId,
+                                                new SelectList(new[] {
+                                                new {CategoryId = 0,CategoryName = "-- Select Category --" }}
+                                                .Union(
+                                                    Model.catDrops
+                                                    .Select(o => new { CategoryId = o.CategoryId, CategoryName = o.CategoryName })),
+                                                    "CategoryId", "CategoryName"), null,
+                                                    new { @id = "catDD", @class = "form-control select2", @onchange = "GetSubCats()" })
+                                    </div>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Sub Category</label>
+
+                                        @Html.DropDownListFor(x => Model.SubCategoryId,
+                                                new SelectList(new[] {
+                                                new {SubCategoryId = 0,SubCategoryName = "-- Select SubCategory --" }}
+                                                .Union(
+                                                    Model.SubDrops
+                                                    .Select(o => new { SubCategoryId = o.SubCategoryId, SubCategoryName = o.SubCategoryName })),
+                                                    "SubCategoryId", "SubCategoryName"), null,
+                                                    new { @id = "subcatDD", @class = "form-control select2" })
+                                        @*@Html.DropDownListFor(x => Model.SubCategoryId, new SelectList(Model.subCategoryDrops, "SubCategoryId", "SubCategoryName", Model.SubCategoryId), new { @id = "subcatDD", @class = "form-control" })*@
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Location </label>
+                                    <label>Location</label>
+                                    <select name="lId" class="form-control select2">
+                                        <option value="1">All</option>
+                                        <option value="2">Showroom</option>
+                                        <option value="3">WareHouse</option>
+                                    </select>
+                                </div>
+                                <div clas="col-md-2">
+                                    <button type="submit" class="btn btn-success serchgaptop">
+                                        Search
+                                    </button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-success serchgaptop" onclick="exportExel('xlsx')">
+                                        <span class="glyphicon glyphicon-download"></span>
+                                        Export list
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        
+                    </div>
+                    <div class="card-body">
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="printTable1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>#</th>
+                                        <th>M.No.</th>
+                                        <th>Image</th>
+                                        <th>Description</th>
+                                        <th>Dimension</th>
+                                        <th>Colour</th>
+                                        <th>Quantity</th>
+                                        <th colspan="2" class="text-center">Location</th>
+                                        <th>MRP</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="7"></th>
+                                        @*<th>Available Qty</th>
+                                            <th>Reserved Qty</th>*@
+                                        <th>Warehouse</th>
+                                        <th>Showroom</th>
+                                        <th colspan="4"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.Items != null)
+                                    {
+                                        foreach (var v in Model.Items)
+                                        {
+                                            <tr>
+                                                <td>@(rCnt++)</td>
+                                                <td>
+                                                    <div>
+                                                        @*<strong>@v.Title</strong>
+                                                            <br />*@
+                                                        <strong>
+                                                            @v.ModelNumber
+                                                        </strong>
+                                                    </div>
+                                                    <div>
+                                                        @v.CategoryName
+                                                    </div>
+                                                    <div style="font-style:12px;color:cadetblue">
+                                                        @v.SubCategoryName
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        string[] pImages = v.PrimaryImage.Split(",");
+                                                    }
+                                                    <img src="http://crms.empirehome.in/ProductImages/@pImages[0]" width="150" height="150">
+                                                </td>
+                                                <td>
+                                                    @(v.ItemDescription.Length > 100 ? v.ItemDescription.Substring(0,100) : v.ItemDescription)
+                                                </td>
+                                                <td>@v.Height Feet x  @v.Breadth Feet x  @v.Width Feet</td>
+                                                <td>
+                                                    @{
+                                                        string[] cImage = v.ColorImage.Split(",");
+                                                    }
+                                                    @foreach (var ci in cImage)
+                                                    {
+                                                        @v.ColorName <br />
+                                                        <img src="~/ProductImages/@ci" width="50">
+                                                    }
+                                                </td>
+                                                <td class="text-center">
+                                                    @v.Qty
+                                                </td>
+                                                <td class="text-center">
+                                                    @v.WharehouseQty
+                                                </td>
+                                                <td class="text-center">@v.ShowroomQty</td>
+                                                <td width="12%;">
+                                                    @{
+                                                        System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+                                                        string mrp = String.Format(Indian, "{0:N}", v.ActualPrice);
+                                                    }
+                                                    Rs. @mrp
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script>
+    function exportExel(type, fn, dl) {
+
+        var elt = document.getElementById('printTable1');
+        var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+        return dl ?
+            XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+            XLSX.writeFile(wb, fn || ('StockReport.' + (type || 'xlsx')));
+
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $('.select2').select2();
+        GetSubCats();
+        $('#loading').hide();
+    });
+
+    $(document).on("click", ".open-EditTodo", function () {
+        var todoId = $('#myData').data('todo').id;
+        var wh = $('#myData').data('todo').wh;
+        var sh = $('#myData').data('todo').sh;
+        $("#inventoryid").val(todoId);
+        $("#shqty").val(sh);
+        $("#avsh").html(sh);
+        $("#whqty").val(wh);
+        $("#avwh").html(wh);
+        $('#loading').show();
+
+    });
+
+    function GetSubCats() {
+        var catid = $('#catDD option:selected').val();
+        $.ajax({
+            url: GlobalUrl + "Common/GetAllSubCats?catId=" + catid,
+            type: 'post',
+            data: '{}',
+            success: function (res) {
+                var r = res.result.length;
+                var row = '';
+
+                if (r > 0) {
+
+                    for (var i = 0; i < r; i++) {
+                        row = row + '<option value="' + res.result[i].subCategoryId + '">' + res.result[i].subCategoryName + '</option>';
+
+                    }
+                }
+                $('#subcatDD').html('');
+                $('#subcatDD').html(row);
+            }
+        });
+    }
+</script>

@@ -1,0 +1,215 @@
+﻿@model SCASA.Models.ModelClasses.QuotesSubmittedForApprovalModel
+@{
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Quotation Details - Submitted for additional Discount</h1>
+            <br />
+            <h4><b>@Model.CustomerName </b> , @Model.CustomerAddress</h4>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <div class="card w-100">
+                <div class="card-header">
+                    <form action="~/Inventory/All" method="post">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h5>Submitted by<br /> <b>@Model.SubmittedBy</b> </h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>Submitted On <br /><b>@Convert.ToDateTime(Model.SubmittedOn).ToString("dd/MMM/yyyy")</b> </h5>
+                            </div>
+                            <div class="col-md-2">
+                                @{
+                                    decimal? tAmount = Model.quoteDetails.crfqDetails.Sum(a=>a.OrderLineTotal);
+                                }
+                                <h5>Order Amount<br /><b> Rs. @(String.Format(Indian,"{0:N}", tAmount))</b> </h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>Total Discount<br /><b>Rs.  @(String.Format(Indian,"{0:N}",(Model.quoteDetails.crfqDetails.Sum(a=>a.OrderLineTotal) * (Model.SalesExecDiscount + Model.DiscountGiven) /100)))</b> </h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>Total Amount<br /><b>Rs.  @(String.Format(Indian,"{0:N}",(Model.quoteDetails.crfqDetails.Sum(a=>a.TotalPrice))))</b> </h5>
+                            </div>
+                            <div clas="col-md-2">
+
+
+                                <a class="btn btn-primary btn-sm" href="~/AdminSales/Discounts">
+                                    Back to list
+                                </a>
+
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="card-body">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table id="mydatatable" class="table table-bordered table-striped table-hover">
+									<thead class="back_table_color">
+										<tr>
+											<th>Title</th>
+											<th>Qty</th>
+											<th>Price</th>
+											<th>Order Total</th>
+											<th>SE Desc. %</th>
+											<th>Other Disc.</th>
+											<th>Admin Disc.</th>
+											<th>Total Discount</th>
+											<th>Total</th>
+											<th>Image</th>
+											<th>Size</th>
+											<th>Color</th>
+
+										</tr>
+									</thead>
+                                    @foreach (var d in Model.quoteDetails.crfqDetails)
+                                    {
+                                        <tr>
+                                            <td>@d.InventoryTitle</td>
+                                            <td>@d.Quantity</td>
+                                            <td class="text-right">@(String.Format(Indian, "{0:N}", d.ItemPrise))</td>
+                                            <td class="text-right">@(String.Format(Indian, "{0:N}",(d.Quantity * d.ItemPrise)))</td>
+                                            <td class="text-right">@d.DisAmtBySE</td>
+                                            <td class="text-right">@d.DisAmtByHead </td>
+                                            <td class="text-right">@d.AdminDiscount </td>
+                                            <td class="text-right">Rs. @(String.Format(Indian,"{0:N}", (d.DisAmtByHead + d.DisAmtBySE * (d.Quantity * d.ItemPrise) / 100)))</td>
+                                            <td class="text-right">
+                                                Rs.
+                                                @(String.Format(Indian, "{0:N}", d.TotalPrice))
+                                            </td>
+                                            <td><img src="~/ProductImages/@d.InventoryImage" alt="Cart" width="100" /></td>
+                                            <td>
+                                                @d.Height X <br />  @d.Width X <br /> @d.Breadth
+                                            </td>
+                                            <td>
+                                                <img src="~/ProductImages/@d.ColorImage" width="50" />
+                                            </td>
+
+
+                                        </tr>
+                                    }
+
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    @if (ViewBag.LoggedUser.userTypeCode < 5)
+                    {
+                        <form method="post" action="~/AdminSales/GiveAdminDiscount" id="discountForm">
+                            <input type="hidden" name="TRId" value="@Model.TRId" />
+                            <input type="hidden" name="SEDisc" value="@Model.SalesExecDiscount" />
+                          
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Discount %</label>
+                                        <input type="text" name="GivenPercentage" id="DiscountAmount" class="form-control" />
+                                        <span class="text-danger" id="DisError"></span>
+                                        <span class="text-danger">@ViewBag.excedError</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Remarks</label>
+                                        <input type="text" name="Remarks" id="Remarks" class="form-control" />
+                                        <span class="text-danger" id="remarkError"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success serchgaptop">Save</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <span class="text-danger" id="errorMessage"> </span>
+                                </div>
+
+                            </div>
+                        </form>
+                    }
+                    else
+                    {
+                        <form method="post" action="~/AdminSales/GiveHeadDiscount" id="discountForm">
+                            <input type="hidden" name="TRId" value="@Model.TRId" />
+                            <input type="hidden" name="SEDisc" value="@Model.SalesExecDiscount" />
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Discount %</label>
+                                        <input type="text" name="GivenPercentage" id="DiscountAmount" class="form-control" />
+                                        <span class="text-danger" id="DisError"></span>
+                                        <span class="text-danger">@ViewBag.excedError</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Remarks</label>
+                                        <input type="text" name="Remarks" id="Remarks" class="form-control" />
+                                        <span class="text-danger" id="remarkError"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success serchgaptop">Save</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <span class="text-danger" id="errorMessage"> </span>
+                                </div>
+
+                            </div>
+                        </form>
+                    }
+
+                </div>
+            </div>
+            <!-- /.content -->
+        </div>
+    </div>
+    </div>
+
+<script>
+    $("#discountForm").submit(function (e) {
+        e.preventDefault();
+        var rem = $('#Remarks').val();
+        var dis = $('#DiscountAmount').val();
+        if (rem == null || rem == undefined || rem == '' || dis == null || dis == undefined || dis == '') {
+            $('#errorMessage').html('Fill all the fields');
+            if (rem == null || rem == undefined || rem == '') {
+                $('#remarkError').html('Remarks Field should be filled');
+            }
+            if (dis == null || dis == undefined || dis == '') {
+                $('#DisError').html('Discount Field should not be empty');
+            }
+            return fals;
+        }
+        else {
+            this.submit();
+        }
+     
+});
+</script>

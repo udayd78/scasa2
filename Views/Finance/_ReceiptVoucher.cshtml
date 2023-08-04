@@ -1,0 +1,234 @@
+﻿@model SCASA.Models.ModelClasses.FinanceTransactionsModel
+@{
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+}
+<div class="row">
+    <div class="col-lg-12 pinpin">
+        <div class="card" data-sortable="true">
+            <div id="printPanel">
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
+                <head>
+                    <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
+                    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+                    <meta content="width=device-width" name="viewport" />
+                    <!--[if !mso]><!-->
+                    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+                    <!--<![endif]-->
+                    <title>Recept Voucher</title>
+                    <!--[if !mso]><!-->
+                    <!--<![endif]-->
+
+                </head>
+                <body style="font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;">
+                    <style type="text/css">
+                        body {
+                            margin: 0;
+                            padding: 0;
+                            background-color: rgb(237, 237, 240);
+                        }
+
+                        table,
+                        td,
+                        tr {
+                            vertical-align: top;
+                            border-collapse: collapse;
+                        }
+
+                        * {
+                            line-height: inherit;
+                        }
+
+                        a[x-apple-data-detectors=true] {
+                            color: inherit !important;
+                            text-decoration: none !important;
+                        }
+                    </style>
+                    @*<input type="hidden" id="vType" value="@Model.VoucherType" />*@
+                    <table width="700px" style="margin: 0 auto; border:2px solid #a3080d;background-color: #fff; padding: 20px;" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td style="padding: 10px;">
+                                    <table width="100%;">
+                                        <tbody>
+                                            <tr>
+                                                <td style="text-align: center; font-size: 40px; font-weight: bold;">SCASA</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; font-size:16px; font-weight: bold;">@Model.companyDetails.CompanyAddress</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center; font-size: 22px;  font-weight: bold; text-decoration: underline; padding-top:20px;">Receipt Voucher</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            @*<tr>
+                                    <td>
+                                        <table width="100%" style="border:2px solid; border-collapse: collapse;" cellpadding="0" , cellspacing="0">
+                                            <tr>
+                                                <td width="60%">
+                                                    <table width="100%" style="border-collapse: collapse;" cellpadding="0" , cellspacing="0">
+                                                        <tr>
+                                                            @if (Model.VoucherType == "Receipt")
+                                                            {
+                                                                <td style="border-right:2px solid; border-bottom: 2px solid; padding: 5px">Received with thanks from</td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td style="border-right:2px solid; border-bottom: 2px solid; padding: 5px">Paid amount to</td>
+                                                            }
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border-right:2px solid; padding: 5px;"><strong> <strong> @Model.ToHeadID_Name</strong></strong>  </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td width="40%" style="vertical-align: middle; text-align: left; padding: 5px">No. <span style="color:red; font-weight: bold;"> @Model.TRID</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>*@
+                            @*<tr>
+                                    <td>
+                                        <table width="100%" style="border-bottom: 2px solid; border: 2px solid; border-collapse: collapse;">
+                                            <tr>
+                                                <td width="60%" style="border-right:2px solid; border-left: 2px solid; padding: 5px;">
+                                                    The Sum of Rupees :
+                                                </td>
+                                                <td width="40%" style="text-align: left; border-right: 2px solid; padding: 5px;">Date : <span style="color:green; font-weight: bold">@(Convert.ToDateTime(Model.DateOfTransaction).ToString("dd-MMM-yyyy"))</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                </tr>*@
+
+                            <tr>
+                                <td>
+                                    <table width="100%" style="border: 2px solid; border-collapse: collapse;" cellpadding="0" , cellspacing="0">
+                                        <tr>
+                                            <!--<td width="60%">
+                                                <table width="100%" style="border-collapse: collapse;" cellpadding="0" , cellspacing="0">
+                                                    <tr>
+                                                        <td style="border-right:2px solid; border-bottom: 2px solid; padding: 5px"><span id="amtInWords" style="font-weight:bold;"></span></td>
+                                                    </tr>-->
+                                            @*<tr>
+                                                    <td style="border-right:2px solid; padding: 5px;">by  <span id="pmtMethod">@Model.FromHeadID_Name</span></td>
+                                                </tr>*@
+                                            <!--</table>
+                                            </td>-->
+                                            <td width="100%" style="vertical-align: middle; text-align: left; padding: 5px">Rs. <span style="color:blue; font-weight: bold;" id="amtReceived"> @(String.Format(Indian,"{0:N}", Model.Credit))</span></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table width="100%" style="border-bottom: 2px solid;">
+                                        <tr>
+                                            <td width="60%" style="border-right:2px solid; border-left: 2px solid; padding: 5px;">
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td width="100%">Dated <span id="rDate" style="font-weight:bold;">@(Convert.ToDateTime(Model.DateOfTransaction).ToString("dd-MMM-yyyy"))</span></td>
+                                                        @*<td>Bank</td>*@
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            @*<td width="40%" style="text-align: left; border-right: 2px solid; padding: 5px;"><span style="color:green; font-weight: bold"></span></td>*@
+                                        </tr>
+                                    </table>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table width="100%" style="border: 2px solid; border-top: 0; border-collapse: collapse;" cellpadding="0" , cellspacing="0">
+                                        <tr>
+                                            <td width="60%">
+                                                <table width="100%" style="border-collapse: collapse;" cellpadding="0" , cellspacing="0">
+                                                    <tr>
+                                                        <td style="border-right:2px solid; border-bottom: 2px solid; padding: 5px">On Account of : @Model.Description <span style=""> </span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border-right:2px solid; padding: 5px; padding-top: 100px;">Payment by Cheques are Subject to realization</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td width="40%" style="text-align: center; font-style: italic; padding: 5px">
+                                                <div>For <strong>SCASA</strong></div>
+                                                <div style="padding-top: 100px;"><strong>Authorised Signatory</strong></div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </body>
+            </html>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <a class="btn btn-success" onclick="printDiv()">Print now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<script>
+
+    var a = ['', 'One ', 'Two ', 'Three ', 'Four ', 'Five ', 'Six ', 'Seven ', 'Eight ', 'Nine ', 'Ten ', 'Eleven ', 'Twelve ', 'Thirteen ', 'Fourteen ', 'Fifteen ', 'Sixteen ', 'Seventeen ', 'Eighteen ', 'Nineteen '];
+    var b = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+    function inWords(num) {
+        if ((num = num.toString()).length > 9) return 'overflow';
+        n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+        if (!n) return; var str = '';
+            str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'crore ' : '';
+            str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'lakh ' : '';
+            str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'thousand ' : '';
+            str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'hundred ' : '';
+            str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + 'only ' : '';
+            return str;
+        }
+    $(document).ready(function () {
+        var cAmount = 0;
+        var vtype = "@Model.VoucherType";
+        if (vtype   == "Receipt") {
+            cAmount = @Model.Credit;
+        }
+        else {
+            cAmount = @Model.Debit;
+        }
+
+        var inwordsa = inWords(parseFloat(cAmount));
+        $('#amtInWords').html("Rs. " + inwordsa); //inWords(your amount)
+
+
+    })
+
+    function printDiv() {
+
+        var divToPrint = document.getElementById('printPanel');
+
+        var newWin = window.open('', 'Print-Window');
+
+        newWin.document.open();
+
+        newWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</body></html>');
+
+        newWin.document.close();
+
+        setTimeout(function () { newWin.close(); }, 10);
+
+    }
+</script>

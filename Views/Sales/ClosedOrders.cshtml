@@ -1,0 +1,250 @@
+﻿@model IEnumerable<SCASA.Models.ModelClasses.SaleOrderMasterModel>
+@{
+    Layout = "~/Views/Shared/_SalesMaster.cshtml";
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+    int curentPage = ViewBag.pageNumber;
+    var totalPages = ViewBag.totalPages;
+    int pageSize = ViewBag.pageSize;
+}
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-content">
+                    <h2>My Sale Orders</h2>
+                    <ul>
+                        <li>
+                            <a href="~/Sales/Index">Home</a>
+                        </li>
+                        <li>
+                            <span>My Closed Orders : - @ViewBag.TotalCount</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="title-img">
+        <img src="~/SApp/assets/images/page-title1.jpg" alt="About" />
+        <img src="~/SApp/assets/images/shape16.png" alt="Shape" />
+        <img src="~/SApp/assets/images/shape17.png" alt="Shape" />
+        <img src="~/SApp/assets/images/shape18.png" alt="Shape" />
+    </div>
+</div>
+
+<div class="user-area ptb-60">
+    <div class="container-fluid">
+        <input id="CurrentUserId" type="hidden" value="@ViewBag.LoggedUser.userId" />
+        <div class="searchBox">
+            <div id="no-more-tables">
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    @foreach (var v in Model)
+                    {
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne_@v.SOMId">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne_@v.SOMId" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <div>
+                                        <table class="col-md-12 table-bordered cf" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <td>Customer: </td>
+                                                    <td><strong>@v.CustomerName</strong></td>
+
+                                                    <td>Order Value</td>
+                                                    <td><strong>Rs. @(String.Format(Indian,"{0:N}", (v.saleOrderDetails.Sum(a => a.TotalPrice))))</strong></td>
+
+
+                                                    @*<td>Tax</td>
+                                                <td>@v.TaxApplicable, Rs. @(String.Format(Indian,"{0:N}", v.TaxAmount) )</td>*@
+                                                    <td>Invoice Amount</td>
+                                                    <td>Rs. @(String.Format(Indian,"{0:N}", (v.saleOrderDetails.Sum(a => a.TotalPrice) + v.DelivaryCharges+v.RoundedValue)))  </td>
+                                                    <td>Status : </td>
+                                                    <td style="background-color:forestgreen;"><strong style="color:white;">@v.CurrentStatus</strong></td>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne_@v.SOMId" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Qty</th>
+                                                <th>Price</th>
+                                                <th>Item Total</th>
+                                                <th>SE Disc. %</th>
+                                                <th>Other Disc.</th>
+                                                <th>Admin Disc.</th>
+
+                                                <th>Total Discount</th>
+                                                <th>Line Total</th>
+                                                <th>Image</th>
+                                                <th>Size</th>
+                                                <th>Color</th>
+
+                                            </tr>
+                                        </thead>
+                                        @foreach (var d in v.saleOrderDetails)
+                                        {
+                                            <tr>
+                                                <td>@d.InventoryTitle</td>
+                                                <td>@d.Quantity</td>
+                                                <td class="text-right">@(String.Format(Indian, "{0:N}", d.ItemPrice))</td>
+                                                <td class="text-right">@(String.Format(Indian, "{0:N}",d.OrderLineTotal))</td>
+                                                <td class="text-right">@d.DisAmtBySE</td>
+                                                <td class="text-right">@d.DisAmtByHead </td>
+                                                <td class="text-right">@d.AdminDiscount</td>
+                                                @{
+                                                    var adDis = d.AdminDiscount == null ? 0 : d.AdminDiscount;
+                                                }
+                                                <td class="text-right">Rs. @(String.Format(Indian,"{0:N}", ((d.DisAmtByHead + d.DisAmtBySE+d.AdminDiscount) * d.OrderLineTotal / 100)))</td>
+                                                <td class="text-right">
+                                                    Rs.
+                                                    @(String.Format(Indian, "{0:N}", d.TotalPrice))
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        string[] pImages = d.InventoryImage.Split(",");
+
+                                                    }
+                                                    <img src="~/ProductImages/@pImages[0]" width="150">
+                                                </td>
+                                                <td>
+                                                    @d.Height X <br />  @d.Width X <br /> @d.Breadth
+                                                </td>
+                                                <td>
+                                                    @{
+
+                                                        string[] cImage = d.ColorImage.Split(",");
+
+                                                    }
+                                                    @foreach (var ci in cImage)
+                                                    {
+
+                                                        @d.ColorName <br />
+                                                        <img src="~/ProductImages/@ci" width="50">
+                                                    }
+                                                </td>
+
+
+                                            </tr>
+                                        }
+
+                                    </table>
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                @if (v.CurrentStatus == "Open" || v.CurrentStatus == "Unpaid")
+                                                {
+                                                    <a class="btn btn-outline-primary" href="~/Sales/SubmitForPayment?soid=@v.SOMId">Submit for Payment</a>
+                                                }
+                                                @if (v.CurrentStatus == "Paid" || v.CurrentStatus == "Partial Paid")
+                                                {
+                                                    <a class="btn btn-outline-success" href="#">Download Receipt</a>
+                                                }
+
+                                                <a class="btn btn-outline-success" href="~/Sales/SendOrder?oId=@v.SOMId">Send Email</a>
+                                                <a class="btn btn-outline-success" href="~/Sales/SaleOrderDetail?oId=@v.SOMId" target="_blank">Print</a>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+
+            </div>
+            <div class="tab-inn">
+                <form action="~/Inventory/All" method="post">
+                    <span>Current Page  @Model.Count() records</span>
+                    <ul class="pagination">
+                        <!--<li class="waves-effect"><a href="#!"><i class="material-icons"><</i></a></li>-->
+                        @{
+                            int pre = curentPage - 1;
+                        }
+                        @if (curentPage == 1)
+                        {
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#!" tabindex="-1">Previous</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="~/Sales/ClosedOrders?pageNumber=@pre&pageSize=@ViewBag.pageSize&search=@ViewBag.search">Previous</a>
+                            </li>
+                        }
+                        @for (int cnt = 1; cnt <= totalPages; cnt++)
+                        {
+                            if (cnt == curentPage)
+                            {
+                                <li class="page-item active"><a class="page-link" href="~/Sales/ClosedOrders?pageNumber=@cnt&pageSize=@ViewBag.pageSize">@cnt</a></li>
+
+                            }
+                            else
+                            {
+                                <li class="page-item"><a class="page-link" href="~/Sales/ClosedOrders?pageNumber=@cnt&pageSize=@ViewBag.pageSize">@cnt</a></li>
+                            }
+                        }
+                        @{
+                            int next = curentPage + 1;
+                        }
+                        @if (curentPage != totalPages)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="~/Sales/ClosedOrders?pageNumber=@next&pageSize=@ViewBag.pageSize">Next</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#!">Next</a>
+                            </li>
+                        }
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function SubmitForDiscount(crfqid) {
+        swal("Are you sure?", {
+            buttons: {
+                yes: {
+                    text: "Yes",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+                var cid = $('#CurrentUserId').val();
+                $.ajax({
+                    url: GlobalUrl + "Sales/SendQuoteForDiscount?crfqId=" + crfqid + '&currentUserId=' + cid,
+                    type: 'post',
+                    data: '{}',
+                    success: function (result) {
+                        toastr["success"]("Successuflly submitted!");
+                        window.location.href = window.location.href;
+                    }
+                });
+            }
+            else {
+                toastr["error"]("Submit cancelled!")
+            }
+            return false;
+        });
+    }
+</script>

@@ -1,0 +1,350 @@
+﻿@model SCASA.Models.Repositories.Entity.StaffLoans;
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Add Staff Loan</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="row">
+                            <div class="card-title custom_title col-sm-6">
+                                <h5>Add Staff Loan</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group float-right" role="group">
+                                    <div class="buttonexport" id="buttonlist">
+                                        <a class="btn btn-add" href="~/Staff/StaffLoans">
+                                            <i class="fa fa-reply mr-2"></i>Back
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            @Html.HiddenFor(m => m.LoanId)
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Staff Name</label>
+                                        @Html.DropDownList("sId", new SelectList(ViewBag.Loans, "UserId", "UserName", "0"), new { @id = "sId", @class = "form-control select2" })
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Loan Amount</label>
+                                        <input type="number" placeholder="Enter Loan Amount" class="form-control" id="amount" />
+                                        @Html.ValidationMessageFor(m => m.AmountTaken, null, new { @class = "text-danger" })
+                                        <div class="text-danger">
+                                            <p id="amtErmMsg"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Repayment Mode</label>
+                                        <select class="form-control" name="RepaymentMode" id="RepaymentMode" onchange="ShowEMI()">
+                                            <option value="EMI">EMI</option>
+                                            <option value="Single">Single</option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>No Of Months</label>
+                                        <input type="number" placeholder="Enter No Of Months" class="form-control" id="nom" oninput="ShowEMI()"/>
+                                        @Html.ValidationMessageFor(m => m.NoofMonths, null, new { @class = "text-danger" })
+                                        <div class="text-danger"><p id="nomErmMsg"></p></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Monthly Emi</label>
+                                    <input type="text" class="form-control" id="MEmi" disabled />
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Remarks</label>
+                                        @Html.TextBox("remark", null, new { @placeholder = "Enter Remarks", @class = "form-control", @id = "remark"})
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type="button" class="btn btn-success serchgaptop" onclick="SaveLoan()"> Save</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="text-danger">
+                            <p id="emsg"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<script>
+    $('.select2').select2();
+    function ShowEMI() {
+        var amot = parseInt($("#amount").val());
+        var noms = parseInt($("#nom").val());
+        var retTyp = $('#RepaymentMode').val();
+        if (amot <= 0 || isNaN(amot)) {
+        } else {
+            if (retTyp == "Single") {
+                $("#MEmi").attr("value", amot);
+                $("#nom").val(1);
+                $("#nom").prop("readonly",true);
+            } else {
+                if (noms < 0 || isNaN(noms)) {
+                    $("#nom").val(12);
+                    var e = amot / 12;
+                    $("#MEmi").attr("value", e);
+                } else {
+                    if (noms == 1) {
+                        $("#nom").val(12);
+                    }
+                    $("#nom").prop("readonly", false);
+                    var n = parseInt($("#nom").val());
+                    var e = amot / n;
+                    $("#MEmi").attr("value", e);
+                }
+            }
+        }
+    }
+    function SaveLoan() {
+        var amot = parseInt($("#amount").val());
+        var noms = parseInt($("#nom").val());
+        var retTyp = $('#RepaymentMode').val();
+        if (amot <= 0 || isNaN(amot)) {
+            $("#amtErmMsg").text("Please Enter Valid Amount");
+        } else {
+            if (noms <= 0 || isNaN(noms)) {
+                $("#nomErmMsg").text("Please Enter Valid Number")
+            } else {
+                $.ajax({
+                    url: GlobalUrl + "Staff/CheckAvailbilityForLoan",
+                    type: 'post',
+                    data: {
+                        'sId': $('#sId option:selected').val(),
+                    },
+                    success: function (res) {
+                        if (res.amount != 0) {
+                            if (res.s != 0) {
+                                if (res.singleEMIExists == false) {
+                                    if ($("#RepaymentMode").val() == "EMI") {
+                                        if (noms >= 2) {
+                                            var totAmt = res.amount + amot;
+                                            var thisEMI = amot / noms;
+                                            var totalEMI = res.emi + thisEMI;
+                                            if (res.s > totalEMI) {
+
+                                                var msg = "Mr/Ms " + res.name + " has already Taken a Loan Amount of  " + res.amount + "\n" + res.name + "'s Salary is : " + res.s + "\n" + res.name + " ' s already EMI is : " + res.emi + "\n new EMI Will be : " + totalEMI + "\n Are You Sure To Give Loan Again"
+                                                swal(msg, {
+                                                    buttons: {
+                                                        yes: {
+                                                            text: "Give",
+                                                            value: "yes"
+                                                        },
+                                                        no: {
+                                                            text: "Reject",
+                                                            value: "no"
+                                                        }
+                                                    }
+                                                }).then((value) => {
+                                                    if (value === "yes") {
+                                                        $.ajax({
+                                                            url: GlobalUrl + "Staff/CreateStaffLoan",
+                                                            type: 'post',
+                                                            data: {
+                                                                'StaffId': $('#sId option:selected').val(),
+                                                                'AmountTaken': $('#amount').val(),
+                                                                'RepaymentMode': $('#RepaymentMode').val(),
+                                                                'NoofMonths': $('#nom').val(),
+                                                                'Remarks': $('#remark').val(),
+                                                            },
+                                                            success: function (res) {
+                                                                if (res.result.statusCode == 1) {
+                                                                    window.location = "StaffLoans";
+                                                                } else {
+                                                                    toastr["error"]("Please Try Again!")
+                                                                }
+                                                            }
+                                                        });
+                                                    } else {
+                                                        toastr["error"]("Loan Rejected!")
+                                                    }
+                                                });
+                                            } else { $("#emsg").text("Total EMI will be Greater than " + res.name + "'s Salary"); }
+                                        } else { $("#nomErmMsg").text("Please Enter Correct Number Of Months for Emi "); }
+                                    } else if ($("#RepaymentMode").val() == "Single") {
+                                        var totAmt = res.amount + amot;
+                                        var totalEMI = res.emi + amot;
+                                        if (res.s > totalEMI) {
+                                            var msg = "Mr/Ms " + res.name + " has already Taken a Loan Amount of  " + res.amount + "\n" + res.name + "'s Salary is : " + res.s + "\n" + res.name + " ' s already EMI is : " + res.emi + "\n Next Month Deductions Will be : " + totalEMI + "\n Are You Sure To Give Loan Again"
+                                            swal(msg, {
+                                                buttons: {
+                                                    yes: {
+                                                        text: "Give",
+                                                        value: "yes"
+                                                    },
+                                                    no: {
+                                                        text: "Reject",
+                                                        value: "no"
+                                                    }
+                                                }
+                                            }).then((value) => {
+                                                if (value === "yes") {
+                                                    $.ajax({
+                                                        url: GlobalUrl + "Staff/CreateStaffLoan",
+                                                        type: 'post',
+                                                        data: {
+                                                            'StaffId': $('#sId option:selected').val(),
+                                                            'AmountTaken': $('#amount').val(),
+                                                            'RepaymentMode': $('#RepaymentMode').val(),
+                                                            'NoofMonths': $('#nom').val(),
+                                                            'Remarks': $('#remark').val(),
+                                                        },
+                                                        success: function (res) {
+                                                            if (res.result.statusCode == 1) {
+                                                                window.location = "StaffLoans";
+                                                            } else {
+                                                                toastr["error"]("Please Try Again!")
+                                                            }
+                                                        }
+                                                    });
+                                                } else {
+                                                    toastr["error"]("Loan Rejected!")
+                                                }
+                                            });
+                                        } else { $("#emsg").text("Next Month Deductions will be Greater than " + res.name + "'s Salary"); }
+                                    }
+                                }
+                                else {
+                                    var totAmt = res.amount + amot;
+                                    var totalEMI = res.emi + res.singleAmt;
+                                    if (retTyp == "Single") {
+                                        totalEMI += amot;
+                                    } else {
+                                        var em = amot / noms;
+                                        totalEMI += em;
+                                    }
+                                    if (res.s > totalEMI) {
+
+                                        var msg = "Mr/Ms " + res.name + " has already Taken a Loan Amount of  " + res.amount + "\n He/She has taken a single Payment Loan of : " + res.singleAmt + "\n" + res.name + "'s Salary is : " + res.s + "\n" + res.name + " ' s already EMI is : " + (res.emi + res.singleAmt) + "\n Next Month Deductions Will be : " + totalEMI + "\n Are You Sure To Give Loan Again"
+                                        swal(msg, {
+                                            buttons: {
+                                                yes: {
+                                                    text: "Give",
+                                                    value: "yes"
+                                                },
+                                                no: {
+                                                    text: "Reject",
+                                                    value: "no"
+                                                }
+                                            }
+                                        }).then((value) => {
+                                            if (value === "yes") {
+                                                $.ajax({
+                                                    url: GlobalUrl + "Staff/CreateStaffLoan",
+                                                    type: 'post',
+                                                    data: {
+                                                        'StaffId': $('#sId option:selected').val(),
+                                                        'AmountTaken': $('#amount').val(),
+                                                        'RepaymentMode': $('#RepaymentMode').val(),
+                                                        'NoofMonths': $('#nom').val(),
+                                                        'Remarks': $('#remark').val(),
+                                                    },
+                                                    success: function (res) {
+                                                        if (res.result.statusCode == 1) {
+                                                            window.location = "StaffLoans";
+                                                        } else {
+                                                            toastr["error"]("Please Try Again!")
+                                                        }
+                                                    }
+                                                });
+                                            } else {
+                                                toastr["error"]("Loan Rejected!")
+                                            }
+                                        });
+                                    } else { $("#emsg").text("Next Month Deductions will be Greater than " + res.name + "'s Salary"); }
+                                }
+                            } else {
+                                $("#emsg").text("Salary for the Employee is not assigned");
+                            }
+                        } else {
+                            if ($("#RepaymentMode").val() == "Single") {
+                                    if (res.s > amot) {
+                                        $.ajax({
+                                            url: GlobalUrl + "Staff/CreateStaffLoan",
+                                            type: 'post',
+                                            data: {
+                                                'StaffId': $('#sId option:selected').val(),
+                                                'AmountTaken': $('#amount').val(),
+                                                'RepaymentMode': $('#RepaymentMode').val(),
+                                                'NoofMonths': $('#nom').val(),
+                                                'Remarks': $('#remark').val(),
+                                            },
+                                            success: function (res) {
+                                                if (res.result.statusCode == 1) {
+                                                    window.location = "StaffLoans";
+                                                } else {
+                                                    toastr["error"]("Please Try Again!")
+                                                }
+                                            }
+                                        });
+                                    } else {
+                                        $("#emsg").text("Loan Is Greater than  " + res.name + "'s Salary");
+                                    }
+                                }
+                            else if ($("#RepaymentMode").val() == "EMI") {
+                                if (noms > 1) {
+                                    var memi = amot / noms;
+                                    if (res.s > memi) {
+                                        $.ajax({
+                                            url: GlobalUrl + "Staff/CreateStaffLoan",
+                                            type: 'post',
+                                            data: {
+                                                'StaffId': $('#sId option:selected').val(),
+                                                'AmountTaken': $('#amount').val(),
+                                                'RepaymentMode': $('#RepaymentMode').val(),
+                                                'NoofMonths': $('#nom').val(),
+                                                'Remarks': $('#remark').val(),
+                                            },
+                                            success: function (res) {
+                                                if (res.result.statusCode == 1) {
+                                                    window.location = "StaffLoans";
+                                                } else {
+                                                    toastr["error"]("Please Try Again!")
+                                                }
+                                            }
+                                        });
+                                    } else {
+                                        $("#emsg").text("Monthly EMI is greater than  " + res.name + "'s Salary")
+                                    }
+                                }
+                                else {
+                                    $("#nomErmMsg").text("Please Enter Valid Number Of Months");
+                                }
+                            }                            
+                        }
+                    }
+                });
+            }
+        }
+    }
+</script>

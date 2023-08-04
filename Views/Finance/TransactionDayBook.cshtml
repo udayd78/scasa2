@@ -1,0 +1,147 @@
+﻿@model SCASA.Models.ModelClasses.LedgerScreenModel
+@{
+    var creditTotal = 0.0;
+    var debitTotal = 0.0;
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Day Book</h1>
+            <small>Today Transactions</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    @*<div class="card-header all_card_btn">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card-title custom_title">
+                                    <h5>Empire Home</h5>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+
+                            </div>
+                        </div>
+                    </div>*@
+                    <div class="card-body">
+                        <form method="post" action="~/Finance/TransactionDayBook">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-row form-group row">
+                                        <div class="col-md-6">
+                                            <span class="label"> From</span>
+                                            @Html.EditorFor(modal => modal.FromDate, new { htmlAttributes = new { @class = "form-control", @value = Model.FromDate } })
+                                            @*<input type='date' class="form-control" name="FromDate" value="@Model.FromDate" />*@
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span class="label"> To </span>
+                                            @Html.EditorFor(modal => modal.ToDate, new { htmlAttributes = new { @class = "form-control", @value = Model.ToDate } })
+                                            @*<input type='date' class="form-control" name="ToDate" value="@Model.ToDate" />*@
+                                            <span class="text-danger">@ViewBag.ermsg</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="pull-right mt-4">
+                                        <button class="btn btn-success btn-sm" type="submit"> Submit</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="pull-right mt-4">
+                                        <a class="btn btn-primary btn-sm" href="~/Finance/PrintCompleteTransaction?from=@Model.FromDate&to=@Model.ToDate" target="_blank"> Print</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="table-responsive">
+                            <div id="no-more-tables" style="height: 600px; overflow-x: auto;">
+                                <table class="col-md-12 table-bordered table-striped table-condensed cf">
+                                    <thead class="bg-green cf">
+                                        <tr style="background: #98d17a;">
+                                            <th>Date</th>
+                                            <th style="width:50%">Particulars</th>
+                                            <th>Vchr Type</th>
+                                            <th>Vchr NO</th>
+                                            <th>Debit</th>
+                                            <th>Credit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var h in Model.Ledgers)
+                                        {
+                                            <tr>
+                                                @{
+                                                    DateTime co = Convert.ToDateTime(h.DateOfTransaction);
+                                                }
+                                                <td data-title="Date">@co.ToString("dd/MM/yyyy")</td>
+                                                @if (h.VoucherType == "Payment")
+                                                {
+                                                    @if (h.ToGroupName == "Bank Accounts" || h.ToGroupName == "Cash-in-hand")
+                                                    {
+                                                        <td data-title="Particulars"><a href="~/Finance/Payments?id=@h.TRID"> @h.FromHeadID_Name</a></td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td data-title="Particulars"><a href="~/Finance/Payments?id=@h.TRID"> @h.ToHeadID_Name</a></td>
+                                                    }
+
+                                                }
+                                                else if (h.VoucherType == "Receipt")
+                                                {
+                                                    @if (h.ToGroupName == "Bank Accounts" || h.ToGroupName == "Cash-in-hand")
+                                                    {
+                                                        <td data-title="Particulars"><a href="~/Finance/Receipt?id=@h.TRID"> @h.FromHeadID_Name</a></td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td data-title="Particulars"><a href="~/Finance/Receipt?id=@h.TRID"> @h.ToHeadID_Name</a></td>
+                                                    }
+
+                                                }
+                                                <td data-title="Vocher Type">@h.VoucherType</td>
+                                                <td data-title="Vocher No">@h.VoucherNumber</td>
+                                                <td data-title="Debit">@h.Debit</td>
+                                                <td data-title="Credit">@h.Credit</td>
+
+                                            </tr>
+                                            {
+                                                debitTotal += (double)h.Debit;
+                                                creditTotal += (double)h.Credit;
+                                            }
+                                        }
+
+                                        <tr style="min-height:430px; height: 430px; ">
+                                            <td style="padding-top: 300px; text-align: right" colspan="5">
+                                                <h6 class="color-green"><strong>@debitTotal</strong></h6>
+                                            </td>
+                                            <td style="padding-top: 300px;">
+                                                <h6 class="color-green"><strong>@creditTotal</strong></h6>
+                                            </td>
+                                        </tr>
+                                        <!--<tr style="">-->
+                                        @*<td style="text-align: right" colspan="6">
+                            <h4>Closing Balnace : <span class="color-green">10,00,000 cr</span></h4>
+                        </td>*@
+                                        <!--</tr>-->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

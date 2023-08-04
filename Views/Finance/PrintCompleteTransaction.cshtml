@@ -1,0 +1,135 @@
+﻿@model SCASA.Models.ModelClasses.LedgerScreenModel
+@{
+    Layout = null;
+    decimal dTot = 0;
+    decimal CTot = 0;
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+    <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width" name="viewport" />
+    <!--[if !mso]><!-->
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <!--<![endif]-->
+    <title>Ledger</title>
+    <!--[if !mso]><!-->
+    <!--<![endif]-->
+
+</head>
+<body style="font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(237, 237, 240);
+        }
+
+        table,
+        td,
+        tr {
+            vertical-align: top;
+            border-collapse: collapse;
+        }
+
+        * {
+            line-height: inherit;
+        }
+
+        a[x-apple-data-detectors=true] {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+    </style>
+    <table width="800px" style="margin: 0 auto; border:2px solid #a3080d;background-color: #fff;" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td style="padding: 10px;">
+                    <table width="100%;">
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center; font-size: 24px; font-weight: bold;">SCASA</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-size:16px;">
+                                    @Model.companyDetails.CompanyAddress
+                                </td>
+                            </tr>
+                            @*<tr>
+                                <td style="text-align: center; font-size: 22px; font-weight: bold;">Swathi Chennagari</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-size:16px;">
+                                    Ledger Account <br>
+                                    Ph No:9390690323<br>
+                                    Villa No.132, Sark Two Villas<br>
+                                    Shankarapally Road, Mokila<br>
+                                    Hyderabad - 501203
+                                </td>
+                            </tr>*@
+                            @{
+                                DateTime fr = Convert.ToDateTime(Model.FromDate);
+                                DateTime tr = Convert.ToDateTime(Model.ToDate);
+                            }
+                            <tr>
+                                <td style="text-align: center; font-size: 18px;  font-weight: bold; padding-top:20px; text-decoration: underline">@fr.ToString("dd/MMM/yyyy") to @tr.ToString("dd/MMM/yyyy")</td>
+                            </tr>
+                            <tr>
+                                <td style="height: 30px;"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table width="100%">
+                                        <tbody bgcolor="#56DCFF" border="1">
+                                        <th style="border:1px solid #000;">Date</th>
+                                        <th style="border:1px solid #000;">Particulars</th>
+                                        <th style="border:1px solid #000;">Vch Type</th>
+                                        <th style="border:1px solid #000;">Vch No.</th>
+                                        <th style="border:1px solid #000;">Debit</th>
+                                        <th style="border:1px solid #000;">Credit</th>
+                        </tbody>
+                        <tbody style="font-size: 13px;">
+                            @foreach (var t in Model.Ledgers)
+                            {
+                            <tr>
+                                @{
+                                    DateTime co = Convert.ToDateTime(t.DateOfTransaction);
+                                }
+                                <td>@co.ToString("d")</td>                                
+                                <td data-title="Particulars"> @t.FromHeadID_Name</td>                                
+                                <td>@t.VoucherType</td>
+                                <td>@t.VoucherNumber</td>
+                                <td>@t.Debit</td>
+                                <td><strong>@t.Credit</strong></td>
+                                @{ 
+                                    dTot += (decimal)t.Debit;
+                                    CTot += (decimal)t.Credit;
+                                }
+                            </tr>
+                            }
+
+                            <tr>
+                                <td style="height: 10px"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4"></td>
+                                <td style="border-bottom:1px solid #000; border-top:1px solid #000;"><strong>@String.Format(Indian, "{0:N}", dTot)</strong></td>
+                                <td style="border-bottom:1px solid #000; border-top:1px solid #000;"><strong>@String.Format(Indian, "{0:N}", CTot)</strong></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </td>
+    </tr>
+
+    </tbody>
+    </table>
+</body>
+</html>

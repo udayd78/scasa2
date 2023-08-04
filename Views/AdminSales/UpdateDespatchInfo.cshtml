@@ -1,0 +1,138 @@
+﻿@model SCASA.Models.ModelClasses.ModelForRDToDel
+@{
+    int rCnt = 1;
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Add Category Type</h1>
+            <small>Master Data Management.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="row">
+                            <div class="card-title custom_title col-sm-6">
+                                <h5>Update Despatch Information</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group float-right" role="group">
+                                    <div class="buttonexport" id="buttonlist">
+                                        <a class="btn btn-add" href="~/AdminSales/DeliveryChallans">
+                                            <i class="fa fa-reply mr-2"></i>Back
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="~/AdminSales/UpdateDespatchInfo" method="post">
+                            <div class="card-body">
+                                <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                                <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                                <div class="table-responsive">
+                                    <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                        <thead class="back_table_color">
+                                            <tr class="info">
+                                                <th>#</th>
+                                                <th>Select</th>
+                                                <th>Title</th>
+                                                <th>Image</th>
+                                                <th>Quantity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model.Items != null)
+                                            {
+                                                foreach (var v in Model.Items)
+                                                {
+                                            <tr>
+
+                                                
+                                               
+
+                                                <td>@(rCnt++)</td>
+                                                <td>
+                                                    <input type="hidden" name="YesOrNo[]" value="false" />
+                                                    <input type="checkbox" class="checkbox" value="true" />
+
+                                                </td>
+                                                @*<td><input type="checkbox" name="YesOrNo[@(rCnt-1)]" ></td>*@
+                                               @* <td><input type="checkbox" name="YesOrNo[]" value="false" /></td>*@
+                                                @*<td>@Html.CheckBox("YesOrNo[]",false) </td>*@
+                                                <td>@v.InventoryTitle</td>
+                                                <td>
+                                                    @{
+                                                        string[] pImages = v.InventoryImage.Split(",");
+                                                    }
+                                                    <img src="~/ProductImages/@pImages[0]" width="50" height="50">
+                                                </td>
+                                                <td>@v.Quantity</td>
+                                            </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            @Html.HiddenFor(m => m.DCId)
+                            <input type="hidden" name="DespatchedBy" value="@ViewBag.loggedUser.userId" />
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>E-way Bill Number </label>
+                                        @Html.EditorFor(model => model.EwayBillDetails, new { htmlAttributes = new { @class = "form-control" ,@required="required"} })
+                                        @Html.ValidationMessageFor(m => m.EwayBillDetails, null, new { @class = "text-danger" })
+                                        @Html.ValidationMessageFor(m => m.YesOrNo, null, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Customer GST Number</label>
+                                        @Html.EditorFor(model => model.CustGstNumber, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                        @Html.ValidationMessageFor(m => m.CustGstNumber, null, new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Despatch Date </label>
+                                        @Html.EditorFor(model => model.DespatchedOn, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                        @Html.ValidationMessageFor(m => m.DespatchedOn, null, new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <button type="submit" class="btn btn-success serchgaptop"> Update</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<script>
+     
+    $(document).on("change", "input.checkbox", function () {
+
+        var value = $(this).is(":checked") ? $(this).val() : "false";
+
+        $(this).siblings("input[name='YesOrNo[]']").val(value);
+    });
+</script>

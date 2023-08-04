@@ -1,0 +1,356 @@
+﻿@model SCASA.Models.ModelClasses.ProductDisplaySalesModel
+@using SCASA.Models.Utilities;
+@{
+    Layout = "~/Views/Shared/_SalesMaster.cshtml";
+    string[] months = { "", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+    DateTime dtfrom = new DateTime();
+    dtfrom = DateTime.Now;
+    DateTime dt = new DateTime(dtfrom.Year, dtfrom.Month, 1);
+    int maxdt = (new DateTime(dtfrom.Year, dtfrom.Month, 1).AddMonths(1).AddDays(-1)).Day;
+    int dtCount = 0;
+    int todayDay = dtfrom.Day;
+    System.Globalization.CultureInfo Indian = new System.Globalization.CultureInfo("hi-IN");
+}
+
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-content">
+                    <h2>Welcome  @ViewBag.LoggedUser.userName!</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="user-area ptb-60">
+
+    <div class="container">
+        @*<div class="searchBox">
+            <h4>Sales forecast for the year @DateTime.Now.Year</h4>
+
+            <div class='container'>
+                <div class='graph'>
+                    <div class='scale-graph'>
+                        <ul class='scale-markers'>
+                            <li class='scale-marker'>
+                                <span class='scale-value'>1,00,000</span>
+                            </li>
+                            <li class='scale-marker'>
+                                <span class='scale-value'>50,000</span>
+                            </li>
+                            <li class='scale-marker'>
+                                <span class='scale-value'>25,000</span>
+                            </li>
+                            <li class='scale-marker'>
+                                <span class='scale-value'>10,000</span>
+                            </li>
+                        </ul>
+                        <ul class='scale-bars'>
+                            <li class='scale-wrap'>
+                                <a class='scale-bar scale-20' href='#'>
+                                    <span class='scale-number'>Jan</span>
+                                </a> 
+                            </li>
+
+                            <li class='scale-wrap'>
+                                <a class='scale-bar scale-20' href='#'>
+                                    <span class='scale-number'>Feb</span>
+                                </a>
+                            </li>
+                            <li class='scale-wrap'>
+                                <a class='scale-bar scale-40' href='#'>
+                                    <span class='scale-number'>Mar</span>
+                                </a>
+                            </li>
+                            <li class='scale-wrap'>
+                                <a class='scale-bar scale-60' href='#'>
+                                    <span class='scale-number'>April</span>
+                                </a>
+                            </li>
+                            <li class='scale-wrap'>
+                                <a class='scale-bar scale-80' href='#'>
+                                    <span class='scale-number'>May</span>
+                                </a>
+                            </li>
+                            <li class='scale-wrap'>
+                                <a class='scale-bar scale-6' href='#'>
+                                    <span class='scale-number'>June</span>
+                                </a>
+                            </li>
+                            <li class='scale-wrap'>
+                                <a class='scale-bar scale-0' href='#'>
+                                    <span class='scale-number'>July</span>
+                                </a>
+                            </li>
+                            <li class='scale-wrap'>
+                                <a class='scale-bar scale-67' href='#'>
+                                    <span class='scale-number'>Aug</span>
+                                </a>
+                            </li>
+                            <li class='scale-wrap'>
+                                <a class='scale-bar scale-20' href='#'>
+                                    <span class='scale-number'>Sep</span>
+                                </a>
+                            </li>
+                            <li class='scale-wrap'>
+                                <a class='scale-bar scale-100' href='#'>
+                                    <span class='scale-number'>Oct</span>
+                                </a>
+                            </li>
+                            <li class='scale-wrap'>
+                                <a class='scale-bar scale-20' href='#'>
+                                    <span class='scale-number'>Nov</span>
+                                </a>
+                            </li>
+                            <li class='scale-wrap'>
+                                <a class='scale-bar scale-100' href='#'>
+                                    <span class='scale-number'>Dec</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>*@
+
+        <div class="searchBox mb-4">
+            <h4>Lead Info (Daily)</h4>
+            <form>
+                <div id="no-more-tables">
+                    <table class="col-md-12 table-bordered table-striped table-condensed cf">
+                        <thead class="cf">
+                            <tr>
+
+                                <th>Date</th>
+                                <th>Total Attended</th>
+                                <th>Closed</th>
+                                <th>Closed %</th>
+                                <th>Avg Ticket Value</th>
+                                <th>Total Time Spent</th>
+                                <th>Avg. Time Spent</th>
+                                <th>Remarks</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var l in Model.leadInfo) 
+                            {
+                                <tr>
+
+                                    <td data-title="Month">@(Convert.ToDateTime(l.date).ToString("dd-MMM-yyyy"))</td>
+                                     
+                                    <td data-title="Total Attended">@l.attendedCount</td>
+                                    <td data-title="Closed">@l.salesCount</td>
+                                    <td data-title="closed">@{ 
+                                        decimal cPercentage = 0;
+                                        if(l.closedCount > 0)
+                                        {
+                                            cPercentage = l.attendedCount / l.salesCount * 100;
+                                        }
+                                        else
+                                        {
+                                            cPercentage = 0;
+                                        }
+                                    }
+                                    @cPercentage
+                                    <td data-title="On Hold">0</td>
+                                    @*@{ 
+                                        DateTime co = Convert.ToDateTime(l.attendedTime);
+                                    }*@
+                                    <td data-title="On Hold">@l.attendedTime Hrs.</td>
+                                    <td data-title="Remarks"></td>
+                                    <td data-title="Remarks"></td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+
+        <div class="searchBox mb-4">
+            <h4>Sales Targets</h4>
+            <form>
+                <div id="no-more-tables">
+                    <table class="col-md-12 table-bordered table-striped table-condensed cf">
+                        <thead class="cf">
+                            <tr>
+
+                                <th>Month</th>
+                                <th>Year</th>
+                                <th>Target Fixed</th>
+                                <th>Target Achieved </th>
+                                <th>Target Difference</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var t in Model.targets)
+                            {
+                                int mNo = (int)t.MonthNumber;
+
+                             
+                                string targetFixed = String.Format(Indian, "{0:N}", t.TargetGiven);
+                                string targetDone = String.Format(Indian, "{0:N}", t.TargetDone);
+                                string difference = String.Format(Indian, "{0:N}", (t.TargetDone - t.TargetGiven));
+
+                                <tr>
+
+                                    <td data-title="Month">@months[mNo]</td>
+                                    <td data-title="Year">@t.YearNumber</td>
+                                    <td data-title="Target Fix">Rs. @targetFixed</td>
+                                    <td data-title="Target Achieved ">Rs. @targetDone</td>
+                                    <td data-title="Target Difference">Rs. @difference </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+
+        @*<div class="searchBox mb-4">
+            <h4>Attendance</h4>
+            <form>
+                <div id="no-more-tables">
+                    <table class="col-md-12 table-bordered table-striped table-condensed cf">
+                        <thead class="cf">
+                            <tr>
+
+                                <th>Month</th>
+                                <th>Year</th>
+                                <th>Working Days</th>
+                                <th>Present</th>
+                                <th>Absent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var a in Model.attendanceInfo)
+                            {
+                                <tr>
+
+                                    <td data-title="Month">@months[a.Month]</td>
+                                    <td data-title="Year">@a.Year</td>
+                                    <td data-title="Working Days">@a.WorkingDays</td>
+                                    <td data-title="Presents">@a.PresentDays</td>
+                                    <td data-title="Absents">@a.AbsentDays</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>*@
+
+        <div class="searchBox mb-4">
+            <h4>Salary Details</h4>
+            <form>
+                <div id="no-more-tables">
+                    <table class="col-md-12 table-bordered table-striped table-condensed cf">
+                        <thead class="cf">
+                            <tr>
+                                <th>Month</th>
+                                <th>Year</th>
+                                <th>Gross</th> 
+                                <th>Total Deductions</th>
+                                <th>Net Amount</th>
+                                <th>Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var p in Model.payrollInfo)
+                            {
+                                int cM = (int)p.MonthNumber;
+                            <tr>
+                                <td>@months[cM]</td>
+                                <td>@p.YearNumber</td>
+                                @*<td class="text-right">@p.BasicSalary</td>
+                                <td class="text-right">@p.HRA</td>
+                                <td class="text-right">@p.DearnessAllowance</td>
+                                <td class="text-right">@p.FoodAllowance</td>
+                                <td class="text-right">@p.Conveyance</td>
+                                <td class="text-right">@p.MedicalAllowances</td>
+                                <td class="text-right">@p.OtherAllowances</td>
+                                <td class="text-right">@p.Bonus</td>*@
+                                <td class="text-right">@p.GrossSalary</td>
+                                @*<td class="text-right">@p.ProfessionalTax</td>
+                                <td class="text-right">@p.ProvidentFund</td>
+                                <td class="text-right">@p.ESIFund</td>
+                                <td class="text-right">@p.TDS</td>*@
+                                <td class="text-right">@p.TotalDeductions</td>
+                                <td class="text-right">@p.NetSalary</td>
+                                <td class="text-right">@p.Remarks</td>
+                            </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+       @if (Model.loanInfo.Count > 0)
+        {
+            <div class="searchBox mb-4">
+                <h4>Loan Advance</h4>
+                <form>
+                    <div id="no-more-tables">
+                        <table class="col-md-12 table-bordered table-striped table-condensed cf">
+                            <thead class="cf">
+                                <tr>
+                               
+                                    <th>Loan Amount</th>
+                                    <th>Taken On</th>
+                                    <th>Mode of Payment</th>
+                                    <th>EMI Months</th>
+                                    <th>Monthly EMI</th>
+                                    <th>Loan status</th>
+                                    <th>Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var lo in Model.loanInfo)
+                                {
+                                <tr>
+                                    <td data-title="Loan Amount">Rs. @lo.AmountTaken</td>
+                                    <td data-title="Taken On">@(Convert.ToDateTime(lo.TakenOn).ToString("dd/MMM/yyyy"))</td>
+                                    <td data-title="Mode of Payment">@lo.RepaymentMode</td>
+                                    <td data-title="Balance Amount">@lo.NoofMonths</td>
+                                    <td data-title="Balance Amount">@lo.MonthlyEMI</td>
+                                    <td data-title="Balance Amount">@lo.Status</td>
+                                    <td data-title="Balance Amount">@lo.Remarks</td>
+
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div class="go-top">
+    <i class="bx bxs-up-arrow-circle"></i>
+    <i class="bx bxs-up-arrow-circle"></i>
+</div>

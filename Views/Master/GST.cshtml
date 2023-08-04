@@ -1,0 +1,219 @@
+﻿@model IEnumerable<SCASA.Models.ModelClasses.GSTListModel>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int rCnt = 1;
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="header-icon">
+                    <i class="fa fa-dashboard"></i>
+                </div>
+                <div class="header-title">
+                    <h1>GST</h1>
+                    <small>Master Data management.</small>
+                </div>
+            </div>
+        <div class="btn-group float-right" role="group">
+            <div class="buttonexport" id="buttonlist">
+                <a class="btn btn-add" href="~/EmpireHome/Dashboard">
+                    <i class="fa fa-reply mr-2"></i> Back
+                </a>
+            </div>
+        </div>
+</div>
+    </section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12 pinpin">
+            <div class="card" data-sortable="true">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card-title custom_title">
+                                <h4>GST</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="btn-group float-right" role="group">
+                                <div class="buttonexport" id="buttonlist">
+                                    <a class="btn btn-add" href="~/Master/GSTData">
+                                        <i class="fa fa-plus"></i> Add New
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                    <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                    <div class="table-responsive">
+                        <table id="mydatatable" class="table table-bordered table-striped table-hover">
+                            <thead class="back_table_color">
+                                <tr class="info">
+                                    <th>#.</th>
+                                    <th>GST Name</th>
+                                    <th>GST Value</th>
+                                    <th>Category Name</th>
+                                    <th>Sub Category Name</th>
+                                    <td>Status</td>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var u in Model)
+                                {
+                                    <tr>
+                                        <td>@(rCnt ++)</td>
+                                        <td>@u.TaxName</td>
+                                        <td>@u.TaxAmount</td>
+                                        <td>@u.CategoryName</td>
+                                        <td>@u.SubCategoryName</td>
+                                        <td>
+                                            @if (u.IsEnabled == true)
+                                            {
+                                                <span class="label-custom label label-default">Enabled</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="label label-danger">Disabled</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            <a href="~/Master/GSTData?id=@u.GSTMasterId">
+                                                <button type="button" class="btn btn-add btn-sm">
+                                                    <i class="fa fa-pencil"></i>
+                                                </button>
+                                            </a>
+                                            @if (u.IsEnabled == true)
+                                            {
+                                                <a href="javascript:void(0);" onclick="ShowDisable(@u.GSTMasterId)">
+                                                    <button type="button" class="btn btn-warning btn-sm">
+                                                        <i class="fa fa-thumbs-down"></i>
+                                                    </button>
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="javascript:void(0);" onclick="ShowEnable(@u.GSTMasterId)">
+                                                    <button type="button" class="btn btn-success btn-sm">
+                                                        <i class="fa fa-thumbs-up"></i>
+                                                    </button>
+                                                </a>
+                                            }
+                                            <a href="javascript:void(0);" onclick="ShowDelete(@u.GSTMasterId)">
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /.content -->
+</div>
+<script>
+    function ShowDelete(id) {
+        swal("Are you sure To Delete?", {
+            buttons: {
+                yes: {
+                    text: "Yes",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+                $.ajax({
+                    url: GlobalUrl + "Master/DeleteGST?id=" + id,
+                    type: 'post',
+                    data: '{}',
+                    success: function (result) {
+                        toastr["success"]("Successuflly deleted!");
+                        window.location.href = window.location.href;
+                    }
+                });
+            }
+            else {
+                toastr["error"]("Delete cancelled!")
+            }
+            return false;
+        });
+    }
+    function ShowDisable(id) {
+        swal("Are you sure to Disable?", {
+            buttons: {
+                yes: {
+                    text: "Yes",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+                $.ajax({
+                    url: GlobalUrl + "Master/GSTStatus?id=" + id,
+                    type: 'post',
+                    data: '{}',
+                    success: function (result) {
+                        toastr["success"]("Successuflly Disabled!");
+                        window.location.href = window.location.href;
+                    }
+                });
+            }
+            else {
+                toastr["error"]("Delete cancelled!")
+            }
+            return false;
+        });
+    }
+    function ShowEnable(id) {
+        swal("Are you sure To Enable?", {
+            buttons: {
+                yes: {
+                    text: "Yes",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+                $.ajax({
+                    url: GlobalUrl + "Master/GSTStatus?id=" + id,
+                    type: 'post',
+                    data: '{}',
+                    success: function (result) {
+                        toastr["success"]("Successuflly Enabled!");
+                        window.location.href = window.location.href;
+                    }
+                });
+            }
+            else {
+                toastr["error"]("Delete cancelled!")
+            }
+            return false;
+        });
+    }
+</script>

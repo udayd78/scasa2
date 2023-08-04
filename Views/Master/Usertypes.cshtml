@@ -1,0 +1,222 @@
+﻿@model IEnumerable<SCASA.Models.Repositories.Entity.UserTypeMaster> 
+@{
+    int rCnt = 1;
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="header-icon">
+                    <i class="fa fa-dashboard"></i>
+                </div>
+                <div class="header-title">
+                    <h1>User Types</h1>
+                    <small>Master Data management.</small>
+                </div>
+            </div>
+
+            <div class="btn-group float-right" role="group">
+                <div class="buttonexport" id="buttonlist">
+                    <a class="btn btn-add" href="~/EmpireHome/Dashboard">
+                        <i class="fa fa-reply mr-2"></i> Back
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 pinpin">
+                <div class="card" data-sortable="true">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card-title custom_title">
+                                    <h4>User Types</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group float-right" role="group">
+                                    <div class="buttonexport" id="buttonlist">
+                                        <a class="btn btn-add" href="~/Master/UserTypeData">
+                                            <i class="fa fa-plus"></i> Add New
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                        <div class="table-responsive">
+                            <table id="mydatatable" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                    <tr class="info">
+                                        <th>#.</th>
+                                        <th>Type Name</th>
+                                        <th>Type Code</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var u in Model)
+                                    {
+                                        <tr>
+                                            <td>@(rCnt ++)</td>
+                                            <td>@u.TypeName</td>
+                                            <td>@u.TypeCode</td>
+                                            <td>
+                                                <a href="~/Master/UserTypeData?id=@u.TypeId">
+                                                <button type="button" class="btn btn-add btn-sm">
+                                                    <i class="fa fa-pencil"></i></button></a>
+                                                <a href="javascript:void(0);" onclick="ShowDelete(@u.TypeId)">
+                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal">
+                                                        <i class="fa fa-trash-o"></i>
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- customer Modal1 -->
+        <div class="modal fade" id="customer1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-primary">
+                        <h3><i class="fa fa-user m-r-5"></i> Update List</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="form-horizontal">
+                                    <div class="row">
+                                        <!-- Text input-->
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Model No:</label>
+                                            <input type="text" placeholder="Customer Name" class="form-control">
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Descriprtion:</label>
+                                            <input type="email" placeholder="Email" class="form-control">
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Mobile</label>
+                                            <input type="number" placeholder="Mobile" class="form-control">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="control-label">Address</label><br>
+                                            <textarea name="address" rows="3"></textarea>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="control-label">type</label>
+                                            <input type="text" placeholder="type" class="form-control">
+                                        </div>
+                                        <div class="col-md-12 form-group user-form-group">
+                                            <div class="float-right">
+                                                <button type="button" class="btn btn-danger btn-sm">Cancel</button>
+                                                <button type="submit" class="btn btn-add btn-sm">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- Modal -->
+        <!-- Customer Modal2 -->
+        <div class="modal fade" id="customer2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-primary">
+                        <h3><i class="fa fa-user m-r-5"></i> Delete List Item</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="form-horizontal">
+                                    <div class="row">
+                                        <div class="col-md-12 form-group user-form-group">
+                                            <label class="control-label">Delete List </label>
+                                            <div class="float-right">
+                                                <button type="button" class="btn btn-danger btn-sm">NO</button>
+                                                <button type="submit" class="btn btn-add btn-sm">YES</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </section>
+    <!-- /.content -->
+</div>
+
+
+<script>
+    function ShowDelete(id) {
+        swal("Are you sure?", {
+            buttons: {
+                yes: {
+                    text: "Yes",
+                    value: "yes"
+                },
+                no: {
+                    text: "No",
+                    value: "no"
+                }
+            }
+        }).then((value) => {
+            if (value === "yes") {
+                $.ajax({
+                    url: GlobalUrl + "Master/DeleteUserType?id=" + id,
+                    type: 'post',
+                    data: '{}',
+                    success: function (result) {
+                        toastr["success"]("Successuflly deleted!");
+                        window.location.href = window.location.href;
+                    }
+                });
+            }
+            else {
+                toastr["error"]("Delete cancelled!")
+            }
+            return false;
+        });
+
+
+    }
+</script>

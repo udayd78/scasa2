@@ -1,0 +1,70 @@
+﻿@model SCASA.Models.ModelClasses.CartMasterModel
+@{
+    Layout = "~/Views/Shared/_SalesMaster.cshtml";
+    decimal totalPrice = 0;
+    if (Model != null)
+    {
+        if (Model.cartDetails != null)
+        {
+            if (Model.cartDetails.Count > 0)
+            {
+                totalPrice = (decimal)Model.cartDetails.Sum(b => b.TotalPrice);
+            }
+        }
+    }
+}
+
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">
+                <img src="~/SalesApp/assets/images/cart/cart1.png" alt="Cart" />
+            </th>
+            <td>
+                <h3>White Comfy Stool</h3>
+                <span class="rate">$200.00 x 1</span>
+            </td>
+            <td>
+                <ul class="number">
+                    <li>
+                        <span class="minus">-</span>
+                        <input type="text" value="1" />
+                        <span class="plus">+</span>
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <a class="close" href="#">
+                    <i class="bx bx-x"></i>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <img src="~/SalesApp/assets/images/cart/cart2.png" alt="Cart" />
+            </th>
+            <td>
+                <h3>Yellow Armchair</h3>
+                <span class="rate">$180.00 x 1</span>
+            </td>
+            <td>
+                <ul class="number">
+                    <li>
+                        <span class="minus">-</span>
+                        <input type="text" value="1" />
+                        <span class="plus">+</span>
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <a class="close" href="#">
+                    <i class="bx bx-x"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="total-amount">
+    <h3>Total: <span>$380.00</span></h3>
+</div>

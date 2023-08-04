@@ -1,0 +1,557 @@
+﻿@model SCASA.Models.ModelClasses.UserMasterModel
+@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Empire Home New Staff</title>
+     @*Favicon and touch icons*@ 
+    <link rel="shortcut icon" href="~/WebApp/assets/dist/img/ico/favicon.png" type="image/x-icon">
+     @*Start Global Mandatory Style
+       =====================================================================
+     lobicard tather css*@ 
+    <link rel="stylesheet" href="~/WebApp/assets/plugins/lobipanel/css/tether.min.css" />
+     @*Bootstrap*@ 
+    <link href="~/WebApp/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+     @*lobicard tather css*@ 
+    <link rel="stylesheet" href="~/WebApp/assets/plugins/lobipanel/css/jquery-ui.min.css" />
+     @*lobicard min css*@ 
+    <link href="~/WebApp/assets/plugins/lobipanel/css/lobicard.min.css" rel="stylesheet" />
+     @*lobicard github css*@ 
+    <link href="~/WebApp/assets/plugins/lobipanel/css/github.css" rel="stylesheet" />
+     @*Pace css*@ 
+    <link href="~/WebApp/assets/plugins/pace/flash.css" rel="stylesheet" />
+     @*Font Awesome*@ 
+    <link href="~/WebApp/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+     @*Pe-icon*@ 
+    <link href="~/WebApp/assets/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" />
+     @*Themify icons*@ 
+    <link href="~/WebApp/assets/themify-icons/themify-icons.css" rel="stylesheet" />
+     @*End Global Mandatory Style*@
+       @*=====================================================================
+     Start page Label Plugins
+       =====================================================================
+     Emojionearea*@ 
+    <link href="~/WebApp/assets/plugins/emojionearea/emojionearea.min.css" rel="stylesheet" />
+     @*Monthly css*@ 
+    <link href="~/WebApp/assets/plugins/monthly/monthly.css" rel="stylesheet" />
+     @*End page Label Plugins
+       =====================================================================
+     Start Theme Layout Style
+       =====================================================================
+     Theme style*@ 
+    <link href="~/WebApp/assets/dist/css/stylecrm.css" rel="stylesheet" />
+     @*Theme style rtl*@ 
+    <link href="~/WebApp/assets/dist/css/stylecrm-rtl.css" rel="stylesheet" />
+     @*End Theme Layout Style
+       =====================================================================*@
+</head>
+<body class="hold-transition sidebar-mini">
+    <!--preloader-->
+    @*<div id="preloader">
+        <div id="status"></div>
+    </div>*@
+    <!-- Site wrapper -->
+    <div class="wrapper">
+
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <img src="~/WebApp/assets/dist/img/logo.png" width="150px;">
+            </section>
+            <!-- Main content -->
+            <div class="content">
+                <div class="row">
+                    <!-- Form controls -->
+                    <form method="post" action="~/EmployeeRegistration/CompleteForm" enctype="multipart/form-data">
+                        @Html.HiddenFor(m => m.UserId)
+                        @Html.HiddenFor(m=>m.UserName)
+                        @Html.HiddenFor(m=>m.EmployeeCode)
+                        @Html.HiddenFor(m=>m.EmailId)
+                        @Html.HiddenFor(m=>m.MobileNumber)
+                        @Html.HiddenFor(m=>m.CurrentStatus)
+                        @Html.HiddenFor(m=>m.UserTypeName)
+                        <div class="col-sm-12">
+                            <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                                <div class="card-header all_card_btn">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="card-title custom_title">
+                                                <b><h5>New Employee Registration</h5></b>
+                                                <small>
+                                                    <ul>
+                                                        <li>Fill the form carefully</li>
+                                                        <li>Once submitted, you cannot resubmit</li>
+                                                    </ul>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label><b>Employee Name</b></label>
+                                                <br />
+                                                <h5>@Model.UserName</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label><b>Email ID</b></label>
+                                                <br />
+                                                <h5>@Model.EmailId</h5>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label><b>Mobile Number</b></label>
+                                                <br />
+                                                <h5>@Model.MobileNumber  </h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label><b>Designation</b></label>
+                                                <br />
+                                                <h5>
+                                                    @*@{
+                                                        string desing = Model.userTypeDrops.Find(a => a.UserTypeId == Model.UserTypeId).UserTypeName;
+                                                    }
+                                                    @desing*@
+                                                    @ViewBag.UserTypeName
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="card all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                                <div class="card-header all_card_btn">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="card-title custom_title">
+                                                <h5>Add Personal Details</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Date Of Birth <span class="text-danger">*</span></label>
+                                                @Html.EditorFor(modal => modal.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(m => m.DateOfBirth, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Gender</label>
+                                                <select class="form-control" name="Gender">
+                                                    <option value="Male">Male </option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Address 1 <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" placeholder="Address 1" name="Address1" value="@Model.Address1" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Address 2</label>
+                                                <input type="text" class="form-control" placeholder="Address 2" name="Address2" value="@Model.Address2">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Country </label>
+                                                @Html.DropDownListFor(x => Model.CountryId, new SelectList(Model.countryDrops, "CountryId", "CountryName", Model.CountryId), new { @id = "cotDD", @class = "form-control", @onChange = "GetStates()" })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>State </label>
+                                                @Html.DropDownListFor(x => Model.StateId, new SelectList(Model.stateDrops, "StateId", "StateName", Model.StateId), new { @id = "stDD", @class = "form-control", @onChange = "GetCities()" })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>City</label>
+                                                @Html.DropDownListFor(x => Model.CityId, new SelectList(Model.cityDrops, "CityId", "CityName", Model.CityId), new { @id = "citDD", @class = "form-control" })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Zip Code <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" placeholder="Zip Code" name="ZipCode" value="@Model.ZipCode" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Referred By</label>
+                                                <input type="text" class="form-control" placeholder="Referred By" name="ReferredbyName" value="@Model.ReferredbyName">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label> Referred Mobile </label>
+                                                <input type="text" class="form-control" placeholder="Referred Mobile" name="ReferredByMobile" value="@Model.ReferredByMobile">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label> Emergency Contact Number <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" placeholder="Emergency Contact Number" name="EmergencyContactNumber" value="@Model.EmergencyContactNumber" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Aadhar Number <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" placeholder="Aadhar Number" name="AadharNumber" value="@Model.AadharNumber" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Pan Number <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" placeholder="Pan Number" name="PANNumber" value="@Model.PANNumber" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Previous Organization Name</label>
+                                                <input type="text" class="form-control" placeholder="Previous Organization Name" name="PreviousOrgName" value="@Model.PreviousOrgName">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Previous Organization Address</label>
+                                                <input type="text" class="form-control" placeholder="Previous Organization Address" name="PreviousOrgAddress" value="@Model.PreviousOrgAddress">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Previous Organization Experience</label>
+                                                <input type="text" class="form-control" placeholder="Previous Organization Experience" name="PreviousOrgExperience" value="@Model.PreviousOrgExperience">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Total experience <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" placeholder="Total Experience" name="TotalPreviousExpeience" value="@Model.TotalPreviousExpeience" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Aadhar File Front<span class="text-danger">*</span></label>
+                                                <input type="file" name="AadharCardUploaded" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Aadhar File Back <span class="text-danger">*</span></label>
+                                                <input type="file" name="AadharBackUploaded" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Pan File <span class="text-danger">*</span></label>
+                                                <input type="file" name="PanCardUploaded" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Previous reliving letter File</label>
+                                                <input type="file" name="PreviousRelievingLetterUploaded">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Resume file <span class="text-danger">*</span></label>
+                                                <input type="file" name="ResumeUploaded" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Salary slip File</label>
+                                                <input type="file" name="SalarySlipUploaded">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label> Profile Image upload <span class="text-danger">*</span></label> <br>
+                                                <input type="file" name="ProfileImageUploaded" Required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header all_card_btn">
+                                    <h5>Account Details</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Bank Name <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" placeholder="Bank Name" name="BankName" value="@Model.BankName" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Acc Number <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" placeholder="Acc Number" name="AccountNumber" value="@Model.AccountNumber" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Acc Holder Name <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" placeholder="Account Holder Name" name="AccountHolderName" value="@Model.AccountHolderName" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Ifsc Code <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" placeholder="IFSC Code" name="IfscCode" value="@Model.IfscCode" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Branch Address <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" placeholder="Branch Address " name="BranchAddress" value="@Model.BranchAddress" Required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>UPI Number <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" placeholder="UPI Number" name="UPINumber" value="@Model.UPINumber" Required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <h3>@ViewBag.ErrorMessaage</h3>
+                            <h3>@ViewBag.ermsg</h3>
+                        <div class="col-md-12">
+                            <div class="reset-button">
+                                @if(Model.CurrentStatus=="New")
+                                {
+                                <button type ="submit" class="btn btn-success"> Save</button>
+                                }
+                                else
+                                {
+                                    <h4> You have already submitted. Wait for HR Approval.</h4>
+                                }
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        @*<footer class="main-footer">
+            <strong>Copyright &copy; 2021 <a href="#">Empire Home</a>.</strong> All rights reserved.
+        </footer>*@
+    </div>
+    <!-- /.wrapper -->
+    <!-- Start Core Plugins
+       =====================================================================-->
+    <!-- jQuery -->
+    <script src="~/WebApp/assets/plugins/jQuery/jquery-1.12.4.min.js"></script>
+    <!-- Bootstrap proper -->
+    <script src="~/WebApp/assets/bootstrap/js/popper.min.js"></script>
+    <!-- lobicard ui min js -->
+    <script src="~/WebApp/assets/plugins/lobipanel/js/jquery-ui.min.js"></script>
+    <!-- lobicard ui touch-punch-improved js -->
+    <script src="~/WebApp/assets/plugins/lobipanel/js/jquery.ui.touch-punch-improved.js"></script>
+    <!-- lobicard tether min js -->
+    <script src="~/WebApp/assets/plugins/lobipanel/js/tether.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/WebApp/assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- lobicard js -->
+    <script src="~/WebApp/assets/plugins/lobipanel/js/lobicard.js"></script>
+    <!-- lobicard highlight js -->
+    <script src="~/WebApp/assets/plugins/lobipanel/js/highlight.js"></script>
+    <!-- Pace js -->
+    <script src="~/WebApp/assets/plugins/pace/pace.min.js"></script>
+    <!-- NIceScroll -->
+    <script src="~/WebApp/assets/plugins/slimScroll/jquery.nicescroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/WebApp/assets/plugins/fastclick/fastclick.min.js"></script>
+    <!-- CRMadmin frame -->
+    <script src="~/WebApp/assets/dist/js/custom.js"></script>
+    <!-- End Core Plugins
+       =====================================================================-->
+    <!-- Start Page Lavel Plugins
+       =====================================================================-->
+    <!-- ChartJs JavaScript -->
+    <script src="~/WebApp/assets/plugins/chartJs/Chart.min.js"></script>
+    <!-- Counter js -->
+    <script src="~/WebApp/assets/plugins/counterup/waypoints.js"></script>
+    <script src="~/WebApp/assets/plugins/counterup/jquery.counterup.min.js"></script>
+    <!-- Monthly js -->
+    <script src="~/WebApp/assets/plugins/monthly/monthly.js"></script>
+
+    <script src="~/js/MyScripts.js"></script>
+    <!-- End Page Lavel Plugins
+       =====================================================================-->
+    <!-- Start Theme label Script
+       =====================================================================-->
+    <!-- Dashboard js -->
+    <script src="~/WebApp/assets/dist/js/dashboard.js"></script>
+    <!-- End Theme label Script
+       =====================================================================-->
+
+    <script>
+        function dash() {
+            // single bar chart
+            var ctx = document.getElementById("singelBarChart");
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Sun", "Mon", "Tu", "Wed", "Th", "Fri", "Sat"],
+                    datasets: [
+                        {
+                            label: "My First dataset",
+                            data: [40, 55, 75, 81, 56, 55, 40],
+                            borderColor: "rgba(0, 150, 136, 0.8)",
+                            width: "1",
+                            borderWidth: "0",
+                            backgroundColor: "rgba(0, 150, 136, 0.8)"
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            //monthly calender
+            $('#m_calendar').monthly({
+                mode: 'event',
+                //jsonUrl: 'events.json',
+                //dataType: 'json'
+                xmlUrl: 'events.xml'
+            });
+
+            //bar chart
+            var ctx = document.getElementById("barChart");
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["January", "February", "March", "April", "May", "June", "July", "august", "september", "october", "Nobemver", "December"],
+                    datasets: [
+                        {
+                            label: "My First dataset",
+                            data: [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56],
+                            borderColor: "rgba(0, 150, 136, 0.8)",
+                            width: "1",
+                            borderWidth: "0",
+                            backgroundColor: "rgba(0, 150, 136, 0.8)"
+                        },
+                        {
+                            label: "My Second dataset",
+                            data: [28, 48, 40, 19, 86, 27, 90, 28, 48, 40, 19, 86],
+                            borderColor: "rgba(51, 51, 51, 0.55)",
+                            width: "1",
+                            borderWidth: "0",
+                            backgroundColor: "rgba(51, 51, 51, 0.55)"
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            //counter
+            $('.count-number').counterUp({
+                delay: 10,
+                time: 5000
+            });
+        }
+        dash();
+        function GetStates() {
+            var cotid = $('#cotDD option:selected').val();
+            $.ajax({
+                url: GlobalUrl + "Common/GetAllStates?countryId=" + cotid,
+                type: 'post',
+                data: '{}',
+                success: function (res) {
+                    var r = res.result.length;
+                    var row = '';
+
+                    if (r > 0) {
+                        for (var i = 0; i<r; i++) {
+                            row = row + '<option value="' + res.result[i].stateId + '">' + res.result[i].stateName + '</option>';
+                        }
+                    }
+                    $('#stDD').html('');
+                    $('#stDD').html(row);
+                }
+            });
+        }
+        function GetCities() {
+            var sid = $('#stDD option:selected').val();
+            $.ajax({
+                url: GlobalUrl + "Common/GetAllCities?stateId=" + sid,
+                type: 'post',
+                data: '{}',
+                success: function (res) {
+                    var r = res.result.length;
+                    var row = '';
+
+                    if (r > 0) {
+
+                        for (var i = 0; i < r; i++) {
+                            row = row + '<option value="' + res.result[i].cityId + '">' + res.result[i].cityName + '</option>';
+                        }
+                    }
+                    $('#citDD').html('');
+                    $('#citDD').html(row);
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>
